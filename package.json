@@ -9,11 +9,13 @@
     "dist"
   ],
   "scripts": {
-    "typescript": "tsc --p ./tsconfig-build.json --noEmit",
+    "build-storybook": "storybook build",
     "build": "tsc --p ./tsconfig-build.json && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "format": "prettier --write .",
-    "prepublishOnly": "pnpm run build"
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "prepublishOnly": "pnpm run build",
+    "storybook": "storybook dev -p 6006",
+    "typescript": "tsc --p ./tsconfig-build.json --noEmit"
   },
   "peerDependencies": {
     "@chakra-ui/anatomy": "^2.2.2",
@@ -32,6 +34,15 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@chakra-ui/storybook-addon": "^5.1.0",
+    "@storybook/addon-essentials": "^7.6.8",
+    "@storybook/addon-interactions": "^7.6.8",
+    "@storybook/addon-links": "^7.6.8",
+    "@storybook/addon-onboarding": "^1.0.10",
+    "@storybook/blocks": "^7.6.8",
+    "@storybook/react": "^7.6.8",
+    "@storybook/react-vite": "^7.6.8",
+    "@storybook/test": "^7.6.8",
     "@types/node": "^20.11.4",
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
@@ -50,6 +61,9 @@
     "eslint-plugin-storybook": "^0.6.15",
     "eslint-plugin-unused-imports": "^3.0.0",
     "prettier": "^3.2.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "storybook": "^7.6.8",
     "typescript": "^5.2.2",
     "vite": "^5.0.8",
     "vite-plugin-dts": "^3.7.1"
