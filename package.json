@@ -16,6 +16,18 @@
     "prepublishOnly": "pnpm run build"
   },
   "peerDependencies": {
+    "@chakra-ui/anatomy": "^2.2.2",
+    "@chakra-ui/icons": "^2.1.1",
+    "@chakra-ui/layout": "^2.3.1",
+    "@chakra-ui/portal": "^2.1.0",
+    "@chakra-ui/react": "^2.8.2",
+    "@chakra-ui/react-use-size": "^2.1.0",
+    "@chakra-ui/styled-system": "^2.9.2",
+    "@chakra-ui/theme-tools": "^2.1.2",
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
+    "@fontsource-variable/inter": "^5.0.16",
+    "framer-motion": "^10.18.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
