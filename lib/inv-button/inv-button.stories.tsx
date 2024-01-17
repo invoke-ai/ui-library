@@ -3,8 +3,8 @@ import { Flex } from '@chakra-ui/layout';
 import type { Meta, StoryObj } from '@storybook/react';
 import { InvHeading } from 'inv-heading/wrapper';
 
-import { InvButton } from './InvButton';
-import type { InvButtonProps } from './types';
+import type { InvButtonProps } from './inv-button';
+import { InvButton } from './inv-button';
 
 const meta: Meta<typeof InvButton> = {
   title: 'Primitives/InvButton',

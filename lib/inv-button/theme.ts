@@ -1,6 +1,5 @@
 import type { StyleFunctionProps } from '@chakra-ui/react';
 import { defineStyle, defineStyleConfig } from '@chakra-ui/react';
-import { buttonVariantPromptOverlay } from 'features/parameters/components/Prompts/theme';
 
 type Variant = `solid` | `outline` | `ghost` | `link`;
 
@@ -150,6 +149,51 @@ const getStyles = (props: StyleFunctionProps, variant: 'ghost' | 'solid' | 'outl
   } as const;
 };
 
+export const variantPromptOverlay = defineStyle(() => {
+  const _disabled = {
+    bg: 'none',
+    color: 'base.500',
+    svg: {
+      fill: 'base.500',
+    },
+    opacity: 0.7,
+  };
+
+  return {
+    fontSize: 14,
+    h: 'min-content',
+    w: 'min-content',
+    minW: 'unset',
+    minH: 'unset',
+    bg: 'none',
+    color: 'base.400',
+    svg: {
+      fill: 'base.400',
+    },
+    _disabled,
+    _hover: {
+      bg: 'none',
+      color: 'base.100',
+      svg: {
+        fill: 'base.100',
+      },
+      _disabled,
+    },
+    '&[data-checked="true"]': {
+      color: 'blue.300',
+      svg: {
+        fill: 'blue.300',
+      },
+      _hover: {
+        color: 'blue.400',
+        svg: {
+          fill: 'blue.400',
+        },
+      },
+    },
+  };
+});
+
 export const buttonTheme = defineStyleConfig({
   baseStyle: {
     fontWeight: 'semibold',
@@ -202,7 +246,7 @@ export const buttonTheme = defineStyleConfig({
     outline: defineStyle((props) => getStyles(props, 'outline')),
     ghost: defineStyle((props) => getStyles(props, 'ghost')),
     link: defineStyle((props) => getStyles(props, 'link')),
-    promptOverlay: buttonVariantPromptOverlay,
+    promptOverlay: variantPromptOverlay,
   },
   defaultProps: {
     variant: 'solid',
