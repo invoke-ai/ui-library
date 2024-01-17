@@ -41,5 +41,14 @@
     "typescript": "^5.2.2",
     "vite": "^5.0.8",
     "vite-plugin-dts": "^3.7.1"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --quiet --fix",
+      "prettier --write --ignore-unknown"
+    ],
+    "*.{json,yaml}": [
+      "prettier --write --ignore-unknown"
+    ]
   }
 }
