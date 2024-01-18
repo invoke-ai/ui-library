@@ -5,7 +5,7 @@ import dts from 'vite-plugin-dts';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), dts({ exclude: ['**/*.stories.tsx', 'lib/inv-*/theme.ts'] })],
+  plugins: [react(), dts({ exclude: ['**/*.stories.tsx', 'lib/theme/components/*'] })],
   build: {
     lib: {
       entry: resolve(__dirname, 'lib/main.ts'),
