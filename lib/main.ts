@@ -65,5 +65,6 @@ export type { TextProps } from './components/text';
 export { Text } from './components/text';
 export type { TooltipProps } from './components/tooltip';
 export { Tooltip } from './components/tooltip';
+export { useGlobalMenuClose } from './hooks';
 export { spinAnimation, theme } from './theme';
 export { skipMouseEvent, typedMemo } from './util';
