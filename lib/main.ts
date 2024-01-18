@@ -57,6 +57,8 @@ export {
   MenuList,
   MenuOptionGroup,
 } from './components/menu';
+export type { PortalProps } from './components/portal';
+export { Portal } from './components/portal';
 export type { SpacerProps } from './components/spacer';
 export { Spacer } from './components/spacer';
 export type { TabListProps, TabPanelProps, TabPanelsProps, TabProps, TabsProps } from './components/tabs';
