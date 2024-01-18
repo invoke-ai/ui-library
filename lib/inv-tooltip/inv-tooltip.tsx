@@ -1,4 +1,4 @@
-import type { TooltipProps as ChakraTooltipProps } from '@chakra-ui/react';
+import type { ComponentWithAs, TooltipProps as ChakraTooltipProps } from '@chakra-ui/react';
 import { forwardRef, Tooltip as ChakraTooltip } from '@chakra-ui/react';
 import { memo } from 'react';
 
@@ -13,7 +13,9 @@ const modifiers: InvTooltipProps['modifiers'] = [
   },
 ];
 
-export const InvTooltip = memo(
+export const InvTooltip: React.MemoExoticComponent<
+  ComponentWithAs<ComponentWithAs<'div', ChakraTooltipProps>, ChakraTooltipProps>
+> = memo(
   forwardRef<InvTooltipProps, typeof ChakraTooltip>((props: InvTooltipProps, ref) => {
     const { children, hasArrow = true, placement = 'top', ...rest } = props;
     return (
