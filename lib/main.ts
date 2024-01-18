@@ -14,7 +14,7 @@ export {
   AccordionPanel,
   StandaloneAccordion,
 } from './accordion';
-export type { AlertDialogProps } from './alert-dialog';
+export type { AlertDialogProps, ConfirmationAlertDialogProps } from './alert-dialog';
 export {
   AlertDialog,
   AlertDialogBody,
@@ -23,6 +23,7 @@ export {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogOverlay,
+  ConfirmationAlertDialog,
 } from './alert-dialog';
 export type { BadgeProps } from './badge';
 export { Badge } from './badge';
