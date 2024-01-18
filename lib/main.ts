@@ -14,6 +14,16 @@ export {
   AccordionPanel,
   StandaloneAccordion,
 } from './accordion';
+export type { AlertDialogProps } from './alert-dialog';
+export {
+  AlertDialog,
+  AlertDialogBody,
+  AlertDialogCloseButton,
+  AlertDialogContent,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogOverlay,
+} from './alert-dialog';
 export type { BadgeProps } from './badge';
 export { Badge } from './badge';
 export type { ButtonGroupProps, ButtonProps, IconButtonProps } from './button';
