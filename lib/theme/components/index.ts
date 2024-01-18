@@ -3,6 +3,7 @@ import { badgeTheme } from './badge';
 import { buttonTheme } from './button';
 import { cardTheme } from './card';
 import { checkboxTheme } from './checkbox';
+import { editableTheme } from './editable';
 import { headingTheme } from './heading';
 import { inputTheme } from './input';
 import { menuTheme } from './menu';
@@ -22,6 +23,7 @@ export const components = {
   Button: buttonTheme,
   Card: cardTheme,
   Checkbox: checkboxTheme,
+  Editable: editableTheme,
   Heading: headingTheme,
   Input: inputTheme,
   Menu: menuTheme,
