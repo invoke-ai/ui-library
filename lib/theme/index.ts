@@ -1,8 +1,8 @@
 import type { ThemeOverride } from '@chakra-ui/react';
 
-import { buttonTheme } from '../inv-button/theme';
-import { headingTheme } from '../inv-heading/theme';
-import { tooltipTheme } from '../inv-tooltip/theme';
+import { buttonTheme } from '../button/theme';
+import { headingTheme } from '../heading/theme';
+import { tooltipTheme } from '../tooltip/theme';
 
 export const theme: ThemeOverride = {
   components: {

@@ -2,14 +2,14 @@ import { AddIcon } from '@chakra-ui/icons';
 import { Flex } from '@chakra-ui/layout';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { InvHeading } from '../inv-heading';
-import type { InvButtonProps } from './inv-button';
-import { InvButton } from './inv-button';
+import { Heading } from '../heading';
+import type { ButtonProps } from './button';
+import { Button } from './button';
 
-const meta: Meta<typeof InvButton> = {
-  title: 'Primitives/InvButton',
+const meta: Meta<typeof Button> = {
+  title: 'Primitives/Button',
   tags: ['autodocs'],
-  component: InvButton,
+  component: Button,
   parameters: {
     controls: { expanded: true },
   },
@@ -26,25 +26,25 @@ const meta: Meta<typeof InvButton> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof InvButton>;
+type Story = StoryObj<typeof Button>;
 
 const colorSchemes = ['base', 'invokeYellow', 'invokeRed', 'invokeGreen', 'invokeBlue'] as const;
 const variants = ['solid', 'outline', 'ghost', 'link'] as const;
 const sizes = ['xs', 'sm', 'md', 'lg'] as const;
 
-const Component = (props: InvButtonProps) => {
+const Component = (props: ButtonProps) => {
   return (
     <Flex gap={4} flexDir="column">
       {sizes.map((size) => (
         <>
-          <InvHeading>Size: {size}</InvHeading>
+          <Heading>Size: {size}</Heading>
 
           <Flex key={size} gap={4} flexDir="column">
             {colorSchemes.map((colorScheme) => (
               <Flex key={colorScheme} gap={4}>
                 {variants.map((variant) => (
                   <>
-                    <InvButton
+                    <Button
                       size={size}
                       key={`${variant}${colorScheme}`}
                       variant={variant}
@@ -52,9 +52,9 @@ const Component = (props: InvButtonProps) => {
                       {...props}
                     >
                       {variant}
-                    </InvButton>
+                    </Button>
                     {['solid', 'outline'].includes(variant) && (
-                      <InvButton
+                      <Button
                         size={size}
                         key={`${variant}${colorScheme}leftIcon`}
                         variant={variant}
@@ -63,10 +63,10 @@ const Component = (props: InvButtonProps) => {
                         {...props}
                       >
                         {variant}
-                      </InvButton>
+                      </Button>
                     )}
                     {['solid', 'outline'].includes(variant) && (
-                      <InvButton
+                      <Button
                         size={size}
                         key={`${variant}${colorScheme}rightIcon`}
                         variant={variant}
@@ -75,7 +75,7 @@ const Component = (props: InvButtonProps) => {
                         {...props}
                       >
                         {variant}
-                      </InvButton>
+                      </Button>
                     )}
                   </>
                 ))}

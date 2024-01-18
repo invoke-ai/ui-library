@@ -2,9 +2,9 @@ import type { ComponentWithAs, TooltipProps as ChakraTooltipProps } from '@chakr
 import { forwardRef, Tooltip as ChakraTooltip } from '@chakra-ui/react';
 import { memo } from 'react';
 
-export type InvTooltipProps = ChakraTooltipProps;
+export type TooltipProps = ChakraTooltipProps;
 
-const modifiers: InvTooltipProps['modifiers'] = [
+const modifiers: TooltipProps['modifiers'] = [
   {
     name: 'preventOverflow',
     options: {
@@ -13,10 +13,10 @@ const modifiers: InvTooltipProps['modifiers'] = [
   },
 ];
 
-export const InvTooltip: React.MemoExoticComponent<
+export const Tooltip: React.MemoExoticComponent<
   ComponentWithAs<ComponentWithAs<'div', ChakraTooltipProps>, ChakraTooltipProps>
 > = memo(
-  forwardRef<InvTooltipProps, typeof ChakraTooltip>((props: InvTooltipProps, ref) => {
+  forwardRef<TooltipProps, typeof ChakraTooltip>((props: TooltipProps, ref) => {
     const { children, hasArrow = true, placement = 'top', ...rest } = props;
     return (
       <ChakraTooltip ref={ref} hasArrow={hasArrow} placement={placement} arrowSize={8} modifiers={modifiers} {...rest}>
@@ -26,4 +26,4 @@ export const InvTooltip: React.MemoExoticComponent<
   })
 );
 
-InvTooltip.displayName = 'InvTooltip';
+Tooltip.displayName = 'Tooltip';
