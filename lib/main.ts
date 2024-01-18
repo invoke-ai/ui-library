@@ -27,6 +27,8 @@ export {
 } from './components/alert-dialog';
 export type { BadgeProps } from './components/badge';
 export { Badge } from './components/badge';
+export type { BoxProps } from './components/box';
+export { Box } from './components/box';
 export type { ButtonGroupProps, ButtonProps, IconButtonProps } from './components/button';
 export { Button, ButtonGroup, IconButton } from './components/button';
 export type { CardBodyProps, CardFooterProps, CardHeaderProps, CardProps } from './components/card';
