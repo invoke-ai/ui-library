@@ -4,6 +4,7 @@ import { buttonTheme } from './button';
 import { cardTheme } from './card';
 import { checkboxTheme } from './checkbox';
 import { headingTheme } from './heading';
+import { inputTheme } from './input';
 import { menuTheme } from './menu';
 import { modalTheme } from './modal';
 import { progressTheme } from './progress';
@@ -19,6 +20,7 @@ export const components = {
   Card: cardTheme,
   Checkbox: checkboxTheme,
   Heading: headingTheme,
+  Input: inputTheme,
   Menu: menuTheme,
   Modal: modalTheme,
   Progress: progressTheme,

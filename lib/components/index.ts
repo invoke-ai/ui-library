@@ -9,6 +9,7 @@ export * from './context-menu';
 export * from './expander';
 export * from './flex';
 export * from './heading';
+export * from './input';
 export * from './menu';
 export * from './modal';
 export * from './portal';
