@@ -25,6 +25,7 @@ export {
   AlertDialogOverlay,
   ConfirmationAlertDialog,
 } from './alert-dialog';
+export { spinAnimation } from './animations';
 export type { BadgeProps } from './badge';
 export { Badge } from './badge';
 export type { ButtonGroupProps, ButtonProps, IconButtonProps } from './button';
@@ -37,6 +38,17 @@ export type { FlexProps } from './flex';
 export { Flex } from './flex';
 export type { HeadingProps } from './heading';
 export { Heading } from './heading';
+export type {
+  MenuButtonProps,
+  MenuDividerProps,
+  MenuGroupProps,
+  MenuItemOptionProps,
+  MenuItemProps,
+  MenuListProps,
+  MenuOptionGroupProps,
+  MenuProps,
+} from './menu';
+export { Menu, MenuButton, MenuDivider, MenuGroup, MenuItem, MenuItemOption, MenuList, MenuOptionGroup } from './menu';
 export type { SpacerProps } from './spacer';
 export { Spacer } from './spacer';
 export type { TabListProps, TabPanelProps, TabPanelsProps, TabProps, TabsProps } from './tabs';
@@ -46,3 +58,4 @@ export { Text } from './text';
 export { theme } from './theme';
 export type { TooltipProps } from './tooltip';
 export { Tooltip } from './tooltip';
+export { skipMouseEvent, typedMemo } from './util';
