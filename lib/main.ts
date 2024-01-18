@@ -30,6 +30,8 @@ export type { ButtonGroupProps, ButtonProps, IconButtonProps } from './button';
 export { Button, ButtonGroup, IconButton } from './button';
 export type { CardBodyProps, CardFooterProps, CardHeaderProps, CardProps } from './card';
 export { Card, CardBody, CardFooter, CardHeader } from './card';
+export type { CheckboxProps } from './checkbox';
+export { Checkbox } from './checkbox';
 export type { FlexProps } from './flex';
 export { Flex } from './flex';
 export type { HeadingProps } from './heading';
