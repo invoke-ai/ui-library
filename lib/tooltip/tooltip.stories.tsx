@@ -5,7 +5,7 @@ import type { TooltipProps } from './tooltip';
 import { Tooltip } from './tooltip';
 
 const meta: Meta<typeof Tooltip> = {
-  title: 'Primitives/InvTooltip',
+  title: 'Primitives/Tooltip',
   component: Tooltip,
   tags: ['autodocs'],
   args: {
