@@ -4,8 +4,16 @@ export type {
   AccordionItemProps,
   AccordionPanelProps,
   AccordionProps,
+  StandaloneAccordionProps,
 } from './accordion';
-export { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel } from './accordion';
+export {
+  Accordion,
+  AccordionButton,
+  AccordionIcon,
+  AccordionItem,
+  AccordionPanel,
+  StandaloneAccordion,
+} from './accordion';
 export type { BadgeProps } from './badge';
 export { Badge } from './badge';
 export type { ButtonGroupProps, ButtonProps, IconButtonProps } from './button';
