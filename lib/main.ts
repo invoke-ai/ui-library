@@ -61,6 +61,24 @@ export {
   MenuList,
   MenuOptionGroup,
 } from './components/menu';
+export type {
+  ModalBodyProps,
+  ModalCloseButtonProps,
+  ModalContentProps,
+  ModalFooterProps,
+  ModalHeaderProps,
+  ModalOverlayProps,
+  ModalProps,
+} from './components/modal';
+export {
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
+} from './components/modal';
 export type { PortalProps } from './components/portal';
 export { Portal } from './components/portal';
 export type { SpacerProps } from './components/spacer';
