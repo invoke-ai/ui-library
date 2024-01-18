@@ -8,6 +8,7 @@ import { inputTheme } from './input';
 import { menuTheme } from './menu';
 import { modalTheme } from './modal';
 import { progressTheme } from './progress';
+import { skeletonTheme } from './skeleton';
 import { switchTheme } from './switch';
 import { tabsTheme } from './tabs';
 import { textTheme } from './text';
@@ -25,6 +26,7 @@ export const components = {
   Menu: menuTheme,
   Modal: modalTheme,
   Progress: progressTheme,
+  Skeleton: skeletonTheme,
   Switch: switchTheme,
   Tabs: tabsTheme,
   Text: textTheme,

@@ -14,6 +14,7 @@ export * from './menu';
 export * from './modal';
 export * from './portal';
 export * from './progress';
+export * from './skeleton';
 export * from './spacer';
 export * from './switch';
 export * from './tabs';
