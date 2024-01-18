@@ -9,6 +9,7 @@ export * from './context-menu';
 export * from './editable';
 export * from './expander';
 export * from './flex';
+export * from './form';
 export * from './heading';
 export * from './input';
 export * from './menu';
