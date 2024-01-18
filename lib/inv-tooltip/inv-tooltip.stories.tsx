@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { InvButton } from 'inv-button/inv-button';
 
-import { InvTooltip } from './InvTooltip';
-import type { InvTooltipProps } from './types';
+import { InvButton } from '../inv-button/inv-button';
+import type { InvTooltipProps } from './inv-tooltip';
+import { InvTooltip } from './inv-tooltip';
 
 const meta: Meta<typeof InvTooltip> = {
   title: 'Primitives/InvTooltip',

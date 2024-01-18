@@ -1,8 +1,8 @@
 import { AddIcon } from '@chakra-ui/icons';
 import { Flex } from '@chakra-ui/layout';
 import type { Meta, StoryObj } from '@storybook/react';
-import { InvHeading } from 'inv-heading/wrapper';
 
+import { InvHeading } from '../inv-heading';
 import type { InvButtonProps } from './inv-button';
 import { InvButton } from './inv-button';
 

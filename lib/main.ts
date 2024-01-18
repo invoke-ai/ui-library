@@ -1,2 +1,2 @@
-export type { InvButtonProps } from 'inv-button/';
-export { InvButton } from 'inv-button/';
+export type { InvButtonProps } from './inv-button/';
+export { InvButton } from './inv-button/';

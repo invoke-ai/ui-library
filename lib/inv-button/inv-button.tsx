@@ -1,8 +1,9 @@
 import type { ButtonProps, ComponentWithAs } from '@chakra-ui/react';
 import { Button, forwardRef } from '@chakra-ui/react';
-import { InvTooltip } from 'inv-tooltip/InvTooltip';
 import type { ReactNode } from 'react';
 import { memo } from 'react';
+
+import { InvTooltip } from '../inv-tooltip/inv-tooltip';
 
 export type InvButtonProps = ButtonProps & {
   isChecked?: boolean;

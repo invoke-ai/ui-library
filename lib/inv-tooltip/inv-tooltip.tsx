@@ -1,7 +1,8 @@
+import type { TooltipProps as ChakraTooltipProps } from '@chakra-ui/react';
 import { forwardRef, Tooltip as ChakraTooltip } from '@chakra-ui/react';
 import { memo } from 'react';
 
-import type { InvTooltipProps } from './types';
+export type InvTooltipProps = ChakraTooltipProps;
 
 const modifiers: InvTooltipProps['modifiers'] = [
   {
