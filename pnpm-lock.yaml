@@ -127,6 +127,9 @@ devDependencies:
   lodash-es:
     specifier: ^4.17.21
     version: 4.17.21
+  nanostores:
+    specifier: ^0.9.5
+    version: 0.9.5
   prettier:
     specifier: ^3.2.3
     version: 3.2.3
@@ -8773,6 +8776,11 @@ packages:
     resolution: {integrity: sha512-eSRppjcPIatRIMC1U6UngP8XFcz8MQWGQdt1MTBQ7NaAmvXDfvNxbvWV3x2y6CdEUciCSsDHDQZbhYaB8QEo2g==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
+    dev: true
+
+  /nanostores@0.9.5:
+    resolution: {integrity: sha512-Z+p+g8E7yzaWwOe5gEUB2Ox0rCEeXWYIZWmYvw/ajNYX8DlXdMvMDj8DWfM/subqPAcsf8l8Td4iAwO1DeIIRQ==}
+    engines: {node: ^16.0.0 || ^18.0.0 || >=20.0.0}
     dev: true
 
   /natural-compare@1.4.0:

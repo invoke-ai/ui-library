@@ -31,6 +31,7 @@
     "@fontsource-variable/inter": "^5.0.16",
     "framer-motion": "^10.18.0",
     "lodash-es": "^4.17.21",
+    "nanostores": "^0.9.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-i18next": "^14.0.0"
@@ -75,6 +76,7 @@
     "framer-motion": "^10.18.0",
     "glob": "^10.3.10",
     "lodash-es": "^4.17.21",
+    "nanostores": "^0.9.5",
     "prettier": "^3.2.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
