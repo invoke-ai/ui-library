@@ -12,14 +12,14 @@ const animateFirstLast: MotionProps['animate'] = {
   y: 0,
   transition: { duration: 0.2, ease: 'easeOut' },
 };
-const animateOther = { ...animateFirstLast, x: '-50%' };
+const animateOther: MotionProps['animate'] = { ...animateFirstLast, x: '-50%' };
 
 const exitFirstLast: MotionProps['exit'] = {
   opacity: 0,
   y: 10,
   transition: { duration: 0.2, ease: 'anticipate' },
 };
-const exitOther = { ...exitFirstLast, x: '-50%' };
+const exitOther: MotionProps['exit'] = { ...exitFirstLast, x: '-50%' };
 
 const firstMarkStyle: SystemStyleObject = {
   insetInlineStart: '0 !important',
@@ -30,7 +30,18 @@ const lastMarkStyle: SystemStyleObject = {
   insetInlineEnd: '0 !important',
 };
 
-export const sliderMarkAnimationConstants = {
+type SliderMarkAnimationOptions = {
+  initialFirstLast: MotionProps['initial'];
+  initialOther: MotionProps['initial'];
+  exitFirstLast: MotionProps['exit'];
+  exitOther: MotionProps['exit'];
+  animateFirstLast: MotionProps['animate'];
+  animateOther: MotionProps['animate'];
+  firstMarkStyle: SystemStyleObject;
+  lastMarkStyle: SystemStyleObject;
+};
+
+export const sliderMarkAnimationConstants: SliderMarkAnimationOptions = {
   initialFirstLast,
   initialOther,
   exitFirstLast,
@@ -39,7 +50,7 @@ export const sliderMarkAnimationConstants = {
   animateOther,
   firstMarkStyle,
   lastMarkStyle,
-};
+} as const;
 
 export type SliderMarkProps = {
   value: number;
