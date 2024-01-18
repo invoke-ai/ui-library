@@ -18,6 +18,7 @@ export * from './popover';
 export * from './portal';
 export * from './progress';
 export * from './skeleton';
+export * from './slider';
 export * from './spacer';
 export * from './switch';
 export * from './tabs';

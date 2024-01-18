@@ -6,6 +6,7 @@ import { buttonTheme } from './button';
 import { cardTheme } from './card';
 import { checkboxTheme } from './checkbox';
 import { editableTheme } from './editable';
+import { formLabelTheme, formTheme } from './form';
 import { headingTheme } from './heading';
 import { inputTheme } from './input';
 import { menuTheme } from './menu';
@@ -14,6 +15,7 @@ import { numberInputTheme } from './number-input';
 import { popoverTheme } from './popover';
 import { progressTheme } from './progress';
 import { skeletonTheme } from './skeleton';
+import { sliderTheme } from './slider';
 import { switchTheme } from './switch';
 import { tabsTheme } from './tabs';
 import { textTheme } from './text';
@@ -27,6 +29,8 @@ export const components: ThemeOverride['components'] = {
   Card: cardTheme,
   Checkbox: checkboxTheme,
   Editable: editableTheme,
+  Form: formTheme,
+  FormLabel: formLabelTheme,
   Heading: headingTheme,
   Input: inputTheme,
   Menu: menuTheme,
@@ -35,6 +39,7 @@ export const components: ThemeOverride['components'] = {
   Popover: popoverTheme,
   Progress: progressTheme,
   Skeleton: skeletonTheme,
+  Slider: sliderTheme,
   Switch: switchTheme,
   Tabs: tabsTheme,
   Text: textTheme,
