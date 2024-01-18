@@ -1,23 +1,21 @@
 import type { ComponentWithAs } from '@chakra-ui/react';
 import { forwardRef, useFormControl } from '@chakra-ui/react';
 import { AnimatePresence } from 'framer-motion';
-import { isNil } from 'lodash-es';
 import type React from 'react';
 import { memo, useCallback, useMemo, useState } from 'react';
 
 import { useShiftModifier } from '../../hooks/useGlobalModifiers';
 import { Tooltip } from '../tooltip';
-import { SliderMark } from './slider-mark';
-import type { SliderProps } from './wrapper';
-import { Slider, SliderFilledTrack, SliderThumb, SliderTrack } from './wrapper';
+import type { FormattedSliderMark } from './composite-slider';
+import { RangeSliderMark } from './range-slider-mark';
+import type { RangeSliderProps } from './wrapper';
+import { RangeSlider, RangeSliderFilledTrack, RangeSliderThumb, RangeSliderTrack } from './wrapper';
 
-export type FormattedSliderMark = { value: number; label: string };
-
-export type CompositeSliderProps = Omit<SliderProps, 'value'> & {
+export type CompositeRangeSliderProps = Omit<RangeSliderProps, 'value'> & {
   /**
    * The value
    */
-  value: number;
+  value: [number, number];
   /**
    * The minimum value
    */
@@ -37,7 +35,7 @@ export type CompositeSliderProps = Omit<SliderProps, 'value'> & {
   /**
    * The change handler
    */
-  onChange: (v: number) => void;
+  onChange: (v: [number, number]) => void;
   /**
    * The reset handler, called on double-click of the thumb
    */
@@ -60,12 +58,10 @@ export type CompositeSliderProps = Omit<SliderProps, 'value'> & {
   withThumbTooltip?: boolean;
 };
 
-const defaultFormatValue = (v: number) => v.toString();
-
-export const CompositeSlider: React.MemoExoticComponent<
-  ComponentWithAs<ComponentWithAs<'div', SliderProps>, CompositeSliderProps>
+export const CompositeRangeSlider: React.MemoExoticComponent<
+  ComponentWithAs<ComponentWithAs<'div', RangeSliderProps>, CompositeRangeSliderProps>
 > = memo(
-  forwardRef<CompositeSliderProps, typeof Slider>((props, ref) => {
+  forwardRef<CompositeRangeSliderProps, typeof RangeSlider>((props, ref) => {
     const {
       value,
       min,
@@ -73,9 +69,8 @@ export const CompositeSlider: React.MemoExoticComponent<
       step: _step = 1,
       fineStep: _fineStep,
       onChange,
-      onReset: _onReset,
-      defaultValue,
-      formatValue = defaultFormatValue,
+      onReset,
+      formatValue = (v: number) => v.toString(),
       marks: _marks,
       withThumbTooltip: withTooltip = false,
       ...sliderProps
@@ -87,7 +82,7 @@ export const CompositeSlider: React.MemoExoticComponent<
     const step = useMemo(() => (shift ? _fineStep ?? _step : _step), [shift, _fineStep, _step]);
     const controlProps = useFormControl({});
 
-    const label = useMemo(() => formatValue(value), [formatValue, value]);
+    const labels = useMemo<string[]>(() => value.map(formatValue), [formatValue, value]);
 
     const onMouseEnter = useCallback(() => setIsMouseOverSlider(true), []);
     const onMouseLeave = useCallback(() => setIsMouseOverSlider(false), []);
@@ -104,17 +99,8 @@ export const CompositeSlider: React.MemoExoticComponent<
       return [];
     }, [_marks, formatValue, max, min]);
 
-    const onReset = useCallback(() => {
-      if (!isNil(defaultValue)) {
-        onChange(defaultValue);
-      }
-      if (_onReset) {
-        _onReset();
-      }
-    }, [defaultValue, onChange, _onReset]);
-
     return (
-      <Slider
+      <RangeSlider
         ref={ref}
         value={value}
         min={min}
@@ -133,20 +119,23 @@ export const CompositeSlider: React.MemoExoticComponent<
           {marks?.length &&
             (isMouseOverSlider || isChanging) &&
             marks.map((m, i) => (
-              <SliderMark key={m.value} value={m.value} label={m.label} index={i} total={marks.length} />
+              <RangeSliderMark key={m.value} value={m.value} label={m.label} index={i} total={marks.length} />
             ))}
         </AnimatePresence>
 
-        <SliderTrack>
-          <SliderFilledTrack />
-        </SliderTrack>
+        <RangeSliderTrack>
+          <RangeSliderFilledTrack />
+        </RangeSliderTrack>
 
-        <Tooltip isOpen={withTooltip && (isMouseOverSlider || isChanging)} label={label}>
-          <SliderThumb onDoubleClick={onReset} zIndex={0} />
+        <Tooltip isOpen={withTooltip && (isMouseOverSlider || isChanging)} label={labels[0]}>
+          <RangeSliderThumb index={0} onDoubleClick={onReset} zIndex={0} />
         </Tooltip>
-      </Slider>
+        <Tooltip isOpen={withTooltip && (isMouseOverSlider || isChanging)} label={labels[1]}>
+          <RangeSliderThumb index={1} onDoubleClick={onReset} zIndex={0} />
+        </Tooltip>
+      </RangeSlider>
     );
   })
 );
 
-CompositeSlider.displayName = 'CompositeSlider';
+CompositeRangeSlider.displayName = 'CompositeRangeSlider';
