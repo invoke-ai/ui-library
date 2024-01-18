@@ -2,7 +2,7 @@ import type { MenuListProps as ChakraMenuListProps } from '@chakra-ui/react';
 import { forwardRef, MenuList as ChakraMenuList, Portal } from '@chakra-ui/react';
 import { memo } from 'react';
 
-import { skipMouseEvent } from '../util';
+import { skipMouseEvent } from '../../util';
 import { menuListMotionProps } from './constants';
 
 export type MenuListProps = ChakraMenuListProps;

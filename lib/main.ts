@@ -5,7 +5,7 @@ export type {
   AccordionPanelProps,
   AccordionProps,
   StandaloneAccordionProps,
-} from './accordion';
+} from './components/accordion';
 export {
   Accordion,
   AccordionButton,
@@ -13,8 +13,8 @@ export {
   AccordionItem,
   AccordionPanel,
   StandaloneAccordion,
-} from './accordion';
-export type { AlertDialogProps, ConfirmationAlertDialogProps } from './alert-dialog';
+} from './components/accordion';
+export type { AlertDialogProps, ConfirmationAlertDialogProps } from './components/alert-dialog';
 export {
   AlertDialog,
   AlertDialogBody,
@@ -24,20 +24,19 @@ export {
   AlertDialogHeader,
   AlertDialogOverlay,
   ConfirmationAlertDialog,
-} from './alert-dialog';
-export { spinAnimation } from './animations';
-export type { BadgeProps } from './badge';
-export { Badge } from './badge';
-export type { ButtonGroupProps, ButtonProps, IconButtonProps } from './button';
-export { Button, ButtonGroup, IconButton } from './button';
-export type { CardBodyProps, CardFooterProps, CardHeaderProps, CardProps } from './card';
-export { Card, CardBody, CardFooter, CardHeader } from './card';
-export type { CheckboxProps } from './checkbox';
-export { Checkbox } from './checkbox';
-export type { FlexProps } from './flex';
-export { Flex } from './flex';
-export type { HeadingProps } from './heading';
-export { Heading } from './heading';
+} from './components/alert-dialog';
+export type { BadgeProps } from './components/badge';
+export { Badge } from './components/badge';
+export type { ButtonGroupProps, ButtonProps, IconButtonProps } from './components/button';
+export { Button, ButtonGroup, IconButton } from './components/button';
+export type { CardBodyProps, CardFooterProps, CardHeaderProps, CardProps } from './components/card';
+export { Card, CardBody, CardFooter, CardHeader } from './components/card';
+export type { CheckboxProps } from './components/checkbox';
+export { Checkbox } from './components/checkbox';
+export type { FlexProps } from './components/flex';
+export { Flex } from './components/flex';
+export type { HeadingProps } from './components/heading';
+export { Heading } from './components/heading';
 export type {
   MenuButtonProps,
   MenuDividerProps,
@@ -47,15 +46,24 @@ export type {
   MenuListProps,
   MenuOptionGroupProps,
   MenuProps,
-} from './menu';
-export { Menu, MenuButton, MenuDivider, MenuGroup, MenuItem, MenuItemOption, MenuList, MenuOptionGroup } from './menu';
-export type { SpacerProps } from './spacer';
-export { Spacer } from './spacer';
-export type { TabListProps, TabPanelProps, TabPanelsProps, TabProps, TabsProps } from './tabs';
-export { Tab, TabList, TabPanel, TabPanels, Tabs } from './tabs';
-export type { TextProps } from './text';
-export { Text } from './text';
-export { theme } from './theme';
-export type { TooltipProps } from './tooltip';
-export { Tooltip } from './tooltip';
+} from './components/menu';
+export {
+  Menu,
+  MenuButton,
+  MenuDivider,
+  MenuGroup,
+  MenuItem,
+  MenuItemOption,
+  MenuList,
+  MenuOptionGroup,
+} from './components/menu';
+export type { SpacerProps } from './components/spacer';
+export { Spacer } from './components/spacer';
+export type { TabListProps, TabPanelProps, TabPanelsProps, TabProps, TabsProps } from './components/tabs';
+export { Tab, TabList, TabPanel, TabPanels, Tabs } from './components/tabs';
+export type { TextProps } from './components/text';
+export { Text } from './components/text';
+export type { TooltipProps } from './components/tooltip';
+export { Tooltip } from './components/tooltip';
+export { spinAnimation, theme } from './theme';
 export { skipMouseEvent, typedMemo } from './util';

@@ -3,7 +3,7 @@ import type { MenuItemProps as ChakraMenuItemProps } from '@chakra-ui/react';
 import { forwardRef, MenuItem as ChakraMenuItem } from '@chakra-ui/react';
 import { memo } from 'react';
 
-import { spinAnimation } from '../animations';
+import { spinAnimation } from '../../theme';
 
 export type MenuItemProps = ChakraMenuItemProps & {
   isDestructive?: boolean;
