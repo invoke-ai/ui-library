@@ -16,6 +16,8 @@ export type { HeadingProps } from './heading';
 export { Heading } from './heading';
 export type { SpacerProps } from './spacer';
 export { Spacer } from './spacer';
+export type { TabListProps, TabPanelProps, TabPanelsProps, TabProps, TabsProps } from './tabs';
+export { Tab, TabList, TabPanel, TabPanels, Tabs } from './tabs';
 export type { TextProps } from './text';
 export { Text } from './text';
 export { theme } from './theme';
