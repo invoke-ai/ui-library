@@ -7,6 +7,7 @@ import { headingTheme } from './heading';
 import { menuTheme } from './menu';
 import { modalTheme } from './modal';
 import { progressTheme } from './progress';
+import { switchTheme } from './switch';
 import { tabsTheme } from './tabs';
 import { textTheme } from './text';
 import { tooltipTheme } from './tooltip';
@@ -21,6 +22,7 @@ export const components = {
   Menu: menuTheme,
   Modal: modalTheme,
   Progress: progressTheme,
+  Switch: switchTheme,
   Tabs: tabsTheme,
   Text: textTheme,
   Tooltip: tooltipTheme,
