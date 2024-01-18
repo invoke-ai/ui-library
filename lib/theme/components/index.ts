@@ -11,6 +11,7 @@ import { progressTheme } from './progress';
 import { switchTheme } from './switch';
 import { tabsTheme } from './tabs';
 import { textTheme } from './text';
+import { textareaTheme } from './textarea';
 import { tooltipTheme } from './tooltip';
 
 export const components = {
@@ -27,5 +28,6 @@ export const components = {
   Switch: switchTheme,
   Tabs: tabsTheme,
   Text: textTheme,
+  Textarea: textareaTheme,
   Tooltip: tooltipTheme,
 };

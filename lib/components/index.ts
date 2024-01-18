@@ -18,4 +18,5 @@ export * from './spacer';
 export * from './switch';
 export * from './tabs';
 export * from './text';
+export * from './textarea';
 export * from './tooltip';
