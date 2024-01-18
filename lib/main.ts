@@ -33,6 +33,8 @@ export type { CardBodyProps, CardFooterProps, CardHeaderProps, CardProps } from 
 export { Card, CardBody, CardFooter, CardHeader } from './components/card';
 export type { CheckboxProps } from './components/checkbox';
 export { Checkbox } from './components/checkbox';
+export type { ContextMenuProps } from './components/context-menu';
+export { ContextMenu } from './components/context-menu';
 export type { FlexProps } from './components/flex';
 export { Flex } from './components/flex';
 export type { HeadingProps } from './components/heading';
