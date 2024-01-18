@@ -1,4 +1,4 @@
-import type { MenuListProps as ChakraMenuListProps } from '@chakra-ui/react';
+import type { ComponentWithAs, MenuListProps as ChakraMenuListProps } from '@chakra-ui/react';
 import { forwardRef, MenuList as ChakraMenuList, Portal } from '@chakra-ui/react';
 import { memo } from 'react';
 
@@ -7,7 +7,9 @@ import { menuListMotionProps } from './constants';
 
 export type MenuListProps = ChakraMenuListProps;
 
-export const MenuList = memo(
+export const MenuList: React.MemoExoticComponent<
+  ComponentWithAs<ComponentWithAs<'div', ChakraMenuListProps>, ChakraMenuListProps>
+> = memo(
   forwardRef<MenuListProps, typeof ChakraMenuList>((props: MenuListProps, ref) => {
     return (
       <Portal>
