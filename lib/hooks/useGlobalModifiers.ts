@@ -1,3 +1,4 @@
+import { useStore } from '@nanostores/react';
 import { atom } from 'nanostores';
 import { useEffect } from 'react';
 
@@ -54,4 +55,24 @@ const setMeta = (meta: boolean) => {
  */
 export const useGlobalModifiersImperativeAPI = () => {
   return { setShift, setCtrl, setAlt, setMeta };
+};
+
+export const useShiftModifier = () => {
+  const shift = useStore($shift);
+  return shift;
+};
+
+export const useCtrlModifier = () => {
+  const ctrl = useStore($ctrl);
+  return ctrl;
+};
+
+export const useAltModifier = () => {
+  const alt = useStore($alt);
+  return alt;
+};
+
+export const useMetaModifier = () => {
+  const meta = useStore($meta);
+  return meta;
 };
