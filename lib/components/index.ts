@@ -24,6 +24,7 @@ export * from './number-input';
 export * from './popover';
 export * from './portal';
 export * from './progress';
+export * from './select';
 export * from './skeleton';
 export * from './slider';
 export * from './spacer';
