@@ -1,1 +1,1 @@
-export { cssVar, forwardRef } from '@chakra-ui/react';
+export { chakra, cssVar, forwardRef } from '@chakra-ui/react';
