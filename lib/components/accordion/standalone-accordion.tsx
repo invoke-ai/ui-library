@@ -1,5 +1,5 @@
-import type { PropsWithChildren } from 'react';
-import { memo } from 'react';
+import type { MouseEventHandler, PropsWithChildren } from 'react';
+import { memo, useCallback } from 'react';
 
 import { AccordionButton } from './accordion-button';
 import { Accordion, AccordionItem, AccordionPanel } from './wrapper';
@@ -7,14 +7,24 @@ import { Accordion, AccordionItem, AccordionPanel } from './wrapper';
 export type StandaloneAccordionProps = PropsWithChildren<{
   label: string;
   badges?: (string | number)[];
-  defaultIsOpen?: boolean;
+  isOpen: boolean;
+  onToggle: () => void;
 }>;
 
 export const StandaloneAccordion = memo((props: StandaloneAccordionProps) => {
+  const onClick = useCallback<MouseEventHandler<HTMLButtonElement>>(
+    (e) => {
+      e.preventDefault();
+      props.onToggle();
+    },
+    [props]
+  );
   return (
-    <Accordion allowToggle defaultIndex={props.defaultIsOpen ? 0 : undefined}>
+    <Accordion index={props.isOpen ? 0 : undefined} allowToggle>
       <AccordionItem>
-        <AccordionButton badges={props.badges}>{props.label}</AccordionButton>
+        <AccordionButton badges={props.badges} onClick={onClick}>
+          {props.label}
+        </AccordionButton>
         <AccordionPanel>{props.children}</AccordionPanel>
       </AccordionItem>
     </Accordion>

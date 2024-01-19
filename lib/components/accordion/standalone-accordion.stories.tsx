@@ -1,3 +1,4 @@
+import { useDisclosure } from '@chakra-ui/react';
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from '../tabs';
@@ -15,12 +16,14 @@ export default meta;
 type Story = StoryObj<typeof StandaloneAccordion>;
 
 const Component = (props: StandaloneAccordionProps) => {
+  const { isOpen, onToggle } = useDisclosure();
   return (
     <StandaloneAccordion
       {...props}
       label="The Best Flavours of Banana Sushi"
       badges={['Yum', 'Gourmet', 'Barf']}
-      defaultIsOpen
+      isOpen={isOpen}
+      onToggle={onToggle}
     >
       <Tabs variant="collapse">
         <TabList>
