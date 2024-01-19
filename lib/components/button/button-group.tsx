@@ -5,9 +5,9 @@ import { memo } from 'react';
 export type ButtonGroupProps = ChakraButtonGroupProps;
 
 export const ButtonGroup: React.MemoExoticComponent<
-  ComponentWithAs<ComponentWithAs<'div', ChakraButtonGroupProps>, ChakraButtonGroupProps>
+  ComponentWithAs<ComponentWithAs<'div', ChakraButtonGroupProps>, ButtonGroupProps>
 > = memo(
-  forwardRef<ButtonGroupProps, typeof ChakraButtonGroup>(({ isAttached = true, ...rest }: ButtonGroupProps, ref) => {
+  forwardRef<ButtonGroupProps, typeof ChakraButtonGroup>(({ isAttached = true, ...rest }, ref) => {
     return <ChakraButtonGroup ref={ref} isAttached={isAttached} {...rest} />;
   })
 );
