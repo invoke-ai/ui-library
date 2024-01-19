@@ -3,6 +3,7 @@ import type { ThemeOverride } from '@chakra-ui/react';
 import { colors } from './colors';
 import { components } from './components';
 import { layerStyles } from './layers';
+import { overlayscrollbars } from './overlayscrollbars';
 import { space } from './space';
 
 export const theme: ThemeOverride = {
@@ -14,6 +15,7 @@ export const theme: ThemeOverride = {
   styles: {
     global: {
       body: { bg: 'base.900', color: 'base.50' },
+      ...overlayscrollbars,
     },
   },
   fonts: {
