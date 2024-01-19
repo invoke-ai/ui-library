@@ -11,6 +11,7 @@ export * from './editable';
 export * from './expander';
 export * from './flex';
 export * from './form';
+export * from './grid';
 export * from './heading';
 export * from './icon';
 export * from './image';
