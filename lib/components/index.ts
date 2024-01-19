@@ -15,6 +15,7 @@ export * from './heading';
 export * from './icon';
 export * from './image';
 export * from './input';
+export * from './kbd';
 export * from './link';
 export * from './menu';
 export * from './modal';
