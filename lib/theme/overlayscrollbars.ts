@@ -1,6 +1,13 @@
 import type { SystemStyleObject } from '@chakra-ui/styled-system';
 
-export const overlayscrollbars: SystemStyleObject = {
+export const noScrollbarsStyles: SystemStyleObject = {
+  '::-webkit-scrollbar': {
+    display: 'none',
+  },
+  scrollbarWidth: 'none',
+};
+
+export const overlayscrollbarsStyles: SystemStyleObject = {
   '.os-scrollbar': {
     /*      The size of the scrollbar */
     '--os-size': '9px',
@@ -25,11 +32,11 @@ export const overlayscrollbars: SystemStyleObject = {
     /*      The border radius of the scrollbar handle */
     /* --os-handle-border-radius: 2px; */
     /*      The background of the scrollbar handle */
-    /* --os-handle-bg: var(--invokeai-colors-accentAlpha-500); */
+    /* --os-handle-bg: var(--invoke-colors-accentAlpha-500); */
     /*      The :hover background of the scrollbar handle */
-    /* --os-handle-bg-hover: var(--invokeai-colors-accentAlpha-700); */
+    /* --os-handle-bg-hover: var(--invoke-colors-accentAlpha-700); */
     /*      The :active background of the scrollbar handle */
-    /* --os-handle-bg-active: var(--invokeai-colors-accentAlpha-800); */
+    /* --os-handle-bg-active: var(--invoke-colors-accentAlpha-800); */
     /*      The border of the scrollbar handle */
     /* --os-handle-border: none; */
     /*      The :hover border of the scrollbar handle */

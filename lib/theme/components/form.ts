@@ -9,7 +9,7 @@ const formBaseStyle = defineFormPartsStyle((props) => ({
     display: 'flex',
     flexDirection: props.orientation === 'vertical' ? 'column' : 'row',
     alignItems: props.orientation === 'vertical' ? 'flex-start' : 'center',
-    gap: 4,
+    gap: props.orientation === 'vertical' ? 2 : 4,
     h: 'unset',
     minH: 8,
     w: 'full',

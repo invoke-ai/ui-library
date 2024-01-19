@@ -1,2 +1,2 @@
 export { spinAnimation } from './animations';
-export { theme } from './theme';
+export { theme, TOAST_OPTIONS } from './theme';

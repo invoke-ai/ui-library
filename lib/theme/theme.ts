@@ -1,21 +1,30 @@
-import type { ThemeOverride } from '@chakra-ui/react';
+import type { ThemeOverride, ToastProviderProps } from '@chakra-ui/react';
 
 import { colors } from './colors';
 import { components } from './components';
 import { layerStyles } from './layers';
-import { overlayscrollbars } from './overlayscrollbars';
+import { noScrollbarsStyles, overlayscrollbarsStyles } from './overlayscrollbars';
+import { reactflowStyles } from './reactflow';
+import { shadows } from './shadows';
 import { space } from './space';
 
 export const theme: ThemeOverride = {
+  config: {
+    cssVarPrefix: 'invoke',
+  },
+  direction: 'ltr',
   colors,
   components,
   layerStyles,
+  shadows,
   space,
   sizes: space,
   styles: {
     global: {
       body: { bg: 'base.900', color: 'base.50' },
-      ...overlayscrollbars,
+      '*': { ...noScrollbarsStyles },
+      ...overlayscrollbarsStyles,
+      ...reactflowStyles,
     },
   },
   fonts: {
@@ -43,4 +52,8 @@ export const theme: ThemeOverride = {
     '8xl': '6rem',
     '9xl': '8rem',
   },
+};
+
+export const TOAST_OPTIONS: ToastProviderProps = {
+  defaultOptions: { isClosable: true, position: 'bottom-right' },
 };
