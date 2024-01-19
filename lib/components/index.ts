@@ -5,6 +5,7 @@ export * from './box';
 export * from './button';
 export * from './card';
 export * from './checkbox';
+export * from './combobox';
 export * from './context-menu';
 export * from './divider';
 export * from './editable';
