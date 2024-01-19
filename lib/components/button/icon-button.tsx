@@ -22,7 +22,7 @@ export const IconButton: React.MemoExoticComponent<
       );
     }
 
-    return <IconButton ref={ref} colorScheme={isChecked ? 'invokeBlue' : 'base'} {...rest} />;
+    return <ChakraIconButton ref={ref} colorScheme={isChecked ? 'invokeBlue' : 'base'} {...rest} />;
   })
 );
 
