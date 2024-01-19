@@ -1,1 +1,1 @@
-export type { ChakraProps, SystemStyleObject, ThemeTypings } from './chakra-types';
+export type { As, ChakraProps, SystemStyleObject, ThemeTypings } from './chakra-types';
