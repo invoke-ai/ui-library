@@ -11,6 +11,7 @@ export * from './expander';
 export * from './flex';
 export * from './form';
 export * from './heading';
+export * from './icon';
 export * from './input';
 export * from './link';
 export * from './menu';
