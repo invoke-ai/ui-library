@@ -3,8 +3,8 @@ import type { StyleFunctionProps, SystemStyleObject } from '@chakra-ui/styled-sy
 export const getInputFilledStyles = (props: StyleFunctionProps): SystemStyleObject => {
   const { variant } = props;
 
-  const bg = variant === 'darkFilled' ? 'base.800' : 'base.700';
-  const bgHover = variant === 'darkFilled' ? 'base.750' : 'base.650';
+  const bg = variant === 'darkFilled' || variant === 'iterations' ? 'base.800' : 'base.700';
+  const bgHover = variant === 'darkFilled' || variant === 'iterations' ? 'base.750' : 'base.650';
   const error = 'error.600';
   const errorHover = 'error.500';
   const fg = 'base.100';
