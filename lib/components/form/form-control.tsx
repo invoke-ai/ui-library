@@ -22,7 +22,7 @@ export const FormControl: React.MemoExoticComponent<
         orientation={orientation}
         isDisabled={isDisabled}
         {...formControlProps}
-        {...ctx.controlProps}
+        {...ctx.formControlProps}
       />
     );
   })

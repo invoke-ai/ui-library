@@ -11,7 +11,7 @@ export const FormLabel: React.MemoExoticComponent<
 > = memo(
   forwardRef<FormLabelProps, typeof ChakraFormLabel>((props: FormLabelProps, ref) => {
     const ctx = useContext(FormControlGroupContext);
-    return <ChakraFormLabel ref={ref} {...props} {...ctx.labelProps} />;
+    return <ChakraFormLabel ref={ref} {...props} {...ctx.formLabelProps} />;
   })
 );
 

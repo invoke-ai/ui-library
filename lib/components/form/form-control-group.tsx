@@ -5,8 +5,8 @@ import type { FormControlProps } from './form-control';
 import type { FormLabelProps } from './form-label';
 
 export type FormControlGroupContext = {
-  labelProps?: FormLabelProps;
-  controlProps?: FormControlProps;
+  formLabelProps?: FormLabelProps;
+  formControlProps?: FormControlProps;
   isDisabled?: boolean;
   orientation?: 'horizontal' | 'vertical';
 };
