@@ -96,6 +96,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-i18next": "^14.0.0",
+    "react-icons": "^5.0.1",
     "storybook": "^7.6.9",
     "typescript": "^5.3.3",
     "vite": "^5.0.11",
@@ -109,8 +110,5 @@
     "*.{json,yaml}": [
       "prettier --write --ignore-unknown"
     ]
-  },
-  "dependencies": {
-    "react-icons": "^5.0.1"
   }
 }
