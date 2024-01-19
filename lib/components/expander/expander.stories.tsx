@@ -1,3 +1,4 @@
+import { useDisclosure } from '@chakra-ui/react';
 import type { Meta, StoryObj } from '@storybook/react';
 
 import type { ExpanderProps } from './expander';
@@ -13,7 +14,12 @@ export default meta;
 type Story = StoryObj<typeof Expander>;
 
 const Component = (props: ExpanderProps) => {
-  return <Expander {...props}>Invoke</Expander>;
+  const { isOpen, onToggle } = useDisclosure();
+  return (
+    <Expander {...props} isOpen={isOpen} onToggle={onToggle}>
+      Invoke
+    </Expander>
+  );
 };
 
 export const Default: Story = {

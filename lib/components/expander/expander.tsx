@@ -1,6 +1,6 @@
 import { Divider, Flex } from '@chakra-ui/layout';
 import type { SystemStyleObject } from '@chakra-ui/react';
-import { Collapse, Icon, useDisclosure } from '@chakra-ui/react';
+import { Collapse, Icon } from '@chakra-ui/react';
 import { memo, type PropsWithChildren } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BiCollapseVertical, BiExpandVertical } from 'react-icons/bi';
@@ -9,7 +9,8 @@ import { Text } from '../text';
 
 export type ExpanderProps = PropsWithChildren<{
   label?: string;
-  defaultIsOpen?: boolean;
+  isOpen: boolean;
+  onToggle: () => void;
 }>;
 
 const buttonStyles: SystemStyleObject = {
@@ -27,8 +28,7 @@ const buttonStyles: SystemStyleObject = {
 
 export const Expander = memo((props: ExpanderProps) => {
   const { t } = useTranslation();
-  const { children, label = t('common.advancedOptions', 'Advanced Options'), defaultIsOpen = false } = props;
-  const { isOpen, onToggle } = useDisclosure({ defaultIsOpen });
+  const { children, label = t('common.advancedOptions', 'Advanced Options'), isOpen, onToggle } = props;
 
   return (
     <Flex flexDir="column" w="full">
