@@ -31,6 +31,7 @@ export * from './skeleton';
 export * from './slider';
 export * from './spacer';
 export * from './spinner';
+export * from './stack';
 export * from './stat';
 export * from './switch';
 export * from './tabs';
