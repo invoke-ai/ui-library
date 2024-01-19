@@ -5,7 +5,7 @@ import { clamp } from 'lodash-es';
 import type { FocusEventHandler } from 'react';
 import { memo, useCallback, useEffect, useMemo, useState } from 'react';
 
-import { useShiftModifier } from '../../hooks/useGlobalModifiers';
+import { useShiftModifier } from '../../hooks/use-global-modifiers';
 import { stopPastePropagation } from '../../util';
 import { NumberInputField } from './number-input-field';
 import type { NumberInputProps } from './wrapper';

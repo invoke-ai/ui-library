@@ -4,7 +4,7 @@ import { AnimatePresence } from 'framer-motion';
 import type React from 'react';
 import { memo, useCallback, useMemo, useState } from 'react';
 
-import { useShiftModifier } from '../../hooks/useGlobalModifiers';
+import { useShiftModifier } from '../../hooks/use-global-modifiers';
 import { Tooltip } from '../tooltip';
 import type { FormattedSliderMark } from './composite-slider';
 import { RangeSliderMark } from './range-slider-mark';

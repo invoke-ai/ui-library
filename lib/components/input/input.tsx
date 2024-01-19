@@ -3,7 +3,7 @@ import { forwardRef, Input as ChakraInput } from '@chakra-ui/react';
 import type { KeyboardEvent } from 'react';
 import { memo, useCallback } from 'react';
 
-import { useGlobalModifiersImperativeAPI } from '../../hooks/useGlobalModifiers';
+import { useGlobalModifiersImperativeAPI } from '../../hooks/use-global-modifiers';
 import { stopPastePropagation } from '../../util';
 
 export type InputProps = ChakraInputProps;

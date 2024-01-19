@@ -1,2 +1,2 @@
-export { useGlobalMenuClose } from './useGlobalMenuClose';
-export { useGlobalModifiersImperativeAPI, useGlobalModifiersInit } from './useGlobalModifiers';
+export { useGlobalMenuClose } from './use-global-menu-close';
+export { useGlobalModifiersImperativeAPI, useGlobalModifiersInit } from './use-global-modifiers';

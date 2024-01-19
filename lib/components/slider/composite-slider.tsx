@@ -5,7 +5,7 @@ import { isNil } from 'lodash-es';
 import type React from 'react';
 import { memo, useCallback, useMemo, useState } from 'react';
 
-import { useShiftModifier } from '../../hooks/useGlobalModifiers';
+import { useShiftModifier } from '../../hooks/use-global-modifiers';
 import { Tooltip } from '../tooltip';
 import { SliderMark } from './slider-mark';
 import type { SliderProps } from './wrapper';
