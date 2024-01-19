@@ -131,6 +131,12 @@ devDependencies:
   nanostores:
     specifier: ^0.9.5
     version: 0.9.5
+  overlayscrollbars:
+    specifier: ^2.4.6
+    version: 2.4.6
+  overlayscrollbars-react:
+    specifier: ^0.5.3
+    version: 0.5.3(overlayscrollbars@2.4.6)(react@18.2.0)
   prettier:
     specifier: ^3.2.4
     version: 3.2.4
@@ -9091,6 +9097,20 @@ packages:
       log-symbols: 4.1.0
       strip-ansi: 6.0.1
       wcwidth: 1.0.1
+    dev: true
+
+  /overlayscrollbars-react@0.5.3(overlayscrollbars@2.4.6)(react@18.2.0):
+    resolution: {integrity: sha512-mq9D9tbfSeq0cti1kKMf3B3AzsEGwHcRIDX/K49CvYkHz/tKeU38GiahDkIPKTMEAp6lzKCo4x1eJZA6ZFYOxQ==}
+    peerDependencies:
+      overlayscrollbars: ^2.0.0
+      react: '>=16.8.0'
+    dependencies:
+      overlayscrollbars: 2.4.6
+      react: 18.2.0
+    dev: true
+
+  /overlayscrollbars@2.4.6:
+    resolution: {integrity: sha512-C7tmhetwMv9frEvIT/RfkAVEgbjRNz/Gh2zE8BVmN+jl35GRaAnz73rlGQCMRoC2arpACAXyMNnJkzHb7GBrcA==}
     dev: true
 
   /p-limit@2.3.0:
