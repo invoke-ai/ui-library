@@ -43,12 +43,14 @@
     "@emotion/styled": "^11.11.0",
     "@fontsource-variable/inter": "^5.0.16",
     "@nanostores/react": "^0.7.1",
+    "chakra-react-select": "^4.7.6",
     "framer-motion": "^10.18.0",
     "lodash-es": "^4.17.21",
     "nanostores": "^0.9.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-i18next": "^14.0.0"
+    "react-i18next": "^14.0.0",
+    "react-select": "^5.8.0"
   },
   "devDependencies": {
     "@chakra-ui/anatomy": "^2.2.2",
@@ -78,6 +80,7 @@
     "@typescript-eslint/eslint-plugin": "^6.19.0",
     "@typescript-eslint/parser": "^6.19.0",
     "@vitejs/plugin-react": "^4.2.1",
+    "chakra-react-select": "^4.7.6",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-i18next": "^6.0.3",
@@ -97,6 +100,7 @@
     "react-dom": "^18.2.0",
     "react-i18next": "^14.0.0",
     "react-icons": "^5.0.1",
+    "react-select": "^5.8.0",
     "storybook": "^7.6.9",
     "typescript": "^5.3.3",
     "vite": "^5.0.11",
