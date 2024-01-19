@@ -6,6 +6,7 @@ export * from './button';
 export * from './card';
 export * from './checkbox';
 export * from './context-menu';
+export * from './divider';
 export * from './editable';
 export * from './expander';
 export * from './flex';
