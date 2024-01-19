@@ -12,6 +12,7 @@ export * from './flex';
 export * from './form';
 export * from './heading';
 export * from './input';
+export * from './link';
 export * from './menu';
 export * from './modal';
 export * from './number-input';
