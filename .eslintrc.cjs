@@ -74,6 +74,13 @@ module.exports = {
     '@typescript-eslint/no-import-type-side-effects': 'error',
     'simple-import-sort/imports': 'error',
     'simple-import-sort/exports': 'error',
+    'no-restricted-syntax': [
+      'error',
+      {
+        message: 'React\'s `memo` strips types from generic components. Use `typedMemo` instead.',
+        selector: 'CallExpression[callee.name="memo"]',
+      },
+    ],
   },
   overrides: [
     {
