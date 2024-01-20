@@ -11,7 +11,8 @@ import { Select as ChakraReactSelect } from 'chakra-react-select';
 import { memo, useEffect, useMemo } from 'react';
 export type {} from 'react-select/base';
 
-import type { ChakraProps } from '../../types/chakra-types';
+import type { SystemStyleObject } from '@chakra-ui/styled-system';
+
 import { CustomMenuListComponent } from './custom-menu-list';
 import type { ComboboxOption } from './custom-option';
 import { CustomOptionComponent } from './custom-option';
@@ -19,7 +20,7 @@ import { CustomOptionComponent } from './custom-option';
 export type ComboboxOnChange = (v: SingleValue<ComboboxOption> | null) => void;
 
 export type ComboboxProps = ChakraReactSelectProps<ComboboxOption, false, GroupBase<ComboboxOption>> & {
-  sx?: ChakraProps['sx'];
+  sx?: SystemStyleObject;
   selectRef?: React.RefObject<SelectInstance<ComboboxOption, false, GroupBase<ComboboxOption>>>;
   inputRef?: React.MutableRefObject<HTMLInputElement | null>;
 };
