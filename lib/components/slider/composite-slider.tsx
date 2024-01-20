@@ -2,10 +2,10 @@ import type { ComponentWithAs } from '@chakra-ui/react';
 import { forwardRef, useFormControl } from '@chakra-ui/react';
 import { AnimatePresence } from 'framer-motion';
 import { isNil } from 'lodash-es';
-import type React from 'react';
-import { memo, useCallback, useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 
 import { useShiftModifier } from '../../hooks/use-global-modifiers';
+import { typedMemo } from '../../util';
 import { Tooltip } from '../tooltip';
 import { SliderMark } from './slider-mark';
 import type { SliderProps } from './wrapper';
@@ -62,9 +62,7 @@ export type CompositeSliderProps = Omit<SliderProps, 'value'> & {
 
 const defaultFormatValue = (v: number) => v.toString();
 
-export const CompositeSlider: React.MemoExoticComponent<
-  ComponentWithAs<ComponentWithAs<'div', SliderProps>, CompositeSliderProps>
-> = memo(
+export const CompositeSlider: ComponentWithAs<ComponentWithAs<'div', SliderProps>, CompositeSliderProps> = typedMemo(
   forwardRef<CompositeSliderProps, typeof Slider>((props, ref) => {
     const {
       value,

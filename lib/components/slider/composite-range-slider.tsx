@@ -1,10 +1,10 @@
 import type { ComponentWithAs } from '@chakra-ui/react';
 import { forwardRef, useFormControl } from '@chakra-ui/react';
 import { AnimatePresence } from 'framer-motion';
-import type React from 'react';
-import { memo, useCallback, useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 
 import { useShiftModifier } from '../../hooks/use-global-modifiers';
+import { typedMemo } from '../../util';
 import { Tooltip } from '../tooltip';
 import type { FormattedSliderMark } from './composite-slider';
 import { RangeSliderMark } from './range-slider-mark';
@@ -58,9 +58,10 @@ export type CompositeRangeSliderProps = Omit<RangeSliderProps, 'value'> & {
   withThumbTooltip?: boolean;
 };
 
-export const CompositeRangeSlider: React.MemoExoticComponent<
-  ComponentWithAs<ComponentWithAs<'div', RangeSliderProps>, CompositeRangeSliderProps>
-> = memo(
+export const CompositeRangeSlider: ComponentWithAs<
+  ComponentWithAs<'div', RangeSliderProps>,
+  CompositeRangeSliderProps
+> = typedMemo(
   forwardRef<CompositeRangeSliderProps, typeof RangeSlider>((props, ref) => {
     const {
       value,

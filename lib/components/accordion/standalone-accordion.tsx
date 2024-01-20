@@ -1,6 +1,8 @@
+import type { AccordionProps as ChakraAccordionProps, ComponentWithAs } from '@chakra-ui/react';
 import type { MouseEventHandler, PropsWithChildren } from 'react';
-import { memo, useCallback } from 'react';
+import { useCallback } from 'react';
 
+import { typedMemo } from '../../util';
 import { AccordionButton } from './accordion-button';
 import { Accordion, AccordionItem, AccordionPanel } from './wrapper';
 
@@ -11,7 +13,10 @@ export type StandaloneAccordionProps = PropsWithChildren<{
   onToggle: () => void;
 }>;
 
-export const StandaloneAccordion = memo((props: StandaloneAccordionProps) => {
+export const StandaloneAccordion: ComponentWithAs<
+  ComponentWithAs<'div', ChakraAccordionProps>,
+  StandaloneAccordionProps
+> = typedMemo((props) => {
   const onClick = useCallback<MouseEventHandler<HTMLButtonElement>>(
     (e) => {
       e.preventDefault();

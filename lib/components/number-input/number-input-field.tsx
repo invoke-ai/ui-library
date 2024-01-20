@@ -1,13 +1,14 @@
 import type { NumberInputFieldProps as ChakraNumberInputFieldProps } from '@chakra-ui/react';
 import { NumberInputField as ChakraNumberInputField } from '@chakra-ui/react';
 import type { KeyboardEventHandler } from 'react';
-import { memo, useCallback } from 'react';
+import { useCallback } from 'react';
 
 import { useGlobalModifiersImperativeAPI } from '../../hooks';
+import { typedMemo } from '../../util';
 
 export type NumberInputFieldProps = ChakraNumberInputFieldProps;
 
-export const NumberInputField = memo((props: NumberInputFieldProps) => {
+export const NumberInputField = typedMemo((props: NumberInputFieldProps) => {
   const { onKeyUp, onKeyDown, children, ...rest } = props;
   const { setShift } = useGlobalModifiersImperativeAPI();
 

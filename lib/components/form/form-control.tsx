@@ -1,15 +1,16 @@
 import type { ComponentWithAs, FormControlProps as ChakraFormControlProps } from '@chakra-ui/react';
 import { FormControl as ChakraFormControl, forwardRef } from '@chakra-ui/react';
-import type React from 'react';
-import { memo, useContext, useMemo } from 'react';
+import { useContext, useMemo } from 'react';
 
+import { typedMemo } from '../../util';
 import { FormControlGroupContext } from './form-control-group';
 
 export type FormControlProps = ChakraFormControlProps;
 
-export const FormControl: React.MemoExoticComponent<
-  ComponentWithAs<ComponentWithAs<'div', ChakraFormControlProps>, ChakraFormControlProps>
-> = memo(
+export const FormControl: ComponentWithAs<
+  ComponentWithAs<'div', ChakraFormControlProps>,
+  ChakraFormControlProps
+> = typedMemo(
   forwardRef<FormControlProps, typeof ChakraFormControl>((props: FormControlProps, ref) => {
     const { orientation: _orientation, isDisabled: _isDisabled, ...formControlProps } = props;
     const ctx = useContext(FormControlGroupContext);

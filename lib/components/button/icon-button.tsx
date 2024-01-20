@@ -1,8 +1,8 @@
 import type { ComponentWithAs, IconButtonProps as ChakraIconButtonProps } from '@chakra-ui/react';
 import { forwardRef, IconButton as ChakraIconButton } from '@chakra-ui/react';
 import type { ReactNode } from 'react';
-import { memo } from 'react';
 
+import { typedMemo } from '../../util';
 import { Tooltip } from '../tooltip';
 
 export type IconButtonProps = ChakraIconButtonProps & {
@@ -10,9 +10,7 @@ export type IconButtonProps = ChakraIconButtonProps & {
   tooltip?: ReactNode;
 };
 
-export const IconButton: React.MemoExoticComponent<
-  ComponentWithAs<ComponentWithAs<'button', ChakraIconButtonProps>, IconButtonProps>
-> = memo(
+export const IconButton: ComponentWithAs<ComponentWithAs<'button', ChakraIconButtonProps>, IconButtonProps> = typedMemo(
   forwardRef<IconButtonProps, typeof ChakraIconButton>(({ isChecked, tooltip, ...rest }: IconButtonProps, ref) => {
     if (tooltip) {
       return (

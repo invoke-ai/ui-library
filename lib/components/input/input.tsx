@@ -1,16 +1,14 @@
 import type { ComponentWithAs, InputProps as ChakraInputProps } from '@chakra-ui/react';
 import { forwardRef, Input as ChakraInput } from '@chakra-ui/react';
 import type { KeyboardEvent } from 'react';
-import { memo, useCallback } from 'react';
+import { useCallback } from 'react';
 
 import { useGlobalModifiersImperativeAPI } from '../../hooks/use-global-modifiers';
-import { stopPastePropagation } from '../../util';
+import { stopPastePropagation, typedMemo } from '../../util';
 
 export type InputProps = ChakraInputProps;
 
-export const Input: React.MemoExoticComponent<
-  ComponentWithAs<ComponentWithAs<'input', ChakraInputProps>, ChakraInputProps>
-> = memo(
+export const Input: ComponentWithAs<ComponentWithAs<'input', ChakraInputProps>, ChakraInputProps> = typedMemo(
   forwardRef<InputProps, typeof ChakraInput>((props: InputProps, ref) => {
     const { setShift } = useGlobalModifiersImperativeAPI();
     const onKeyUpDown = useCallback(

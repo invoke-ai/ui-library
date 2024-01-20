@@ -1,7 +1,8 @@
 import type { PropsWithChildren } from 'react';
-import { memo, useCallback, useRef } from 'react';
+import { useCallback, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { typedMemo } from '../../util';
 import { Button } from '../button';
 import type { AlertDialogProps } from './wrapper';
 import {
@@ -28,7 +29,7 @@ export type ConfirmationAlertDialogProps = Omit<AlertDialogProps, 'leastDestruct
  * This component is a wrapper around AlertDialog that provides a confirmation dialog.
  * Its state must be managed externally using chakra's `useDisclosure()` hook.
  */
-export const ConfirmationAlertDialog = memo((props: ConfirmationAlertDialogProps) => {
+export const ConfirmationAlertDialog = typedMemo((props: ConfirmationAlertDialogProps) => {
   const { t } = useTranslation();
 
   const {
@@ -77,5 +78,3 @@ export const ConfirmationAlertDialog = memo((props: ConfirmationAlertDialogProps
     </AlertDialog>
   );
 });
-
-ConfirmationAlertDialog.displayName = 'ConfirmationAlertDialog';

@@ -3,10 +3,10 @@ import type { ComponentWithAs } from '@chakra-ui/react';
 import { forwardRef } from '@chakra-ui/react';
 import { clamp } from 'lodash-es';
 import type { FocusEventHandler } from 'react';
-import { memo, useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 
 import { useShiftModifier } from '../../hooks/use-global-modifiers';
-import { stopPastePropagation } from '../../util';
+import { stopPastePropagation, typedMemo } from '../../util';
 import { NumberInputField } from './number-input-field';
 import type { NumberInputProps } from './wrapper';
 import { NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputStepper } from './wrapper';
@@ -43,9 +43,10 @@ const roundToMultiple = (value: number, multiple: number): number => {
   return Math.round(value / multiple) * multiple;
 };
 
-export const CompositeNumberInput: React.MemoExoticComponent<
-  ComponentWithAs<ComponentWithAs<'div', NumberInputProps>, CompositeNumberInputProps>
-> = memo(
+export const CompositeNumberInput: ComponentWithAs<
+  ComponentWithAs<'div', NumberInputProps>,
+  CompositeNumberInputProps
+> = typedMemo(
   forwardRef<CompositeNumberInputProps, typeof NumberInput>((props, ref) => {
     const {
       value,

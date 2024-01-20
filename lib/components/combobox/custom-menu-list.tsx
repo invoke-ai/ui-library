@@ -4,8 +4,9 @@ import { cloneDeep, merge } from 'lodash-es';
 import type { UseOverlayScrollbarsParams } from 'overlayscrollbars-react';
 import { useOverlayScrollbars } from 'overlayscrollbars-react';
 import type { PropsWithChildren } from 'react';
-import { memo, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
+import { typedMemo } from '../../util';
 import { Box } from '../box';
 import { overlayScrollbarsParams } from '../shared/overlayscrollbars';
 import type { ComboboxOption } from './custom-option';
@@ -18,7 +19,7 @@ const overlayScrollbarsParamsOverrides: Partial<UseOverlayScrollbarsParams> = {
 
 const osParams = merge(cloneDeep(overlayScrollbarsParams), overlayScrollbarsParamsOverrides);
 
-const Scrollable = memo((props: PropsWithChildren<{ viewport: HTMLDivElement | null }>) => {
+const Scrollable = typedMemo((props: PropsWithChildren<{ viewport: HTMLDivElement | null }>) => {
   const { children, viewport } = props;
 
   const targetRef = useRef<HTMLDivElement>(null);
@@ -45,7 +46,7 @@ const Scrollable = memo((props: PropsWithChildren<{ viewport: HTMLDivElement | n
 
 Scrollable.displayName = 'Scrollable';
 
-export const CustomMenuListComponent = memo(({ children, innerRef, ...other }: CustomMenuListProps) => {
+export const CustomMenuListComponent = typedMemo(({ children, innerRef, ...other }: CustomMenuListProps) => {
   const [viewport, setViewport] = useState<HTMLDivElement | null>(null);
 
   useEffect(() => {

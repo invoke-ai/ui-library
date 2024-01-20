@@ -1,8 +1,9 @@
 import type { AccordionButtonProps as ChakraAccordionButtonProps, ComponentWithAs } from '@chakra-ui/react';
 import { AccordionButton as ChakraAccordionButton, forwardRef } from '@chakra-ui/react';
 import { truncate } from 'lodash-es';
-import { memo, useMemo } from 'react';
+import { useMemo } from 'react';
 
+import { typedMemo } from '../../util';
 import { Badge } from '../badge';
 import { Spacer } from '../spacer';
 import { AccordionIcon } from './wrapper';
@@ -11,11 +12,10 @@ export type AccordionButtonProps = ChakraAccordionButtonProps & {
   badges?: (string | number)[];
 };
 
-export type AccordionButtonComponent = React.MemoExoticComponent<
-  ComponentWithAs<ComponentWithAs<'button', ChakraAccordionButtonProps>, AccordionButtonProps>
->;
-
-export const AccordionButton: AccordionButtonComponent = memo(
+export const AccordionButton: ComponentWithAs<
+  ComponentWithAs<'button', ChakraAccordionButtonProps>,
+  AccordionButtonProps
+> = typedMemo(
   forwardRef<AccordionButtonProps, typeof ChakraAccordionButton>((props, ref) => {
     const { children, badges: _badges, ...rest } = props;
     const badges = useMemo<string[] | undefined>(

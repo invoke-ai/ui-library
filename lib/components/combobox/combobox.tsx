@@ -8,11 +8,12 @@ import type {
   StylesConfig,
 } from 'chakra-react-select';
 import { Select as ChakraReactSelect } from 'chakra-react-select';
-import { memo, useEffect, useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 export type {} from 'react-select/base';
 
 import type { SystemStyleObject } from '@chakra-ui/styled-system';
 
+import { typedMemo } from '../../util';
 import { CustomMenuListComponent } from './custom-menu-list';
 import type { ComboboxOption } from './custom-option';
 import { CustomOptionComponent } from './custom-option';
@@ -35,7 +36,7 @@ const components: SelectComponentsConfig<ComboboxOption, false, GroupBase<Combob
   MenuList: CustomMenuListComponent,
 };
 
-export const Combobox = memo((props: ComboboxProps) => {
+export const Combobox = typedMemo((props: ComboboxProps) => {
   const { sx, selectRef, inputRef, ...rest } = props;
   const chakraStyles = useMemo<CustomChakraStylesConfig>(
     () => ({
@@ -84,4 +85,4 @@ export const Combobox = memo((props: ComboboxProps) => {
   );
 });
 
-Combobox.displayName = 'InvSelect';
+Combobox.displayName = 'Combobox';

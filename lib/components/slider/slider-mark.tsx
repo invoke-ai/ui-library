@@ -2,7 +2,8 @@ import { SliderMark as ChakraSliderMark } from '@chakra-ui/react';
 import type { SystemStyleObject } from '@chakra-ui/styled-system';
 import type { MotionProps } from 'framer-motion';
 import { motion } from 'framer-motion';
-import { memo } from 'react';
+
+import { typedMemo } from '../../util';
 
 const initialFirstLast: MotionProps['initial'] = { opacity: 0, y: 10 };
 const initialOther = { ...initialFirstLast, x: '-50%' };
@@ -59,7 +60,7 @@ export type SliderMarkProps = {
   total: number;
 };
 
-export const SliderMark = memo(({ value, label, index, total }: SliderMarkProps) => {
+export const SliderMark = typedMemo(({ value, label, index, total }: SliderMarkProps) => {
   if (index === 0) {
     return (
       <ChakraSliderMark

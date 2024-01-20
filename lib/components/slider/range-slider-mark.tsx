@@ -1,13 +1,13 @@
 import { RangeSliderMark as ChakraRangeSliderMark } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
-import { memo } from 'react';
 
+import { typedMemo } from '../../util';
 import type { SliderMarkProps } from './slider-mark';
 import { sliderMarkAnimationConstants } from './slider-mark';
 
 export type RangeSliderMarkProps = SliderMarkProps;
 
-export const RangeSliderMark = memo(({ value, label, index, total }: RangeSliderMarkProps) => {
+export const RangeSliderMark = typedMemo(({ value, label, index, total }: RangeSliderMarkProps) => {
   if (index === 0) {
     return (
       <ChakraRangeSliderMark

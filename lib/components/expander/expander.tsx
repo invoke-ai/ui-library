@@ -1,10 +1,11 @@
 import { Divider, Flex } from '@chakra-ui/layout';
 import type { SystemStyleObject } from '@chakra-ui/react';
 import { Collapse, Icon } from '@chakra-ui/react';
-import { memo, type PropsWithChildren } from 'react';
+import type { PropsWithChildren } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BiCollapseVertical, BiExpandVertical } from 'react-icons/bi';
 
+import { typedMemo } from '../../util';
 import { Text } from '../text';
 
 export type ExpanderProps = PropsWithChildren<{
@@ -26,7 +27,7 @@ const buttonStyles: SystemStyleObject = {
   },
 };
 
-export const Expander = memo((props: ExpanderProps) => {
+export const Expander = typedMemo((props: ExpanderProps) => {
   const { t } = useTranslation();
   const { children, label = t('common.advancedOptions', 'Advanced Options'), isOpen, onToggle } = props;
 

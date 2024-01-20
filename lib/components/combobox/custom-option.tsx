@@ -1,8 +1,8 @@
 import type { GroupBase, OptionBase, OptionProps } from 'chakra-react-select';
 import { chakraComponents } from 'chakra-react-select';
 import type { ReactNode } from 'react';
-import { memo } from 'react';
 
+import { typedMemo } from '../../util';
 import { Flex } from '../flex';
 import { Text } from '../text';
 import { Tooltip } from '../tooltip';
@@ -19,7 +19,7 @@ export interface ComboboxOption extends OptionBase {
 
 type CustomOptionProps = OptionProps<ComboboxOption, false, GroupBase<ComboboxOption>>;
 
-export const CustomOptionComponent = memo(({ children, ...props }: CustomOptionProps) => {
+export const CustomOptionComponent = typedMemo(({ children, ...props }: CustomOptionProps) => {
   // On large lists, perf really takes a hit :/
   // This improves it drastically and doesn't seem to break anything...
   delete props.innerProps.onMouseMove;
