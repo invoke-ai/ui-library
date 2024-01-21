@@ -5,6 +5,7 @@ import { badgeTheme } from './badge';
 import { buttonTheme } from './button';
 import { cardTheme } from './card';
 import { checkboxTheme } from './checkbox';
+import { customSelectTheme } from './custom-select';
 import { editableTheme } from './editable';
 import { formLabelTheme, formTheme } from './form';
 import { headingTheme } from './heading';
@@ -28,6 +29,7 @@ export const components: ThemeOverride['components'] = {
   Button: buttonTheme,
   Card: cardTheme,
   Checkbox: checkboxTheme,
+  CustomSelect: customSelectTheme,
   Editable: editableTheme,
   Form: formTheme,
   FormLabel: formLabelTheme,

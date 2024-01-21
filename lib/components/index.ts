@@ -7,6 +7,7 @@ export * from './card';
 export * from './checkbox';
 export * from './combobox';
 export * from './context-menu';
+export * from './custom-select';
 export * from './divider';
 export * from './editable';
 export * from './expander';
