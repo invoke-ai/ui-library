@@ -47,38 +47,44 @@ export type ThemeColors = {
   invokeBlueAlpha: PaletteSteps;
 };
 
-const BASE = { H: 220, S: 12 };
-const WORKING = { H: 47, S: 42 };
-const GOLD = { H: 40, S: 70 };
-const WARNING = { H: 28, S: 42 };
-const OK = { H: 113, S: 42 };
-const ERROR = { H: 0, S: 42 };
-const INVOKE_YELLOW = { H: 66, S: 92 };
-const INVOKE_BLUE = { H: 200, S: 76 };
-const INVOKE_GREEN = { H: 110, S: 69 };
-const INVOKE_RED = { H: 16, S: 92 };
+const brandColors = {
+  base: { H: 220, S: 12 },
+  working: { H: 47, S: 42 },
+  gold: { H: 40, S: 70 },
+  warning: { H: 28, S: 42 },
+  ok: { H: 113, S: 42 },
+  error: { H: 0, S: 42 },
+  invokeYellow: { H: 66, S: 92 },
+  invokeBlue: { H: 200, S: 76 },
+  invokeGreen: { H: 110, S: 69 },
+  invokeRed: { H: 16, S: 92 },
+};
 
-export const getArbitraryBaseColor = (lightness: number) => `hsl(${BASE.H} ${BASE.S}% ${lightness}%)`;
+export const getArbitraryBrandColor = (
+  colorScheme: keyof typeof brandColors,
+  lightness: number,
+  saturationPct: number = 1
+) => `hsl(${brandColors[colorScheme].H} ${brandColors[colorScheme].S * saturationPct}% ${lightness}%)`;
 
 export const colors: ThemeColors = {
-  base: generateColorPalette(BASE.H, BASE.S),
-  baseAlpha: generateColorPalette(BASE.H, BASE.S, true),
-  working: generateColorPalette(WORKING.H, WORKING.S),
-  workingAlpha: generateColorPalette(WORKING.H, WORKING.S, true),
-  gold: generateColorPalette(GOLD.H, GOLD.S),
-  goldAlpha: generateColorPalette(GOLD.H, GOLD.S, true),
-  warning: generateColorPalette(WARNING.H, WARNING.S),
-  warningAlpha: generateColorPalette(WARNING.H, WARNING.S, true),
-  ok: generateColorPalette(OK.H, OK.S),
-  okAlpha: generateColorPalette(OK.H, OK.S, true),
-  error: generateColorPalette(ERROR.H, ERROR.S),
-  errorAlpha: generateColorPalette(ERROR.H, ERROR.S, true),
-  invokeYellow: generateColorPalette(INVOKE_YELLOW.H, INVOKE_YELLOW.S),
-  invokeYellowAlpha: generateColorPalette(INVOKE_YELLOW.H, INVOKE_YELLOW.S, true),
-  invokeBlue: generateColorPalette(INVOKE_BLUE.H, INVOKE_BLUE.S),
-  invokeBlueAlpha: generateColorPalette(INVOKE_BLUE.H, INVOKE_BLUE.S, true),
-  invokeGreen: generateColorPalette(INVOKE_GREEN.H, INVOKE_GREEN.S),
-  invokeGreenAlpha: generateColorPalette(INVOKE_GREEN.H, INVOKE_GREEN.S, true),
-  invokeRed: generateColorPalette(INVOKE_RED.H, INVOKE_RED.S),
-  invokeRedAlpha: generateColorPalette(INVOKE_RED.H, INVOKE_RED.S, true),
+  base: generateColorPalette(brandColors.base.H, brandColors.base.S),
+  baseAlpha: generateColorPalette(brandColors.base.H, brandColors.base.S, true),
+  working: generateColorPalette(brandColors.working.H, brandColors.working.S),
+  workingAlpha: generateColorPalette(brandColors.working.H, brandColors.working.S, true),
+  gold: generateColorPalette(brandColors.gold.H, brandColors.gold.S),
+  goldAlpha: generateColorPalette(brandColors.gold.H, brandColors.gold.S, true),
+  warning: generateColorPalette(brandColors.warning.H, brandColors.warning.S),
+  warningAlpha: generateColorPalette(brandColors.warning.H, brandColors.warning.S, true),
+  ok: generateColorPalette(brandColors.ok.H, brandColors.ok.S),
+  okAlpha: generateColorPalette(brandColors.ok.H, brandColors.ok.S, true),
+  error: generateColorPalette(brandColors.error.H, brandColors.error.S),
+  errorAlpha: generateColorPalette(brandColors.error.H, brandColors.error.S, true),
+  invokeYellow: generateColorPalette(brandColors.invokeYellow.H, brandColors.invokeYellow.S),
+  invokeYellowAlpha: generateColorPalette(brandColors.invokeYellow.H, brandColors.invokeYellow.S, true),
+  invokeBlue: generateColorPalette(brandColors.invokeBlue.H, brandColors.invokeBlue.S),
+  invokeBlueAlpha: generateColorPalette(brandColors.invokeBlue.H, brandColors.invokeBlue.S, true),
+  invokeGreen: generateColorPalette(brandColors.invokeGreen.H, brandColors.invokeGreen.S),
+  invokeGreenAlpha: generateColorPalette(brandColors.invokeGreen.H, brandColors.invokeGreen.S, true),
+  invokeRed: generateColorPalette(brandColors.invokeRed.H, brandColors.invokeRed.S),
+  invokeRedAlpha: generateColorPalette(brandColors.invokeRed.H, brandColors.invokeRed.S, true),
 };
