@@ -14,7 +14,6 @@ export default defineConfig({
         'lib/theme/animation.ts',
         'lib/theme/radii.ts',
         'lib/theme/space.ts',
-        'lib/theme/colors.ts',
         'lib/theme/layers.ts',
       ],
     }),

@@ -60,11 +60,8 @@ const brandColors = {
   invokeRed: { H: 16, S: 92 },
 };
 
-export const getArbitraryBrandColor = (
-  colorScheme: keyof typeof brandColors,
-  lightness: number,
-  saturationPct: number = 1
-) => `hsl(${brandColors[colorScheme].H} ${brandColors[colorScheme].S * saturationPct}% ${lightness}%)`;
+export const getArbitraryBaseColor = (lightness: number) =>
+  `hsl(${brandColors.base.H} ${brandColors.base.S}% ${lightness}%)`;
 
 export const colors: ThemeColors = {
   base: generateColorPalette(brandColors.base.H, brandColors.base.S),
