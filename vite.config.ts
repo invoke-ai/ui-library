@@ -25,6 +25,7 @@ export default defineConfig({
     },
     rollupOptions: {
       external: [
+        '@ark-ui/react',
         '@chakra-ui/anatomy',
         '@chakra-ui/icons',
         '@chakra-ui/layout',

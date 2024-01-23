@@ -7,7 +7,7 @@ const transitionProps: SystemStyleObject = {
   transitionDuration: 'normal',
 };
 
-export const customSelectTheme = helpers.defineMultiStyleConfig({
+export const customSelectTheme: ReturnType<typeof helpers.defineMultiStyleConfig> = helpers.defineMultiStyleConfig({
   baseStyle: {
     root: {
       ...transitionProps,
