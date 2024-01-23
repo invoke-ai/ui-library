@@ -70,6 +70,7 @@ const collapse = definePartsStyle(() => ({
   tab: {
     gap: 4,
     bg: TAB_INACTIVE,
+    color: 'base.400',
     fontSize: 'sm',
     fontWeight: 'semibold',
     borderInlineEnd: 1,
@@ -84,6 +85,7 @@ const collapse = definePartsStyle(() => ({
     ':has(+ [aria-selected="true"])': { borderBottomEndRadius: 'lg' },
     _selected: {
       bg: TAB_ACTIVE,
+      color: 'base.50',
     },
     _last: {
       borderTopEndRadius: 'base',
