@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { FaBoltLightning } from 'react-icons/fa6';
 
-import type { IconButtonProps } from './icon-button';
 import { IconButton } from './icon-button';
 
 const meta: Meta<typeof IconButton> = {
@@ -16,8 +15,17 @@ const meta: Meta<typeof IconButton> = {
 export default meta;
 type Story = StoryObj<typeof IconButton>;
 
-const Component = (props: IconButtonProps) => {
-  return <IconButton {...props} />;
+const Component = () => {
+  return (
+    <>
+      <IconButton aria-label="label" variant="solid" icon={<FaBoltLightning />} />
+      <IconButton aria-label="label" variant="ghost" icon={<FaBoltLightning />} />
+      <IconButton aria-label="label" variant="link" icon={<FaBoltLightning />} />
+      <IconButton aria-label="label" variant="outline" icon={<FaBoltLightning />} />
+      <IconButton aria-label="label" variant="promptOverlay" icon={<FaBoltLightning />} />
+      <IconButton aria-label="label" variant="promptOverlay" colorScheme="error" icon={<FaBoltLightning />} />
+    </>
+  );
 };
 
 export const Default: Story = {

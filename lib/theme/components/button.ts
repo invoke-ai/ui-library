@@ -149,12 +149,13 @@ const getStyles = (props: StyleFunctionProps, variant: 'ghost' | 'solid' | 'outl
   } as const;
 };
 
-export const variantPromptOverlay = defineStyle(() => {
+export const variantPromptOverlay = defineStyle((props) => {
+  const { colorScheme: c } = props;
   const _disabled = {
     bg: 'none',
-    color: 'base.500',
+    color: `${c}.500`,
     svg: {
-      fill: 'base.500',
+      fill: `${c}.500`,
     },
     opacity: 0.7,
   };
@@ -166,16 +167,16 @@ export const variantPromptOverlay = defineStyle(() => {
     minW: 'unset',
     minH: 'unset',
     bg: 'none',
-    color: 'base.400',
+    color: `${c}.400`,
     svg: {
-      fill: 'base.400',
+      fill: `${c}.400`,
     },
     _disabled,
     _hover: {
       bg: 'none',
-      color: 'base.100',
+      color: c === 'base' ? 'base.100' : `${c}.300`,
       svg: {
-        fill: 'base.100',
+        fill: c === 'base' ? 'base.100' : `${c}.300`,
       },
       _disabled,
     },
