@@ -13,9 +13,6 @@ const formBaseStyle = defineFormPartsStyle((props) => ({
     h: 'unset',
     minH: 8,
     w: 'full',
-    _invalid: {
-      color: 'error.300',
-    },
   },
   helperText: {
     w: 'full',
