@@ -61,7 +61,7 @@ dependencies:
     version: 18.2.0(react@18.2.0)
   react-i18next:
     specifier: ^14.0.0
-    version: 14.0.0(i18next@23.7.16)(react-dom@18.2.0)(react@18.2.0)
+    version: 14.0.0(i18next@23.7.19)(react-dom@18.2.0)(react@18.2.0)
   react-select:
     specifier: ^5.8.0
     version: 5.8.0(@types/react@18.2.48)(react-dom@18.2.0)(react@18.2.0)
@@ -70,6 +70,12 @@ devDependencies:
   '@fontsource-variable/inter':
     specifier: ^5.0.16
     version: 5.0.16
+  '@invoke-ai/eslint-config-react':
+    specifier: ^0.0.4
+    version: 0.0.4(@typescript-eslint/eslint-plugin@6.19.0)(@typescript-eslint/parser@6.19.0)(eslint-config-prettier@9.1.0)(eslint-plugin-i18next@6.0.3)(eslint-plugin-import@2.29.1)(eslint-plugin-react-hooks@4.6.0)(eslint-plugin-react-refresh@0.4.5)(eslint-plugin-react@7.33.2)(eslint-plugin-simple-import-sort@10.0.0)(eslint-plugin-storybook@0.6.15)(eslint-plugin-unused-imports@3.0.0)(eslint@8.56.0)
+  '@invoke-ai/prettier-config-react':
+    specifier: ^0.0.3
+    version: 0.0.3(prettier@3.2.4)
   '@storybook/addon-essentials':
     specifier: ^7.6.9
     version: 7.6.9(@types/react-dom@18.2.18)(@types/react@18.2.48)(react-dom@18.2.0)(react@18.2.0)
@@ -106,45 +112,12 @@ devDependencies:
   '@types/react-dom':
     specifier: ^18.2.18
     version: 18.2.18
-  '@typescript-eslint/eslint-plugin':
-    specifier: ^6.19.0
-    version: 6.19.0(@typescript-eslint/parser@6.19.0)(eslint@8.56.0)(typescript@5.3.3)
-  '@typescript-eslint/parser':
-    specifier: ^6.19.0
-    version: 6.19.0(eslint@8.56.0)(typescript@5.3.3)
   '@vitejs/plugin-react':
     specifier: ^4.2.1
     version: 4.2.1(vite@5.0.11)
   eslint:
     specifier: ^8.56.0
     version: 8.56.0
-  eslint-config-prettier:
-    specifier: ^9.1.0
-    version: 9.1.0(eslint@8.56.0)
-  eslint-plugin-i18next:
-    specifier: ^6.0.3
-    version: 6.0.3
-  eslint-plugin-import:
-    specifier: ^2.29.1
-    version: 2.29.1(@typescript-eslint/parser@6.19.0)(eslint@8.56.0)
-  eslint-plugin-react:
-    specifier: ^7.33.2
-    version: 7.33.2(eslint@8.56.0)
-  eslint-plugin-react-hooks:
-    specifier: ^4.6.0
-    version: 4.6.0(eslint@8.56.0)
-  eslint-plugin-react-refresh:
-    specifier: ^0.4.5
-    version: 0.4.5(eslint@8.56.0)
-  eslint-plugin-simple-import-sort:
-    specifier: ^10.0.0
-    version: 10.0.0(eslint@8.56.0)
-  eslint-plugin-storybook:
-    specifier: ^0.6.15
-    version: 0.6.15(eslint@8.56.0)(typescript@5.3.3)
-  eslint-plugin-unused-imports:
-    specifier: ^3.0.0
-    version: 3.0.0(@typescript-eslint/eslint-plugin@6.19.0)(eslint@8.56.0)
   glob:
     specifier: ^10.3.10
     version: 10.3.10
@@ -3318,6 +3291,44 @@ packages:
     dependencies:
       '@swc/helpers': 0.5.3
     dev: false
+
+  /@invoke-ai/eslint-config-react@0.0.4(@typescript-eslint/eslint-plugin@6.19.0)(@typescript-eslint/parser@6.19.0)(eslint-config-prettier@9.1.0)(eslint-plugin-i18next@6.0.3)(eslint-plugin-import@2.29.1)(eslint-plugin-react-hooks@4.6.0)(eslint-plugin-react-refresh@0.4.5)(eslint-plugin-react@7.33.2)(eslint-plugin-simple-import-sort@10.0.0)(eslint-plugin-storybook@0.6.15)(eslint-plugin-unused-imports@3.0.0)(eslint@8.56.0):
+    resolution: {integrity: sha512-nnaidXkm10qVU+HtZ1beuA8fch2+i4W06usy3+jv2Uv8zKxLDCodGhgIMtuLRlL8gBhwDMGjRcU25U6iLhh2Mw==}
+    peerDependencies:
+      '@typescript-eslint/eslint-plugin': ^6.19.0
+      '@typescript-eslint/parser': ^6.19.0
+      eslint: ^8.56.0
+      eslint-config-prettier: ^9.1.0
+      eslint-plugin-i18next: ^6.0.3
+      eslint-plugin-import: ^2.29.1
+      eslint-plugin-react: ^7.33.2
+      eslint-plugin-react-hooks: ^4.6.0
+      eslint-plugin-react-refresh: ^0.4.5
+      eslint-plugin-simple-import-sort: ^10.0.0
+      eslint-plugin-storybook: ^0.6.15
+      eslint-plugin-unused-imports: ^3.0.0
+    dependencies:
+      '@typescript-eslint/eslint-plugin': 6.19.0(@typescript-eslint/parser@6.19.0)(eslint@8.56.0)(typescript@5.3.3)
+      '@typescript-eslint/parser': 6.19.0(eslint@8.56.0)(typescript@5.3.3)
+      eslint: 8.56.0
+      eslint-config-prettier: 9.1.0(eslint@8.56.0)
+      eslint-plugin-i18next: 6.0.3
+      eslint-plugin-import: 2.29.1(@typescript-eslint/parser@6.19.0)(eslint@8.56.0)
+      eslint-plugin-react: 7.33.2(eslint@8.56.0)
+      eslint-plugin-react-hooks: 4.6.0(eslint@8.56.0)
+      eslint-plugin-react-refresh: 0.4.5(eslint@8.56.0)
+      eslint-plugin-simple-import-sort: 10.0.0(eslint@8.56.0)
+      eslint-plugin-storybook: 0.6.15(eslint@8.56.0)(typescript@5.3.3)
+      eslint-plugin-unused-imports: 3.0.0(@typescript-eslint/eslint-plugin@6.19.0)(eslint@8.56.0)
+    dev: true
+
+  /@invoke-ai/prettier-config-react@0.0.3(prettier@3.2.4):
+    resolution: {integrity: sha512-Oit+lK3hghVCUk+rwYyXIB5t6O8yAnQDtZJNXQSz6K5Z1a97Jfy5XCce+w0ANZqPsMS6A1VIEd65BqTM/EV+Gw==}
+    peerDependencies:
+      prettier: ^3.2.4
+    dependencies:
+      prettier: 3.2.4
+    dev: true
 
   /@isaacs/cliui@8.0.2:
     resolution: {integrity: sha512-O8jcjabXaleOG9DQ0+ARXWZBTfnP4WNAqzuiJK7ll44AmxGKv/J2M4TPjxjY3znBCfvBXFzucm1twdyFybFqEA==}
@@ -8557,8 +8568,8 @@ packages:
     engines: {node: '>=16.17.0'}
     dev: true
 
-  /i18next@23.7.16:
-    resolution: {integrity: sha512-SrqFkMn9W6Wb43ZJ9qrO6U2U4S80RsFMA7VYFSqp7oc7RllQOYDCdRfsse6A7Cq/V8MnpxKvJCYgM8++27n4Fw==}
+  /i18next@23.7.19:
+    resolution: {integrity: sha512-1aP+YSJl+nLxr42ZJtNhpWpNWYsc6nCbVCf2x4uizIX1BYfcigiRMlb3vOkE1p3+qrI+aD6h5G2Fg+2d2oMIOQ==}
     dependencies:
       '@babel/runtime': 7.23.8
     dev: false
@@ -10202,7 +10213,7 @@ packages:
       use-sidecar: 1.1.2(@types/react@18.2.48)(react@18.2.0)
     dev: false
 
-  /react-i18next@14.0.0(i18next@23.7.16)(react-dom@18.2.0)(react@18.2.0):
+  /react-i18next@14.0.0(i18next@23.7.19)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-OCrS8rHNAmnr8ggGRDxjakzihrMW7HCbsplduTm3EuuQ6fyvWGT41ksZpqbduYoqJurBmEsEVZ1pILSUWkHZng==}
     peerDependencies:
       i18next: '>= 23.2.3'
@@ -10217,7 +10228,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.23.8
       html-parse-stringify: 3.0.1
-      i18next: 23.7.16
+      i18next: 23.7.19
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: false
