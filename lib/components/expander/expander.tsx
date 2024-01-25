@@ -5,8 +5,8 @@ import type { PropsWithChildren } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BiCollapseVertical, BiExpandVertical } from 'react-icons/bi';
 
+import { Text } from '../../chakra-re-exports';
 import { typedMemo } from '../../util';
-import { Text } from '../text';
 
 export type ExpanderProps = PropsWithChildren<{
   label?: string;

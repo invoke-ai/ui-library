@@ -3,9 +3,9 @@ import { AccordionButton as ChakraAccordionButton, forwardRef } from '@chakra-ui
 import { truncate } from 'lodash-es';
 import { useMemo } from 'react';
 
+import { Spacer } from '../../chakra-re-exports';
 import { typedMemo } from '../../util';
 import { Badge } from '../badge';
-import { Spacer } from '../spacer';
 import { AccordionIcon } from './wrapper';
 
 export type AccordionButtonProps = ChakraAccordionButtonProps & {

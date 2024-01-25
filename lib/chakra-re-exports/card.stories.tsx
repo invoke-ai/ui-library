@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import type { CardProps } from './wrapper';
-import { Card } from './wrapper';
+import type { CardProps } from '.';
+import { Card } from '.';
 
 const meta: Meta<typeof Card> = {
   title: 'Primitives/Card',

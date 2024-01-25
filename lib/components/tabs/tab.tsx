@@ -1,9 +1,9 @@
 import type { ComponentWithAs, TabProps as ChakraTabProps } from '@chakra-ui/react';
 import { forwardRef, Tab as ChakraTab } from '@chakra-ui/react';
 
+import { Spacer } from '../../chakra-re-exports';
 import { typedMemo } from '../../util';
 import { Badge } from '../badge';
-import { Spacer } from '../spacer';
 
 export type TabProps = ChakraTabProps & {
   badges?: (string | number)[];

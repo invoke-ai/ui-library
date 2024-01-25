@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import type { SwitchProps } from './wrapper';
-import { Switch } from './wrapper';
+import type { SwitchProps } from '.';
+import { Switch } from '.';
 
 const meta: Meta<typeof Switch> = {
   title: 'Primitives/Switch',

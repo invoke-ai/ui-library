@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import type { TextProps } from './wrapper';
-import { Text } from './wrapper';
+import type { TextProps } from '.';
+import { Text } from '.';
 
 const meta: Meta<typeof Text> = {
   title: 'Primitives/Text',

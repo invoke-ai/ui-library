@@ -2,9 +2,8 @@ import type { GroupBase, OptionBase, OptionProps } from 'chakra-react-select';
 import { chakraComponents } from 'chakra-react-select';
 import type { ReactNode } from 'react';
 
+import { Flex, Text } from '../../chakra-re-exports';
 import { typedMemo } from '../../util';
-import { Flex } from '../flex';
-import { Text } from '../text';
 import { Tooltip } from '../tooltip';
 export type {} from 'react-select/base';
 

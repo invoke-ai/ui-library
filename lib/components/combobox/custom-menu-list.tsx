@@ -6,8 +6,8 @@ import { useOverlayScrollbars } from 'overlayscrollbars-react';
 import type { PropsWithChildren } from 'react';
 import { useEffect, useRef, useState } from 'react';
 
+import { Box } from '../../chakra-re-exports';
 import { typedMemo } from '../../util';
-import { Box } from '../box';
 import { overlayScrollbarsParams } from '../shared/overlayscrollbars';
 import type { ComboboxOption } from './custom-option';
 

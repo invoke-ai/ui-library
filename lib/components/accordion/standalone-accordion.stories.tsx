@@ -1,8 +1,8 @@
 import { useDisclosure } from '@chakra-ui/react';
 import type { Meta, StoryObj } from '@storybook/react';
 
+import { Text } from '../../chakra-re-exports';
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from '../tabs';
-import { Text } from '../text';
 import type { StandaloneAccordionProps } from './standalone-accordion';
 import { StandaloneAccordion } from './standalone-accordion';
 

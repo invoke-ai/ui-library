@@ -1,6 +1,6 @@
 import { PiArrowSquareOutBold } from 'react-icons/pi';
 
-import { Icon } from '..';
+import { Icon } from '../../chakra-re-exports';
 import type { LinkProps } from '.';
 import { Link } from '.';
 

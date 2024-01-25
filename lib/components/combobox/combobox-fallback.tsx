@@ -1,6 +1,5 @@
+import { Flex, Text } from '../../chakra-re-exports';
 import { typedMemo } from '../../util';
-import { Flex } from '../flex';
-import { Text } from '../text';
 
 export type ComboboxFallbackProps = {
   label: string;

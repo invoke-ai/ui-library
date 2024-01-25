@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import type { SkeletonProps } from './wrapper';
-import { Skeleton } from './wrapper';
+import type { SkeletonProps } from '.';
+import { Skeleton } from '.';
 
 const meta: Meta<typeof Skeleton> = {
   title: 'Primitives/Skeleton',

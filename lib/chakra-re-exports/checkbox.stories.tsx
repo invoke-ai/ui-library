@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import type { CheckboxProps } from './wrapper';
-import { Checkbox } from './wrapper';
+import type { CheckboxProps } from '.';
+import { Checkbox } from '.';
 
 const meta: Meta<typeof Checkbox> = {
   title: 'Primitives/Checkbox',

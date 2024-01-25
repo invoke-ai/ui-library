@@ -2,7 +2,7 @@ import { AddIcon } from '@chakra-ui/icons';
 import { Flex } from '@chakra-ui/layout';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Heading } from '../heading';
+import { Heading } from '../../chakra-re-exports';
 import type { ButtonProps } from './button';
 import { Button } from './button';
 

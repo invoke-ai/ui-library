@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import type { ProgressProps } from './wrapper';
-import { Progress } from './wrapper';
+import type { ProgressProps } from '.';
+import { Progress } from '.';
 
 const meta: Meta<typeof Progress> = {
   title: 'Primitives/Progress',

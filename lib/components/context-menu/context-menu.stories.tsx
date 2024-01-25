@@ -2,8 +2,8 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { useCallback } from 'react';
 import { FaCopy, FaDownload, FaTrash } from 'react-icons/fa6';
 
+import { Text } from '../../chakra-re-exports';
 import { MenuItem, MenuList } from '../menu';
-import { Text } from '../text';
 import { ContextMenu } from './context-menu';
 
 const meta: Meta<typeof ContextMenu> = {

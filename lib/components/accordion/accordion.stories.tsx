@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Text } from '../text';
+import { Text } from '../../chakra-re-exports';
 import { AccordionButton } from './accordion-button';
 import type { AccordionProps } from './wrapper';
 import { Accordion, AccordionItem, AccordionPanel } from './wrapper';

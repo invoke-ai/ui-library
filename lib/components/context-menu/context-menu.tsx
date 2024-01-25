@@ -5,10 +5,10 @@ import type { ChakraProps, MenuButtonProps, MenuProps, PortalProps } from '@chak
 import { useDisclosure, useEventListener } from '@chakra-ui/react';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
+import { Portal } from '../../chakra-re-exports';
 import { useGlobalMenuClose } from '../../hooks';
 import { typedMemo } from '../../util';
 import { Menu, MenuButton } from '../menu';
-import { Portal } from '../portal';
 
 export interface ContextMenuProps<T extends HTMLElement = HTMLDivElement> {
   renderMenu: () => JSX.Element | null;

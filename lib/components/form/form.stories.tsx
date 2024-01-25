@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
 
-import { CompositeNumberInput } from '..';
+import { CompositeNumberInput } from '../number-input/composite-number-input';
 import { CompositeSlider } from '../slider/composite-slider';
 import { FormHelperText } from '.';
 import type { FormControlProps } from './form-control';

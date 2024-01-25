@@ -5,7 +5,8 @@ import { Fragment, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { PiArrowCounterClockwiseBold, PiCaretDownBold } from 'react-icons/pi';
 
-import { Flex, IconButton, Text, Tooltip } from '..';
+import { Flex, Text } from '../../chakra-re-exports';
+import { IconButton, Tooltip } from '..';
 
 const isItemDisabledDefault: ArkSelectProps<Item>['isItemDisabled'] = (item: Item) =>
   item.isDisabled === undefined ? false : item.isDisabled;

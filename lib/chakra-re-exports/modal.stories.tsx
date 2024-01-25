@@ -1,8 +1,8 @@
 import { useDisclosure } from '@chakra-ui/react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Button } from '../button';
-import { Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay } from './wrapper';
+import { Button } from '../components/button';
+import { Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay } from '.';
 
 const meta: Meta<typeof Modal> = {
   title: 'Primitives/Modal',

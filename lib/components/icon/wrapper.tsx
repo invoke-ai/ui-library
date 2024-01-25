@@ -1,2 +1,0 @@
-export type { IconProps } from '@chakra-ui/react';
-export { Icon } from '@chakra-ui/react';

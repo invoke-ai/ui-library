@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import type { EditableProps } from './wrapper';
-import { Editable, EditableInput, EditablePreview } from './wrapper';
+import type { EditableProps } from '.';
+import { Editable, EditableInput, EditablePreview } from '.';
 
 const meta: Meta<typeof Editable> = {
   title: 'Primitives/Editable',
