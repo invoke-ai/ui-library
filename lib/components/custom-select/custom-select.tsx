@@ -95,7 +95,7 @@ export const CustomSelect = (props: CustomSelectProps) => {
 
   const onValueChange = useCallback(
     (e: SelectValueChangeDetails) => {
-      onChange(e.items.length ? e.items[0] : null);
+      onChange(e.items[0] ?? null);
     },
     [onChange]
   );

@@ -68,7 +68,7 @@ const dessertItems: Item[] = [
 ];
 
 const Component = () => {
-  const [selectedItem, setSelectedItem] = useState<Item | null>(dessertItems[0]);
+  const [selectedItem, setSelectedItem] = useState<Item | null>(dessertItems[0] ?? null);
 
   const onChange = useCallback((selectedItem: Item | null) => {
     setSelectedItem(selectedItem);
