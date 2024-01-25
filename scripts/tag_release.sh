@@ -1,9 +1,8 @@
 #!/bin/bash
 
-if [[ ! $1 =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-  echo "Tag must match v1.2.3"
-  exit 1
-fi
+# Parse version from package.json
+version=$(grep -oP '"version": "\K(.*?)(?=")' package.json)
 
-git tag $1
-git push origin $1
+tag="v$version"
+git tag $tag
+git push origin $tag
