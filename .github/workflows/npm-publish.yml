@@ -27,8 +27,6 @@ jobs:
         with:
           node-version-file: '.nvmrc'
           cache: pnpm
-          registry-url: 'https://npm.pkg.github.com'
-          scope: '@invoke-ai'
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
