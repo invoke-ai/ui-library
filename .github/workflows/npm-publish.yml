@@ -12,13 +12,16 @@ permissions:
 
 jobs:
   build:
+    # allow failure publishing to npm for now
+    # TODO: remove this once we have a token
+    continue-on-error: ${{ matrix.registry.url == 'https://registry.npmjs.org' }}
     strategy:
       matrix:
         registry:
-          # - url: https://registry.npmjs.org
-          #   token: ${{ secrets.NPM_TOKEN }}
+          - url: https://registry.npmjs.org
+            token_secret: NPM_TOKEN
           - url: https://npm.pkg.github.com
-            token: ${{ secrets.GITHUB_TOKEN }}
+            token_secret: GITHUB_TOKEN
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -41,8 +44,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile --ignore-scripts
         env:
-          # NODE_AUTH_TOKEN: ${{ matrix.registry.token }}
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets[matrix.registry.token_secret] }}
 
       - name: Version bump
         # only if manual workflow dispatch and not on a tag
@@ -58,4 +60,4 @@ jobs:
           fi
           pnpm publish --access public --no-git-checks $FLAGS
         env:
-          NODE_AUTH_TOKEN: ${{ matrix.registry.token }}
+          NODE_AUTH_TOKEN: ${{ secrets[matrix.registry.token_secret] }}
