@@ -10,6 +10,7 @@ export * from './form';
 export * from './input';
 export * from './link';
 export * from './menu';
+export * from './number-input';
 export * from './slider';
 export * from './tabs';
 export * from './textarea';
