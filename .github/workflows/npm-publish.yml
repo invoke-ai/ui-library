@@ -12,6 +12,13 @@ permissions:
 
 jobs:
   build:
+    strategy:
+      matrix:
+        registry:
+          # - url: https://registry.npmjs.org
+          #   token: ${{ secrets.NPM_TOKEN }}
+          - url: https://npm.pkg.github.com
+            token: ${{ secrets.GITHUB_TOKEN }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -28,6 +35,8 @@ jobs:
         with:
           node-version-file: '.nvmrc'
           cache: pnpm
+          registry-url: ${{ matrix.registry.url }}
+          scope: "@invoke-ai"
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -36,4 +45,4 @@ jobs:
         shell: bash
         run: pnpm publish --access public --no-git-checks
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ matrix.registry.token }}
