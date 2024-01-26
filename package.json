@@ -1,5 +1,5 @@
 {
-  "name": "@invoke-ai/ui",
+  "name": "@invoke-ai/ui-library",
   "version": "0.0.16",
   "description": "UI Components for Invoke's applications.",
   "directories": {
@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/invoke-ai/ui.git"
+    "url": "git+https://github.com/invoke-ai/ui-library.git"
   },
   "publishConfig": {
     "access": "public",
@@ -16,9 +16,9 @@
   "author": "Invoke",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/invoke-ai/ui/issues"
+    "url": "https://github.com/invoke-ai/ui-library/issues"
   },
-  "homepage": "https://github.com/invoke-ai/ui#readme",
+  "homepage": "https://github.com/invoke-ai/ui-library#readme",
   "type": "module",
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
