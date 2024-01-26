@@ -39,7 +39,7 @@ jobs:
           scope: "@invoke-ai"
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --frozen-lockfile --ignore-scripts
         env:
           # NODE_AUTH_TOKEN: ${{ matrix.registry.token }}
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
