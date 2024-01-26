@@ -41,8 +41,18 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Version bump
+        # only if manual workflow dispatch and not on a tag
+        if: github.event_name == 'workflow_dispatch' && !startsWith(github.ref, 'refs/tags/')
+        run: npm version prepatch --preid=$(git rev-parse --short HEAD) --no-git-tag-version
+
       - name: Publish
         shell: bash
-        run: pnpm publish --access public --no-git-checks
+        run: |
+          # manual workflow dispatches are tagged as pre-release - all releases should go through proper tagging process
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            FLAGS="--tag pre"
+          fi
+          pnpm publish --access public --no-git-checks $FLAGS
         env:
           NODE_AUTH_TOKEN: ${{ matrix.registry.token }}
