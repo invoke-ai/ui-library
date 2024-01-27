@@ -77,11 +77,11 @@ dependencies:
 
 devDependencies:
   '@invoke-ai/eslint-config-react':
-    specifier: ^0.0.8
-    version: 0.0.8(@typescript-eslint/eslint-plugin@6.19.1)(@typescript-eslint/parser@6.19.1)(eslint-config-prettier@9.1.0)(eslint-plugin-i18next@6.0.3)(eslint-plugin-import@2.29.1)(eslint-plugin-react-hooks@4.6.0)(eslint-plugin-react-refresh@0.4.5)(eslint-plugin-react@7.33.2)(eslint-plugin-simple-import-sort@10.0.0)(eslint-plugin-storybook@0.6.15)(eslint-plugin-unused-imports@3.0.0)(eslint@8.56.0)
+    specifier: ^0.0.11
+    version: 0.0.11(@typescript-eslint/eslint-plugin@6.19.1)(@typescript-eslint/parser@6.19.1)(eslint-config-prettier@9.1.0)(eslint-plugin-i18next@6.0.3)(eslint-plugin-import@2.29.1)(eslint-plugin-react-hooks@4.6.0)(eslint-plugin-react-refresh@0.4.5)(eslint-plugin-react@7.33.2)(eslint-plugin-simple-import-sort@10.0.0)(eslint-plugin-storybook@0.6.15)(eslint-plugin-unused-imports@3.0.0)(eslint@8.56.0)
   '@invoke-ai/prettier-config-react':
-    specifier: ^0.0.3
-    version: 0.0.3(prettier@3.2.4)
+    specifier: ^0.0.6
+    version: 0.0.6(prettier@3.2.4)
   '@storybook/addon-essentials':
     specifier: ^7.6.10
     version: 7.6.10(@types/react-dom@18.2.18)(@types/react@18.2.48)(react-dom@18.2.0)(react@18.2.0)
@@ -3281,8 +3281,8 @@ packages:
       '@swc/helpers': 0.5.3
     dev: false
 
-  /@invoke-ai/eslint-config-react@0.0.8(@typescript-eslint/eslint-plugin@6.19.1)(@typescript-eslint/parser@6.19.1)(eslint-config-prettier@9.1.0)(eslint-plugin-i18next@6.0.3)(eslint-plugin-import@2.29.1)(eslint-plugin-react-hooks@4.6.0)(eslint-plugin-react-refresh@0.4.5)(eslint-plugin-react@7.33.2)(eslint-plugin-simple-import-sort@10.0.0)(eslint-plugin-storybook@0.6.15)(eslint-plugin-unused-imports@3.0.0)(eslint@8.56.0):
-    resolution: {integrity: sha512-IxaMSYgwsZV/LpaG+o1CF96mM+gbTj3JWKQbEgHCs5QLZ/eWJOjSmQ1Dz7OjWr52A5CAcbMJmc1uHowK5tT6WA==, tarball: https://npm.pkg.github.com/download/@invoke-ai/eslint-config-react/0.0.8/ee3d6efbcbd26ce5cd4fbd13c9a440fd216bb09d}
+  /@invoke-ai/eslint-config-react@0.0.11(@typescript-eslint/eslint-plugin@6.19.1)(@typescript-eslint/parser@6.19.1)(eslint-config-prettier@9.1.0)(eslint-plugin-i18next@6.0.3)(eslint-plugin-import@2.29.1)(eslint-plugin-react-hooks@4.6.0)(eslint-plugin-react-refresh@0.4.5)(eslint-plugin-react@7.33.2)(eslint-plugin-simple-import-sort@10.0.0)(eslint-plugin-storybook@0.6.15)(eslint-plugin-unused-imports@3.0.0)(eslint@8.56.0):
+    resolution: {integrity: sha512-To3m1qd1XMOkBYAenVT6Zjb1iTvSwetoJZrCITD4DHAtYu/3srhYVykJrNEjslCvz7AGDRtDDCczcQMOIwUJOQ==}
     peerDependencies:
       '@typescript-eslint/eslint-plugin': ^6.19.0
       '@typescript-eslint/parser': ^6.19.0
@@ -3311,8 +3311,8 @@ packages:
       eslint-plugin-unused-imports: 3.0.0(@typescript-eslint/eslint-plugin@6.19.1)(eslint@8.56.0)
     dev: true
 
-  /@invoke-ai/prettier-config-react@0.0.3(prettier@3.2.4):
-    resolution: {integrity: sha512-hnjS1plindk/AoSOpBVznWFmdfgjBgbXVuRDZELhxr6y2tF6ADZPst29vwqoNbJUS90b3Yojlz7hVSlJCTJc+w==, tarball: https://npm.pkg.github.com/download/@invoke-ai/prettier-config-react/0.0.3/d0244466e95bbea78a0b9de95256c60b48fb8939}
+  /@invoke-ai/prettier-config-react@0.0.6(prettier@3.2.4):
+    resolution: {integrity: sha512-qHE6GAw/Aka/8TLTN9U1U+8pxjaFe5irDv/uSgzqmrBR1rGiVyMp19pEficWRRt+03zYdquiiDjTmoabWQxY0Q==}
     peerDependencies:
       prettier: ^3.2.4
     dependencies:
