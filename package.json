@@ -9,10 +9,6 @@
     "type": "git",
     "url": "git+https://github.com/invoke-ai/ui-library.git"
   },
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://npm.pkg.github.com"
-  },
   "author": "Invoke",
   "license": "Apache-2.0",
   "bugs": {
