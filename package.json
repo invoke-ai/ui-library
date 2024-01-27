@@ -62,8 +62,8 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@invoke-ai/eslint-config-react": "^0.0.8",
-    "@invoke-ai/prettier-config-react": "^0.0.3",
+    "@invoke-ai/eslint-config-react": "^0.0.11",
+    "@invoke-ai/prettier-config-react": "^0.0.6",
     "@storybook/addon-essentials": "^7.6.10",
     "@storybook/addon-interactions": "^7.6.10",
     "@storybook/addon-links": "^7.6.10",
