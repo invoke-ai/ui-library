@@ -1,5 +1,6 @@
 import react from '@vitejs/plugin-react';
 import { resolve } from 'path';
+import { visualizer } from 'rollup-plugin-visualizer';
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
 
@@ -17,6 +18,7 @@ export default defineConfig({
         'lib/theme/layers.ts',
       ],
     }),
+    visualizer(),
   ],
   build: {
     lib: {
