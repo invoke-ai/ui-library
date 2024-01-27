@@ -12,9 +12,6 @@ permissions:
 
 jobs:
   build:
-    # allow failure publishing to npm for now
-    # TODO: remove this once we have a token
-    continue-on-error: ${{ matrix.registry.url == 'https://registry.npmjs.org' }}
     strategy:
       matrix:
         registry:
@@ -39,7 +36,7 @@ jobs:
           node-version-file: '.nvmrc'
           cache: pnpm
           registry-url: ${{ matrix.registry.url }}
-          scope: "@invoke-ai"
+          scope: '@invoke-ai'
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile --ignore-scripts
