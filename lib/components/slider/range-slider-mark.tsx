@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 import { typedMemo } from '../../util';
 import type { SliderMarkProps } from './slider-mark';
-import { sliderMarkAnimationConstants } from './slider-mark';
+import { sliderMarkStyles } from './slider-mark-styles';
 
 export type RangeSliderMarkProps = SliderMarkProps;
 
@@ -12,12 +12,12 @@ export const RangeSliderMark = typedMemo(({ value, label, index, total }: RangeS
     return (
       <ChakraRangeSliderMark
         as={motion.div}
-        initial={sliderMarkAnimationConstants.initialFirstLast}
-        animate={sliderMarkAnimationConstants.animateFirstLast}
-        exit={sliderMarkAnimationConstants.exitFirstLast}
+        initial={sliderMarkStyles.initialFirstLast}
+        animate={sliderMarkStyles.animateFirstLast}
+        exit={sliderMarkStyles.exitFirstLast}
         key={value}
         value={value}
-        sx={sliderMarkAnimationConstants.firstMarkStyle}
+        sx={sliderMarkStyles.firstMarkStyle}
       >
         {label}
       </ChakraRangeSliderMark>
@@ -28,12 +28,12 @@ export const RangeSliderMark = typedMemo(({ value, label, index, total }: RangeS
     return (
       <ChakraRangeSliderMark
         as={motion.div}
-        initial={sliderMarkAnimationConstants.initialFirstLast}
-        animate={sliderMarkAnimationConstants.animateFirstLast}
-        exit={sliderMarkAnimationConstants.exitFirstLast}
+        initial={sliderMarkStyles.initialFirstLast}
+        animate={sliderMarkStyles.animateFirstLast}
+        exit={sliderMarkStyles.exitFirstLast}
         key={value}
         value={value}
-        sx={sliderMarkAnimationConstants.lastMarkStyle}
+        sx={sliderMarkStyles.lastMarkStyle}
       >
         {label}
       </ChakraRangeSliderMark>
@@ -43,9 +43,9 @@ export const RangeSliderMark = typedMemo(({ value, label, index, total }: RangeS
   return (
     <ChakraRangeSliderMark
       as={motion.div}
-      initial={sliderMarkAnimationConstants.initialOther}
-      animate={sliderMarkAnimationConstants.animateOther}
-      exit={sliderMarkAnimationConstants.exitOther}
+      initial={sliderMarkStyles.initialOther}
+      animate={sliderMarkStyles.animateOther}
+      exit={sliderMarkStyles.exitOther}
       key={value}
       value={value}
     >
