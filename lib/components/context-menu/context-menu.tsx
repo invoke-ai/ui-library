@@ -33,7 +33,9 @@ export const ContextMenu = typedMemo(<T extends HTMLElement = HTMLElement>(props
         onClose();
         return;
       }
-      if (targetRef.current?.contains(e.target as HTMLElement) || e.target === targetRef.current) {
+      // `contains()` requires the arg to be Node. Technically it can be any EventTarget, but it won't cause an error.
+      /* eslint-disable-next-line @typescript-eslint/consistent-type-assertions */
+      if (targetRef.current?.contains(e.target as Node) || e.target === targetRef.current) {
         // clear pending delayed open
         window.clearTimeout(timeoutRef.current);
         e.preventDefault();
