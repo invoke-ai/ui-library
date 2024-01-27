@@ -4,12 +4,12 @@ const getSpaceValues = (fractionOfDefault = 0.75) => {
     80, 96,
   ];
 
-  const spaceObject = spaceKeys.reduce(
+  const spaceObject = spaceKeys.reduce<Record<string, string>>(
     (acc, val) => {
       acc[val] = `${val * (0.25 * fractionOfDefault)}rem`;
       return acc;
     },
-    { px: '1px' } as Record<string, string>
+    { px: '1px' }
   );
 
   return spaceObject;

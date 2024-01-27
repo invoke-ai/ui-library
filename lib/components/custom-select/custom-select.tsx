@@ -89,7 +89,7 @@ export const CustomSelect = (props: CustomSelectProps) => {
   const value = useMemo(() => (selectedItem ? [selectedItem.value] : []), [selectedItem]);
 
   const groupedItems = useMemo<ItemGroup[]>(() => {
-    const _groupedItems = items.reduce(groupedItemsReducer, [] as ItemGroup[]);
+    const _groupedItems = items.reduce<ItemGroup[]>(groupedItemsReducer, []);
     _groupedItems.sort(groupSortFunc);
     return _groupedItems;
   }, [groupSortFunc, items]);
