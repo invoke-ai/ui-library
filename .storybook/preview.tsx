@@ -1,8 +1,9 @@
+import { ChakraProvider, DarkMode, extendTheme } from '@chakra-ui/react';
 import type { Preview } from '@storybook/react';
 import React from 'react';
-import { ChakraProvider, DarkMode, extendTheme } from '@chakra-ui/react';
+import { Flex } from '../lib/chakra-re-exports';
 import { theme as invokeTheme } from '../lib/theme/';
-import { Flex } from '../lib/components/';
+
 import '@fontsource-variable/inter';
 
 const theme = extendTheme(invokeTheme);
