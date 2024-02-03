@@ -277,3 +277,7 @@ export {
   extendTheme,
   forwardRef,
 } from '@chakra-ui/react';
+
+// Animation
+export type { Keyframes } from '@emotion/react';
+export { keyframes } from '@emotion/react';
