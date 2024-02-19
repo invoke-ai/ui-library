@@ -73,6 +73,7 @@ export const customSelectTheme: ReturnType<typeof helpers.defineMultiStyleConfig
       borderRadius: 'base',
       maxH: 96,
       overflowY: 'scroll',
+      shadow: 'dark-lg',
       "&[data-state='open']": {
         //
       },

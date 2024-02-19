@@ -1,6 +1,7 @@
 import type { SelectProps as ArkSelectProps } from '@ark-ui/react';
 import { Portal, Select } from '@ark-ui/react';
 import { Divider, Icon, useFormControl, useMultiStyleConfig } from '@chakra-ui/react';
+import { isNil } from 'lodash-es';
 import { Fragment, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { PiArrowCounterClockwiseBold, PiCaretDownBold } from 'react-icons/pi';
@@ -9,7 +10,7 @@ import { Flex, Text } from '../../chakra-re-exports';
 import { IconButton, Tooltip } from '..';
 
 const isItemDisabledDefault: ArkSelectProps<Item>['isItemDisabled'] = (item: Item) =>
-  item.isDisabled === undefined ? false : item.isDisabled;
+  isNil(item.isDisabled) ? false : item.isDisabled;
 const itemToStringDefault: ArkSelectProps<Item>['itemToString'] = (item: Item) => item.label;
 const itemToValueDefault: ArkSelectProps<Item>['itemToValue'] = (item: Item) => item.value;
 const positioningDefault: ArkSelectProps<Item>['positioning'] = { sameWidth: true, gutter: 4 };
@@ -26,13 +27,13 @@ const groupSortFuncDefault = (a: ItemGroup, b: ItemGroup) => {
 export type Item = {
   label: string;
   value: string;
-  description?: string;
-  group?: string;
-  isDisabled?: boolean;
+  description?: string | null;
+  group?: string | null;
+  isDisabled?: boolean | null;
 };
 
 export type ItemGroup = {
-  group?: string;
+  group?: string | null;
   items: Item[];
 };
 
@@ -52,6 +53,7 @@ export type CustomSelectProps = Omit<
   placeholder?: string;
   onChange: (selectedItem: Item | null) => void;
   groupSortFunc?: (a: ItemGroup, b: ItemGroup) => number;
+  descNoOfLines?: number;
 };
 
 const groupedItemsReducer = (acc: ItemGroup[], val: Item, _idx: number, _arr: Item[]) => {
@@ -82,6 +84,7 @@ export const CustomSelect = (props: CustomSelectProps) => {
     groupSortFunc = groupSortFuncDefault,
     invalid,
     disabled,
+    descNoOfLines = 1,
     ...rest
   } = props;
   const { t } = useTranslation();
@@ -123,8 +126,8 @@ export const CustomSelect = (props: CustomSelectProps) => {
         itemToString={itemToString}
         itemToValue={itemToValue}
         positioning={positioning}
-        disabled={inputProps.disabled}
-        invalid={inputProps['aria-invalid']}
+        disabled={inputProps.disabled ?? false}
+        invalid={inputProps['aria-invalid'] ?? false}
         {...rest}
         asChild
       >
@@ -159,8 +162,7 @@ export const CustomSelect = (props: CustomSelectProps) => {
                 <Flex __css={styles.content}>
                   {groupedItems.map((itemGroup, i) => (
                     <Fragment key={`${itemGroup.group}_${i}`}>
-                      <ItemGroupComponent itemGroup={itemGroup} />
-                      {/* {i < groupedItems.length - 1 && <Divider pt={1} />} */}
+                      <ItemGroupComponent itemGroup={itemGroup} descNoOfLines={descNoOfLines} />
                     </Fragment>
                   ))}
                 </Flex>
@@ -175,14 +177,15 @@ export const CustomSelect = (props: CustomSelectProps) => {
 
 type ItemGroupComponentProps = {
   itemGroup: ItemGroup;
+  descNoOfLines: number;
 };
 
-const ItemGroupComponent = ({ itemGroup }: ItemGroupComponentProps) => {
+const ItemGroupComponent = ({ itemGroup, descNoOfLines }: ItemGroupComponentProps) => {
   if (!itemGroup.group) {
     return (
       <>
         {itemGroup.items.map((item) => (
-          <SelectItem key={item.value} item={item} />
+          <SelectItem key={item.value} item={item} descNoOfLines={descNoOfLines} />
         ))}
       </>
     );
@@ -200,7 +203,7 @@ const ItemGroupComponent = ({ itemGroup }: ItemGroupComponentProps) => {
           </Select.ItemGroupLabel>
         )}
         {itemGroup.items.map((item) => (
-          <SelectItem key={item.value} item={item} />
+          <SelectItem key={item.value} item={item} descNoOfLines={descNoOfLines} />
         ))}
       </Flex>
     </Select.ItemGroup>
@@ -209,9 +212,10 @@ const ItemGroupComponent = ({ itemGroup }: ItemGroupComponentProps) => {
 
 type SelectItemProps = {
   item: Item;
+  descNoOfLines: number;
 };
 
-const SelectItem = ({ item }: SelectItemProps) => {
+const SelectItem = ({ item, descNoOfLines }: SelectItemProps) => {
   return (
     <Select.Item item={item} asChild>
       <Flex>
@@ -219,7 +223,7 @@ const SelectItem = ({ item }: SelectItemProps) => {
           <Flex>
             <Text data-part="item-text-label">{item.label}</Text>
             {item?.description && (
-              <Text data-part="item-text-description" noOfLines={1}>
+              <Text data-part="item-text-description" noOfLines={descNoOfLines}>
                 {item?.description}
               </Text>
             )}

@@ -67,6 +67,13 @@ const dessertItems: Item[] = [
   },
 ];
 
+for (let i = 0; i < 100; i++) {
+  dessertItems.push({
+    value: `item-${i}`,
+    label: `Item ${i}`,
+  });
+}
+
 const Component = () => {
   const [selectedItem, setSelectedItem] = useState<Item | null>(dessertItems[0] ?? null);
 
@@ -77,7 +84,13 @@ const Component = () => {
   return (
     <FormControl w="20rem" orientation="vertical">
       <FormLabel>Framework</FormLabel>
-      <CustomSelect items={dessertItems} selectedItem={selectedItem} onChange={onChange} isClearable />
+      <CustomSelect
+        items={dessertItems}
+        selectedItem={selectedItem}
+        onChange={onChange}
+        descNoOfLines={3}
+        isClearable
+      />
     </FormControl>
   );
 };
