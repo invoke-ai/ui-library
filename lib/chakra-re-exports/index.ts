@@ -162,7 +162,7 @@ export { CircularProgress, Progress } from '@chakra-ui/react';
 
 // Radio
 export type { RadioGroupProps, RadioProps } from '@chakra-ui/react';
-export { Radio, RadioGroup } from '@chakra-ui/react';
+export { Radio, RadioGroup, useRadio, useRadioGroup } from '@chakra-ui/react';
 
 // Select
 export type { SelectProps } from '@chakra-ui/react';
