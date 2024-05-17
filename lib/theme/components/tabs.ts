@@ -99,14 +99,34 @@ const collapse = definePartsStyle(() => ({
   },
 }));
 
+const enclosed = definePartsStyle(() => ({
+  tab: {
+    fontWeight: 'semibold',
+    fontSize: 'sm',
+    color: 'base.300',
+    _hover: {
+      color: 'base.100',
+    },
+    _selected: {
+      borderColor: 'base.800',
+      borderBottomColor: 'base.900',
+      color: 'invokeBlue.300',
+      _hover: {
+        color: 'invokeBlue.100',
+      },
+    },
+  },
+}));
+
 export const tabsTheme = defineMultiStyleConfig({
   variants: {
     line,
     appTabs,
     collapse,
+    enclosed,
   },
   defaultProps: {
-    variant: 'line',
+    variant: 'enclosed',
     colorScheme: 'blue',
   },
 });

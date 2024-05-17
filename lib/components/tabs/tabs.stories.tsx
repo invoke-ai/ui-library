@@ -10,7 +10,7 @@ const meta: Meta<typeof Tabs> = {
   component: Tabs,
   args: {
     colorScheme: 'base',
-    variant: 'collapse',
+    variant: 'enclosed',
   },
 };
 
