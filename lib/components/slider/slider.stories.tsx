@@ -39,5 +39,6 @@ export const Default: Story = {
     fineStep: 0.1,
     withThumbTooltip: true,
     formatValue: (v: number) => `${v} eggs`,
+    alwaysShowMarks: false,
   },
 };
