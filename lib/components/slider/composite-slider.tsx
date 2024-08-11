@@ -58,6 +58,10 @@ export type CompositeSliderProps = Omit<SliderProps, 'value'> & {
    * Whether to show a tooltip over the slider thumb
    */
   withThumbTooltip?: boolean;
+  /**
+   * Whether or not to always show marks. Defaults to false, only showing marks when the slider is hovered.
+   */
+  alwaysShowMarks?: boolean;
 };
 
 const defaultFormatValue = (v: number) => v.toString();
@@ -76,6 +80,7 @@ export const CompositeSlider: ComponentWithAs<ComponentWithAs<'div', SliderProps
       formatValue = defaultFormatValue,
       marks: _marks,
       withThumbTooltip: withTooltip = false,
+      alwaysShowMarks = false,
       ...sliderProps
     } = props;
     const [isMouseOverSlider, setIsMouseOverSlider] = useState(false);
@@ -129,7 +134,7 @@ export const CompositeSlider: ComponentWithAs<ComponentWithAs<'div', SliderProps
       >
         <AnimatePresence>
           {marks?.length &&
-            (isMouseOverSlider || isChanging) &&
+            (isMouseOverSlider || isChanging || alwaysShowMarks) &&
             marks.map((m, i) => (
               <SliderMark key={m.value} value={m.value} label={m.label} index={i} total={marks.length} />
             ))}
