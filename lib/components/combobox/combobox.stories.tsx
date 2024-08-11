@@ -27,6 +27,69 @@ const COMBOBOX_STORY_OPTIONS: ComboboxOption[] = [
       'Vanilla is a popular flavor derived from orchids of the genus Vanilla. It is used in a variety of desserts and beverages for its sweet and creamy flavor.',
     icon: '🍦',
   },
+  {
+    value: 'orange',
+    label: 'Orange',
+    description:
+      'Oranges are a type of low calorie, highly nutritious citrus fruit. As part of a healthful and varied diet, oranges contribute to strong, clear skin and can help lower a person’s risk of many conditions.',
+    icon: '🍊',
+  },
+  {
+    value: 'banana',
+    label: 'Banana',
+    description:
+      'Bananas are a popular fruit that are high in key nutrients. They are a convenient snack and are a staple ingredient in many recipes.',
+    icon: '🍌',
+  },
+  {
+    value: 'apple',
+    label: 'Apple',
+    description:
+      'Apples are a popular fruit, containing antioxidants, vitamins, dietary fiber, and a range of other nutrients. Due to their varied nutrient content, they may help prevent several health conditions.',
+    icon: '🍎',
+  },
+  {
+    value: 'grapes',
+    label: 'Grapes',
+    description:
+      'Grapes are a good source of fiber, potassium, and a range of vitamins and other minerals. Grapes are suitable for people with diabetes, as long as they are accounted for in their meal plan.',
+    icon: '🍇',
+  },
+  {
+    value: 'watermelon',
+    label: 'Watermelon',
+    description:
+      'Watermelon is a delicious and refreshing fruit that’s also good for you. It contains only 46 calories per cup but is high in vitamin C, vitamin A and many healthy plant compounds.',
+    icon: '🍉',
+  },
+  {
+    value: 'pear',
+    label: 'Pear',
+    description:
+      'Pears are a sweet fruit with a number of health benefits. They are high in fiber, contain antioxidants, and are an excellent source of vitamin C.',
+    icon: '🍐',
+  },
+  {
+    value: 'peach',
+    label: 'Peach',
+    description:
+      'Peaches are a sweet, juicy fruit that can be eaten on their own or added to a variety of dishes. They are high in vitamins A and C and fiber.',
+    icon: '🍑',
+  },
+  {
+    value: 'pineapple',
+    label: 'Pineapple',
+    description:
+      'Pineapple is a tropical fruit available in any grocery store and a staple in many homes around the world. It’s rich in vitamins, enzymes and antioxidants.',
+    icon: '🍍',
+  },
+  {
+    value: 'mango',
+    label: 'Mango',
+    description:
+      'Mangoes are a tropical fruit from the drupe family. They are native to India, but now grown in many tropical and subtropical regions.',
+    icon: '🥭',
+  },
 ];
 
 const meta: Meta<typeof Combobox> = {
