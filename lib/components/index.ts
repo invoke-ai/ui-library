@@ -4,7 +4,6 @@ export * from './badge';
 export * from './button';
 export * from './combobox';
 export * from './context-menu';
-export * from './custom-select';
 export * from './expander';
 export * from './form';
 export * from './input';
