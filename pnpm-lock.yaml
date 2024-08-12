@@ -54,11 +54,11 @@ dependencies:
     specifier: ^0.11.2
     version: 0.11.2
   overlayscrollbars:
-    specifier: ^2.10.0
-    version: 2.10.0
+    specifier: 2.7.3
+    version: 2.7.3
   overlayscrollbars-react:
     specifier: ^0.5.6
-    version: 0.5.6(overlayscrollbars@2.10.0)(react@18.3.1)
+    version: 0.5.6(overlayscrollbars@2.7.3)(react@18.3.1)
   react:
     specifier: ^18.2.0
     version: 18.3.1
@@ -3095,11 +3095,17 @@ packages:
       '@floating-ui/utils': 0.2.1
     dev: false
 
+  /@floating-ui/core@1.6.7:
+    resolution: {integrity: sha512-yDzVT/Lm101nQ5TCVeK65LtdN7Tj4Qpr9RTXJ2vPFLqtLxwOrpoxAHAJI8J3yYWUc40J0BDBheaitK5SJmno2g==}
+    dependencies:
+      '@floating-ui/utils': 0.2.7
+    dev: false
+
   /@floating-ui/dom@1.5.4:
     resolution: {integrity: sha512-jByEsHIY+eEdCjnTVu+E3ephzTOzkQ8hgUfGwos+bg7NlH33Zc5uO+QHz1mrQUOgIKKDD1RtS201P9NvAfq3XQ==}
     dependencies:
-      '@floating-ui/core': 1.6.0
-      '@floating-ui/utils': 0.2.1
+      '@floating-ui/core': 1.6.7
+      '@floating-ui/utils': 0.2.7
     dev: false
 
   /@floating-ui/dom@1.6.0:
@@ -3111,6 +3117,10 @@ packages:
 
   /@floating-ui/utils@0.2.1:
     resolution: {integrity: sha512-9TANp6GPoMtYzQdt54kfAyMmz1+osLlXdg2ENroU7zzrtflTLrrC/lgrIfaSe+Wu0b89GKccT7vxXA0MoAIO+Q==}
+    dev: false
+
+  /@floating-ui/utils@0.2.7:
+    resolution: {integrity: sha512-X8R8Oj771YRl/w+c1HqAC1szL8zWQRwFvgDwT129k9ACdBoud/+/rX9V0qiMl6LWUdP9voC2nDVZYPMQQsb6eA==}
     dev: false
 
   /@fontsource-variable/inter@5.0.16:
@@ -3137,22 +3147,16 @@ packages:
     resolution: {integrity: sha512-6EwiSjwWYP7pTckG6I5eyFANjPhmPjUX9JRLUSfNPC7FX7zK9gyZAfUEaECL6ALTpGX5AjnBq3C9XmVWPitNpw==}
     dev: true
 
-  /@internationalized/date@3.5.1:
-    resolution: {integrity: sha512-LUQIfwU9e+Fmutc/DpRTGXSdgYZLBegi4wygCWDSVmUdLTaMHsQyASDiJtREwanwKuQLq0hY76fCJ9J/9I2xOQ==}
-    dependencies:
-      '@swc/helpers': 0.5.3
-    dev: false
-
   /@internationalized/date@3.5.5:
     resolution: {integrity: sha512-H+CfYvOZ0LTJeeLOqm19E3uj/4YjrmOFtBufDHPfvtI80hFAMqtrp7oCACpe4Cil5l8S0Qu/9dYfZc/5lY8WQQ==}
     dependencies:
       '@swc/helpers': 0.5.12
     dev: false
 
-  /@internationalized/number@3.5.0:
-    resolution: {integrity: sha512-ZY1BW8HT9WKYvaubbuqXbbDdHhOUMfE2zHHFJeTppid0S+pc8HtdIxFxaYMsGjCb4UsF+MEJ4n2TfU7iHnUK8w==}
+  /@internationalized/number@3.5.3:
+    resolution: {integrity: sha512-rd1wA3ebzlp0Mehj5YTuTI50AQEx80gWFyHcQu+u91/5NgdwBecO8BH6ipPfE+lmQ9d63vpB3H9SHoIUiupllw==}
     dependencies:
-      '@swc/helpers': 0.5.3
+      '@swc/helpers': 0.5.12
     dev: false
 
   /@invoke-ai/eslint-config-react@0.0.14(eslint@8.57.0)(prettier@3.3.3)(typescript@5.5.4):
@@ -3993,12 +3997,6 @@ packages:
       tslib: 2.6.3
     dev: false
 
-  /@swc/helpers@0.5.3:
-    resolution: {integrity: sha512-FaruWX6KdudYloq1AHD/4nU+UsMTdNE8CKyrseXWEcgjDAbvkwJg2QGPAnfIJLIWsjZOSPLOAykK6fuYp4vp4A==}
-    dependencies:
-      tslib: 2.6.2
-    dev: false
-
   /@testing-library/dom@10.1.0:
     resolution: {integrity: sha512-wdsYKy5zupPyLCW2Je5DLHSxSfbIp6h80WoHOQc+RPtmPGA52O9x5MJEkv92Sjonpq+poOAtUKhh1kBGAXBrNA==}
     engines: {node: '>=18'}
@@ -4728,10 +4726,10 @@ packages:
   /@zag-js/date-picker@0.32.1:
     resolution: {integrity: sha512-n/hYmF+/R4+NuyfPRzCgeuLT6LJihKSuKzK29STPWy3sC/tBBHiqhNv1/4UKbatHUJXdBW2XF+N8Rw08RffcFQ==}
     dependencies:
-      '@internationalized/date': 3.5.1
+      '@internationalized/date': 3.5.5
       '@zag-js/anatomy': 0.32.1
       '@zag-js/core': 0.32.1
-      '@zag-js/date-utils': 0.32.1(@internationalized/date@3.5.1)
+      '@zag-js/date-utils': 0.32.1(@internationalized/date@3.5.5)
       '@zag-js/dismissable': 0.32.1
       '@zag-js/dom-event': 0.32.1
       '@zag-js/dom-query': 0.32.1
@@ -4741,14 +4739,6 @@ packages:
       '@zag-js/text-selection': 0.32.1
       '@zag-js/types': 0.32.1
       '@zag-js/utils': 0.32.1
-    dev: false
-
-  /@zag-js/date-utils@0.32.1(@internationalized/date@3.5.1):
-    resolution: {integrity: sha512-dbBDRSVr5pRUw3rXndyGuSshZiWqQI5JQO4D2KIFGkXzorj6WzoOpcO910Z7AdM/9cCAMpCjUrka8d8o9BpJBg==}
-    peerDependencies:
-      '@internationalized/date': '>=3.0.0'
-    dependencies:
-      '@internationalized/date': 3.5.1
     dev: false
 
   /@zag-js/date-utils@0.32.1(@internationalized/date@3.5.5):
@@ -4899,7 +4889,7 @@ packages:
   /@zag-js/number-input@0.32.1:
     resolution: {integrity: sha512-atyIOvoMITb4hZtQym7yD6I7grvPW83UeMFO8hCQg3HWwd2zR4+63mouWuyMoWb4QrzVFRVQBaU8OG5xGlknEw==}
     dependencies:
-      '@internationalized/number': 3.5.0
+      '@internationalized/number': 3.5.3
       '@zag-js/anatomy': 0.32.1
       '@zag-js/core': 0.32.1
       '@zag-js/dom-event': 0.32.1
@@ -8138,18 +8128,18 @@ packages:
       wcwidth: 1.0.1
     dev: true
 
-  /overlayscrollbars-react@0.5.6(overlayscrollbars@2.10.0)(react@18.3.1):
+  /overlayscrollbars-react@0.5.6(overlayscrollbars@2.7.3)(react@18.3.1):
     resolution: {integrity: sha512-E5To04bL5brn9GVCZ36SnfGanxa2I2MDkWoa4Cjo5wol7l+diAgi4DBc983V7l2nOk/OLJ6Feg4kySspQEGDBw==}
     peerDependencies:
       overlayscrollbars: ^2.0.0
       react: '>=16.8.0'
     dependencies:
-      overlayscrollbars: 2.10.0
+      overlayscrollbars: 2.7.3
       react: 18.3.1
     dev: false
 
-  /overlayscrollbars@2.10.0:
-    resolution: {integrity: sha512-diNMeEafWTE0A4GJfwRpdBp2rE/BEvrhptBdBcDu8/UeytWcdCy9Td8tZWnztJeJ26f8/uHCWfPnPUC/dtgJdw==}
+  /overlayscrollbars@2.7.3:
+    resolution: {integrity: sha512-HmNo8RPtuGUjBhUbVpZBHH7SHci5iSAdg5zSekCZVsjzaM6z8MIr3F9RXrzf4y7m+fOY0nx0+y0emr1fqQmfoA==}
     dev: false
 
   /p-limit@2.3.0:
