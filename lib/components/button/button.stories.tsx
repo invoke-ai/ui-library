@@ -28,7 +28,7 @@ const meta: Meta<typeof Button> = {
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-const colorSchemes = ['base', 'invokeYellow', 'invokeRed', 'invokeGreen', 'invokeBlue'] as const;
+const colorSchemes = ['base', 'invokeYellow', 'invokeRed', 'invokeGreen', 'invokeBlue', 'invokePurple'] as const;
 const variants = ['solid', 'outline', 'ghost', 'link'] as const;
 const sizes = ['xs', 'sm', 'md', 'lg'] as const;
 

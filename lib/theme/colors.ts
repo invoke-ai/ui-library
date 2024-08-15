@@ -45,6 +45,8 @@ export type ThemeColors = {
   invokeGreenAlpha: PaletteSteps;
   invokeBlue: PaletteSteps;
   invokeBlueAlpha: PaletteSteps;
+  invokePurple: PaletteSteps;
+  invokePurpleAlpha: PaletteSteps;
 };
 
 const brandColors = {
@@ -58,6 +60,7 @@ const brandColors = {
   invokeBlue: { H: 200, S: 76 },
   invokeGreen: { H: 110, S: 69 },
   invokeRed: { H: 16, S: 92 },
+  invokePurple: { H: 260, S: 58 },
 };
 
 export const getArbitraryBaseColor = (lightness: number) =>
@@ -84,4 +87,6 @@ export const colors: ThemeColors = {
   invokeGreenAlpha: generateColorPalette(brandColors.invokeGreen.H, brandColors.invokeGreen.S, true),
   invokeRed: generateColorPalette(brandColors.invokeRed.H, brandColors.invokeRed.S),
   invokeRedAlpha: generateColorPalette(brandColors.invokeRed.H, brandColors.invokeRed.S, true),
+  invokePurple: generateColorPalette(brandColors.invokePurple.H, brandColors.invokePurple.S),
+  invokePurpleAlpha: generateColorPalette(brandColors.invokePurple.H, brandColors.invokePurple.S, true),
 };
