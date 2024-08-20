@@ -36,8 +36,8 @@ export type { CenterProps, SquareProps } from '@chakra-ui/react';
 export { Center, Circle, Square } from '@chakra-ui/react';
 
 // Checkbox
-export type { CheckboxProps } from '@chakra-ui/react';
-export { Checkbox } from '@chakra-ui/react';
+export type { CheckboxGroupProps, CheckboxProps } from '@chakra-ui/react';
+export { Checkbox, CheckboxGroup } from '@chakra-ui/react';
 
 // Close Button
 export type { CloseButtonProps } from '@chakra-ui/react';
