@@ -16,6 +16,8 @@ export interface ContextMenuProps<T extends HTMLElement = HTMLDivElement> {
   menuProps?: Omit<MenuProps, 'children'> & { children?: React.ReactNode };
   portalProps?: Omit<PortalProps, 'children'> & { children?: React.ReactNode };
   menuButtonProps?: MenuButtonProps;
+  stopPropagation?: boolean;
+  stopImmediatePropagation?: boolean;
 }
 
 export const ContextMenu = typedMemo(<T extends HTMLElement = HTMLElement>(props: ContextMenuProps<T>) => {
@@ -36,6 +38,12 @@ export const ContextMenu = typedMemo(<T extends HTMLElement = HTMLElement>(props
       // `contains()` requires the arg to be Node. Technically it can be any EventTarget, but it won't cause an error.
       /* eslint-disable-next-line @typescript-eslint/consistent-type-assertions */
       if (targetRef.current?.contains(e.target as Node) || e.target === targetRef.current) {
+        if (props.stopImmediatePropagation) {
+          e.stopImmediatePropagation();
+        }
+        if (props.stopPropagation) {
+          e.stopPropagation();
+        }
         // clear pending delayed open
         window.clearTimeout(timeoutRef.current);
         e.preventDefault();
@@ -54,7 +62,7 @@ export const ContextMenu = typedMemo(<T extends HTMLElement = HTMLElement>(props
       }
       lastPositionRef.current = [e.pageX, e.pageY];
     },
-    [onClose, onOpen]
+    [onClose, onOpen, props.stopImmediatePropagation, props.stopPropagation]
   );
 
   useEffect(
