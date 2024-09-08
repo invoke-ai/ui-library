@@ -1,8 +1,8 @@
 import { ChevronDownIcon, ChevronUpIcon } from '@chakra-ui/icons';
 import type { ComponentWithAs } from '@chakra-ui/react';
 import { forwardRef } from '@chakra-ui/react';
-import { clamp } from 'lodash-es';
-import type { FocusEventHandler } from 'react';
+import { clamp, isNumber } from 'lodash-es';
+import type { KeyboardEvent } from 'react';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 
 import { useShiftModifier } from '../../hooks/use-global-modifiers';
@@ -36,9 +36,12 @@ export type CompositeNumberInputProps = Omit<NumberInputProps, 'onChange' | 'min
    * The change handler
    */
   onChange: (v: number) => void;
+  /**
+   * An optional callback to constrain the value. For example, to round it to the nearest multiple of 8.
+   */
+  constrainValue?: (v: number) => number;
 };
 
-const isValidCharacter = (char: string): boolean => /^[0-9\-.]$/i.test(char);
 const roundToMultiple = (value: number, multiple: number): number => {
   return Math.round(value / multiple) * multiple;
 };
@@ -56,92 +59,84 @@ export const CompositeNumberInput: ComponentWithAs<
       fineStep: _fineStep,
       onChange: _onChange,
       defaultValue,
+      constrainValue,
       ...rest
     } = props;
+    const [localValue, setLocalValue] = useState(String(value));
 
-    const [valueAsString, setValueAsString] = useState<string>(String(value));
-    const [valueAsNumber, setValueAsNumber] = useState<number>(value);
+    useEffect(() => {
+      // We need to update the local value when the value changes from some external source
+      setLocalValue(String(value));
+    }, [value]);
+
     const shift = useShiftModifier();
-    const step = useMemo(() => (shift ? _fineStep ?? _step : _step), [shift, _fineStep, _step]);
+    const step = useMemo(() => (shift ? (_fineStep ?? _step) : _step), [shift, _fineStep, _step]);
     const isInteger = useMemo(() => Number.isInteger(_step) && Number.isInteger(_fineStep ?? 1), [_step, _fineStep]);
-
     const inputMode = useMemo(() => (isInteger ? 'numeric' : 'decimal'), [isInteger]);
-
     const precision = useMemo(() => (isInteger ? 0 : 3), [isInteger]);
 
-    const onChange = useCallback(
-      (valueAsString: string, valueAsNumber: number) => {
-        setValueAsString(valueAsString);
-        if (isNaN(valueAsNumber)) {
-          return;
-        }
-        setValueAsNumber(valueAsNumber);
-        _onChange(valueAsNumber);
-      },
-      [_onChange]
-    );
+    const onChange = useCallback((valueAsString: string) => {
+      setLocalValue(valueAsString);
+    }, []);
 
-    // This appears to be unnecessary? Cannot figure out what it did but leaving it here in case
-    // it was important.
-    // const onClickStepper = useCallback(
-    //   () => _onChange(Number(valueAsString)),
-    //   [_onChange, valueAsString]
-    // );
-
-    const onBlur: FocusEventHandler<HTMLInputElement> = useCallback(
-      (e) => {
-        if (!e.target.value) {
-          // If the input is empty, we set it to the minimum value
-          onChange(String(defaultValue ?? min), Number(defaultValue) ?? min);
-        } else {
-          // Otherwise, we round the value to the nearest multiple if integer, else 3 decimals
-          const roundedValue = isInteger
-            ? roundToMultiple(valueAsNumber, _fineStep ?? _step)
-            : Number(valueAsNumber.toFixed(precision));
-          // Clamp to min/max
-          const clampedValue = clamp(roundedValue, min, max);
-          onChange(String(clampedValue), clampedValue);
-        }
-      },
-      [_fineStep, _step, defaultValue, isInteger, max, min, onChange, precision, valueAsNumber]
-    );
-
-    /**
-     * When `value` changes (e.g. from a diff source than this component), we need
-     * to update the internal `valueAsString`, but only if the actual value is different
-     * from the current value.
-     */
-    useEffect(() => {
-      if (value !== valueAsNumber) {
-        setValueAsString(String(value));
-        setValueAsNumber(value);
+    const pushLocalValue = useCallback(() => {
+      if (isNaN(Number(localValue))) {
+        setLocalValue(String(isNumber(defaultValue) ? defaultValue : min));
+        return;
       }
-    }, [value, valueAsNumber]);
+
+      const localValueAsNumber = Number(localValue);
+
+      // Otherwise, we round the value to the nearest multiple if integer, else 3 decimals
+      const roundedValue = isInteger
+        ? roundToMultiple(localValueAsNumber, _fineStep ?? _step)
+        : Number(localValueAsNumber.toFixed(precision));
+      // Clamp to min/max
+      const clampedValue = clamp(roundedValue, min, max);
+      const constrainedValue = constrainValue ? constrainValue(clampedValue) : clampedValue;
+      _onChange(constrainedValue);
+      setLocalValue(String(constrainedValue));
+    }, [_fineStep, _onChange, _step, defaultValue, isInteger, localValue, max, min, precision, constrainValue]);
+
+    const onClickStepper = useCallback(() => {
+      pushLocalValue();
+    }, [pushLocalValue]);
+
+    const onKeyDown = useCallback(
+      (e: KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === 'Enter') {
+          pushLocalValue();
+        } else if (e.key === 'Escape') {
+          setLocalValue(String(value));
+        }
+      },
+      [pushLocalValue, value]
+    );
 
     return (
       <NumberInput
         ref={ref}
-        value={valueAsString}
+        value={localValue}
         defaultValue={defaultValue}
         min={min}
         max={max}
         step={step}
         onChange={onChange}
         clampValueOnBlur={false}
-        isValidCharacter={isValidCharacter}
         focusInputOnChange={false}
         onPaste={stopPastePropagation}
         inputMode={inputMode}
         precision={precision}
         variant="filled"
+        onKeyDown={onKeyDown}
         {...rest}
       >
-        <NumberInputField onBlur={onBlur} />
+        <NumberInputField onBlur={pushLocalValue} />
         <NumberInputStepper>
-          <NumberIncrementStepper>
+          <NumberIncrementStepper onClick={onClickStepper}>
             <ChevronUpIcon />
           </NumberIncrementStepper>
-          <NumberDecrementStepper>
+          <NumberDecrementStepper onClick={onClickStepper}>
             <ChevronDownIcon />
           </NumberDecrementStepper>
         </NumberInputStepper>
