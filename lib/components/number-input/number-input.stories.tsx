@@ -8,19 +8,28 @@ const meta: Meta<typeof CompositeNumberInput> = {
   title: 'Primitives/CompositeNumberInput',
   tags: ['autodocs'],
   component: CompositeNumberInput,
-  args: {
-    min: -10,
-    max: 10,
-    step: 1,
-  },
 };
 
 export default meta;
 type Story = StoryObj<typeof CompositeNumberInput>;
 
+const constrainValue = (v: number) => Math.round(v / 8) * 8;
+
 const Component = (props: CompositeNumberInputProps) => {
-  const [value, setValue] = useState(0);
-  return <CompositeNumberInput {...props} value={value} onChange={setValue} />;
+  const [value, setValue] = useState(1024);
+  return (
+    <CompositeNumberInput
+      {...props}
+      defaultValue={1024}
+      min={64}
+      max={4096}
+      step={64}
+      fineStep={8}
+      value={value}
+      onChange={setValue}
+      constrainValue={constrainValue}
+    />
+  );
 };
 
 export const Default: Story = {
