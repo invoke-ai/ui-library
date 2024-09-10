@@ -2,6 +2,8 @@ import { useStore } from '@nanostores/react';
 import { atom } from 'nanostores';
 import { useEffect } from 'react';
 
+import { useAssertSingleton } from './use-assert-singleton';
+
 /**
  * A `nanostores` atom that represents the current state of the shift key.
  * If true, the shift key is currently pressed.
@@ -23,8 +25,6 @@ export const $meta = atom(false);
  */
 export const $alt = atom(false);
 
-const $isInitialized = atom(0);
-
 const listener = (e: KeyboardEvent) => {
   $shift.set(e.shiftKey);
   $ctrl.set(e.ctrlKey);
@@ -32,21 +32,30 @@ const listener = (e: KeyboardEvent) => {
   $meta.set(e.metaKey);
 };
 
+const reset = () => {
+  $shift.set(false);
+  $ctrl.set(false);
+  $alt.set(false);
+  $meta.set(false);
+};
+
+const symbol = Symbol('useGlobalModifiersInit');
+
 /**
  * Initializes the global modifiers state. This hook is a singleton.
  */
 export const useGlobalModifiersInit = () => {
-  useEffect(() => {
-    if ($isInitialized.get()) {
-      return;
-    }
+  useAssertSingleton(symbol);
 
+  useEffect(() => {
     window.addEventListener('keydown', listener);
     window.addEventListener('keyup', listener);
+    window.addEventListener('blur', reset);
 
     return () => {
       window.removeEventListener('keydown', listener);
       window.removeEventListener('keyup', listener);
+      window.removeEventListener('blur', reset);
     };
   }, []);
 };
