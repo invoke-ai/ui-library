@@ -2,6 +2,10 @@
  * These components are re-exported directly from Chakra without any customizations.
  */
 
+//
+export type { AlertDescriptionProps, AlertIconProps, AlertProps, AlertStatus, AlertTitleProps } from '@chakra-ui/react';
+export { Alert, AlertDescription, AlertIcon, AlertTitle } from '@chakra-ui/react';
+
 // AspectRatio
 export type { AspectRatioProps } from '@chakra-ui/react';
 export { AspectRatio } from '@chakra-ui/react';
