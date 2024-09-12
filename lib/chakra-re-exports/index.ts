@@ -276,6 +276,8 @@ export {
   DarkMode,
   extendTheme,
   forwardRef,
+  useCheckbox,
+  useCheckboxGroup,
 } from '@chakra-ui/react';
 
 // Animation
