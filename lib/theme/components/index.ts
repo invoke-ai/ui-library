@@ -1,7 +1,6 @@
 import type { ThemeOverride } from '@chakra-ui/react';
 
 import { accordionTheme } from './accordion';
-import { alertTheme } from './alert';
 import { badgeTheme } from './badge';
 import { buttonTheme } from './button';
 import { cardTheme } from './card';
@@ -26,7 +25,6 @@ import { tooltipTheme } from './tooltip';
 
 export const components: ThemeOverride['components'] = {
   Accordion: accordionTheme,
-  Alert: alertTheme,
   Badge: badgeTheme,
   Button: buttonTheme,
   Card: cardTheme,
