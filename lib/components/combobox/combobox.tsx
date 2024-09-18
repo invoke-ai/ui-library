@@ -31,13 +31,13 @@ const styles: StylesConfig<ComboboxOption> = {
   menuPortal: (provided) => ({ ...provided, zIndex: 9999 }),
 };
 
-const components: SelectComponentsConfig<ComboboxOption, false, GroupBase<ComboboxOption>> = {
+const componentOverrides: SelectComponentsConfig<ComboboxOption, false, GroupBase<ComboboxOption>> = {
   Option: CustomOptionComponent,
   MenuList: CustomMenuListComponent,
 };
 
 export const Combobox = typedMemo((props: ComboboxProps) => {
-  const { sx, selectRef, inputRef, ...rest } = props;
+  const { sx, selectRef, inputRef, components, ...rest } = props;
   const chakraStyles = useMemo<CustomChakraStylesConfig>(
     () => ({
       container: (provided, _state) => ({ ...provided, w: 'full', ...sx }),
@@ -75,7 +75,7 @@ export const Combobox = typedMemo((props: ComboboxProps) => {
       menuPortalTarget={document.body}
       colorScheme="base"
       selectedOptionColorScheme="base"
-      components={{...components, ...rest.components}}
+      components={{...componentOverrides, ...components}}
       chakraStyles={chakraStyles}
       styles={styles}
       variant="filled"
