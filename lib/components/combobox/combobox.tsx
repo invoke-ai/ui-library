@@ -75,7 +75,7 @@ export const Combobox = typedMemo((props: ComboboxProps) => {
       menuPortalTarget={document.body}
       colorScheme="base"
       selectedOptionColorScheme="base"
-      components={components}
+      components={{...components, ...rest.components}}
       chakraStyles={chakraStyles}
       styles={styles}
       variant="filled"
