@@ -6,10 +6,10 @@ import { Link } from '.';
 
 export type ExternalLinkProps = Omit<LinkProps, 'isExternal' | 'children'> & { label: string };
 
-export const ExternalLink = (props: ExternalLinkProps) => {
+export const ExternalLink = ({ label, ...rest }: ExternalLinkProps) => {
   return (
-    <Link href={props.href} isExternal>
-      {props.label}
+    <Link isExternal {...rest} display="flex" alignItems="center">
+      {label}
       <Icon display="inline" verticalAlign="middle" marginInlineStart={2} as={PiArrowSquareOutBold} />
     </Link>
   );
