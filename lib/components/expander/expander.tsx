@@ -33,7 +33,7 @@ export const Expander = typedMemo((props: ExpanderProps) => {
 
   return (
     <Flex flexDir="column" w="full">
-      <Flex as="button" flexDir="row" alignItems="center" gap={3} py={4} px={2} onClick={onToggle} sx={buttonStyles}>
+      <Flex as="button" flexDir="row" alignItems="center" gap={3} py={4} px={2} onPointerUp={onToggle} sx={buttonStyles}>
         <Divider w="unset" flexGrow={1} sx={buttonStyles} />
         <Flex flexDir="row" alignItems="center" gap={2}>
           <Icon as={isOpen ? BiCollapseVertical : BiExpandVertical} fontSize="14px" sx={buttonStyles} />
