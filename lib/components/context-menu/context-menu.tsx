@@ -18,6 +18,7 @@ export interface ContextMenuProps<T extends HTMLElement = HTMLDivElement> {
   menuButtonProps?: MenuButtonProps;
   stopPropagation?: boolean;
   stopImmediatePropagation?: boolean;
+  longPressDelayMs?: number;
 }
 
 export const ContextMenu = typedMemo(<T extends HTMLElement = HTMLElement>(props: ContextMenuProps<T>) => {
@@ -25,12 +26,13 @@ export const ContextMenu = typedMemo(<T extends HTMLElement = HTMLElement>(props
   const [position, setPosition] = useState([-1, -1]);
   const targetRef = useRef<T>(null);
   const lastPositionRef = useRef([-1, -1]);
-  const timeoutRef = useRef(0);
+  const longPressTimeoutRef = useRef(0);
+  const animationTimeoutRef = useRef(0);
 
   useGlobalMenuClose(onClose);
 
   const onContextMenu = useCallback(
-    (e: MouseEvent) => {
+    (e: MouseEvent | PointerEvent) => {
       if (e.shiftKey) {
         onClose();
         return;
@@ -45,12 +47,12 @@ export const ContextMenu = typedMemo(<T extends HTMLElement = HTMLElement>(props
           e.stopPropagation();
         }
         // clear pending delayed open
-        window.clearTimeout(timeoutRef.current);
+        window.clearTimeout(animationTimeoutRef.current);
         e.preventDefault();
         if (lastPositionRef.current[0] !== e.pageX || lastPositionRef.current[1] !== e.pageY) {
           // if the mouse moved, we need to close, wait for animation and reopen the menu at the new position
           onClose();
-          timeoutRef.current = window.setTimeout(() => {
+          animationTimeoutRef.current = window.setTimeout(() => {
             onOpen();
             setPosition([e.pageX, e.pageY]);
           }, 100);
@@ -65,12 +67,59 @@ export const ContextMenu = typedMemo(<T extends HTMLElement = HTMLElement>(props
     [onClose, onOpen, props.stopImmediatePropagation, props.stopPropagation]
   );
 
+  // Use a long press to open the context menu on touch devices
+  const onPointerDown = useCallback(
+    (e: PointerEvent) => {
+      if (e.pointerType === 'mouse') {
+        // Bail out if it's a mouse event - this is for touch/pen only
+        return;
+      }
+      longPressTimeoutRef.current = window.setTimeout(() => {
+        onContextMenu(e);
+      }, props.longPressDelayMs ?? 500); // Adjust the delay as needed
+    },
+    [onContextMenu, props.longPressDelayMs]
+  );
+
+  const onPointerUp = useCallback(() => {
+    if (longPressTimeoutRef.current) {
+      clearTimeout(longPressTimeoutRef.current);
+    }
+  }, []);
+
+  const onPointerCancel = useCallback(() => {
+    if (longPressTimeoutRef.current) {
+      clearTimeout(longPressTimeoutRef.current);
+    }
+  }, []);
+
   useEffect(
     () => () => {
-      window.clearTimeout(timeoutRef.current);
+      window.clearTimeout(animationTimeoutRef.current);
     },
     []
   );
+
+  useEffect(() => {
+    if (!targetRef.current) {
+      return;
+    }
+
+    const controller = new AbortController();
+
+    // Prevent selecting the element on long press
+    targetRef.current.style.userSelect = 'none';
+    targetRef.current.style.webkitUserSelect = 'none';
+
+    // Handle the long press
+    targetRef.current.addEventListener('pointerdown', onPointerDown, { signal: controller.signal });
+    targetRef.current.addEventListener('pointerup', onPointerUp, { signal: controller.signal });
+    targetRef.current.addEventListener('pointercancel', onPointerCancel, { signal: controller.signal });
+
+    return () => {
+      controller.abort();
+    };
+  }, [onPointerCancel, onPointerDown, onPointerUp]);
 
   useEventListener('contextmenu', onContextMenu);
 
