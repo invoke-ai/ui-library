@@ -17,7 +17,7 @@ export const StandaloneAccordion: ComponentWithAs<
   ComponentWithAs<'div', ChakraAccordionProps>,
   StandaloneAccordionProps
 > = typedMemo((props) => {
-  const onPointerUp = useCallback<MouseEventHandler<HTMLButtonElement>>(
+  const onClick = useCallback<MouseEventHandler<HTMLButtonElement>>(
     (e) => {
       e.preventDefault();
       props.onToggle();
@@ -27,7 +27,7 @@ export const StandaloneAccordion: ComponentWithAs<
   return (
     <Accordion index={props.isOpen ? 0 : undefined} allowToggle>
       <AccordionItem>
-        <AccordionButton badges={props.badges} onPointerUp={onPointerUp}>
+        <AccordionButton badges={props.badges} onClick={onClick}>
           {props.label}
         </AccordionButton>
         <AccordionPanel>{props.children}</AccordionPanel>

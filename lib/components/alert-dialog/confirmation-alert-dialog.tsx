@@ -66,10 +66,10 @@ export const ConfirmationAlertDialog = typedMemo((props: ConfirmationAlertDialog
           <AlertDialogBody>{children}</AlertDialogBody>
 
           <AlertDialogFooter>
-            <Button ref={cancelRef} onPointerUp={handleCancel}>
+            <Button ref={cancelRef} onClick={handleCancel}>
               {cancelButtonText}
             </Button>
-            <Button colorScheme="error" onPointerUp={handleAccept} ml={3}>
+            <Button colorScheme="error" onClick={handleAccept} ml={3}>
               {acceptButtonText}
             </Button>
           </AlertDialogFooter>
