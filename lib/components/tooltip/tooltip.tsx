@@ -16,9 +16,17 @@ const modifiers: TooltipProps['modifiers'] = [
 
 export const Tooltip: ComponentWithAs<ComponentWithAs<'div', ChakraTooltipProps>, ChakraTooltipProps> = typedMemo(
   forwardRef<TooltipProps, typeof ChakraTooltip>((props: TooltipProps, ref) => {
-    const { children, hasArrow = true, placement = 'top', ...rest } = props;
+    const { children, hasArrow = true, placement = 'top', openDelay = 500, ...rest } = props;
     return (
-      <ChakraTooltip ref={ref} hasArrow={hasArrow} placement={placement} arrowSize={8} modifiers={modifiers} {...rest}>
+      <ChakraTooltip
+        ref={ref}
+        hasArrow={hasArrow}
+        placement={placement}
+        arrowSize={8}
+        modifiers={modifiers}
+        openDelay={openDelay}
+        {...rest}
+      >
         {children}
       </ChakraTooltip>
     );
