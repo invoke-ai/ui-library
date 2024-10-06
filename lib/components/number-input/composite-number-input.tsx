@@ -98,7 +98,7 @@ export const CompositeNumberInput: ComponentWithAs<
       setLocalValue(String(constrainedValue));
     }, [_fineStep, _onChange, _step, defaultValue, isInteger, localValue, max, min, precision, constrainValue]);
 
-    const onPointerUpStepper = useCallback(() => {
+    const onClickStepper = useCallback(() => {
       pushLocalValue();
     }, [pushLocalValue]);
 
@@ -133,10 +133,10 @@ export const CompositeNumberInput: ComponentWithAs<
       >
         <NumberInputField onBlur={pushLocalValue} />
         <NumberInputStepper>
-          <NumberIncrementStepper onPointerUp={onPointerUpStepper}>
+          <NumberIncrementStepper onClick={onClickStepper}>
             <ChevronUpIcon />
           </NumberIncrementStepper>
-          <NumberDecrementStepper onPointerUp={onPointerUpStepper}>
+          <NumberDecrementStepper onClick={onClickStepper}>
             <ChevronDownIcon />
           </NumberDecrementStepper>
         </NumberInputStepper>
