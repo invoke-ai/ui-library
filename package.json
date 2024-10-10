@@ -1,6 +1,6 @@
 {
   "name": "@invoke-ai/ui-library",
-  "version": "0.0.41",
+  "version": "0.0.42",
   "description": "UI Components for Invoke's applications.",
   "directories": {
     "lib": "lib"
