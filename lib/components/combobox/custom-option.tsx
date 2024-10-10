@@ -14,6 +14,8 @@ export interface ComboboxOption extends OptionBase {
   icon?: ReactNode;
   tooltip?: string;
   tags?: string[];
+  previewImage?: string;
+  withPreviewImage?: boolean;
 }
 
 type CustomOptionProps = OptionProps<ComboboxOption, false, GroupBase<ComboboxOption>>;
@@ -49,8 +51,18 @@ export const CustomOptionComponent = typedMemo(({ children, ...props }: CustomOp
   return (
     <chakraComponents.Option {...props}>
       <Tooltip label={props.data.tooltip}>
-        <Flex w="full" h="full" flexDir="column" p={1} px={4}>
-          <Text>{children}</Text>
+        <Flex w="full" h="full" flexDir="row" p={1} px={4}>
+          <Flex pe={2}>
+            {props.data.withPreviewImage && props.data.previewImage && (
+              <img src={props.data.previewImage} alt={props.data.label} style={{ height: 25, width: 25 }} />
+            )}
+            {props.data.withPreviewImage && !props.data.previewImage && (
+              <img src="/assets/images/invoke-symbol-wht-lrg.svg" alt={props.data.label} style={{ height: 25, width: 25, color: '#fff', opacity: 0.10 }} />
+            )}
+          </Flex>
+		  <Flex ps={1}>
+          	<Text lineHeight={(props.data.withPreviewImage)?'25px':'initial'}>{children}</Text>
+		  </Flex>
           {props.data.description && (
             <Text data-option-desc fontSize="sm" colorScheme="base" variant="subtext" noOfLines={1}>
               {props.data.description}
