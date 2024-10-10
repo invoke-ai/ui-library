@@ -41,6 +41,7 @@ export const ConfirmationAlertDialog = typedMemo((props: ConfirmationAlertDialog
     title,
     isOpen,
     onClose,
+    ...rest
   } = props;
 
   const cancelRef = useRef<HTMLButtonElement | null>(null);
@@ -56,7 +57,7 @@ export const ConfirmationAlertDialog = typedMemo((props: ConfirmationAlertDialog
   }, [cancelCallback, onClose]);
 
   return (
-    <AlertDialog isOpen={isOpen} leastDestructiveRef={cancelRef} onClose={onClose} isCentered>
+    <AlertDialog isOpen={isOpen} leastDestructiveRef={cancelRef} onClose={onClose} isCentered {...rest}>
       <AlertDialogOverlay>
         <AlertDialogContent>
           <AlertDialogHeader fontSize="lg" fontWeight="bold">
