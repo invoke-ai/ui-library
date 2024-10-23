@@ -33,9 +33,9 @@ export const CustomOptionComponent = typedMemo(({ children, ...props }: CustomOp
               {props.data.icon}
             </Flex>
             <Flex flexDir="column">
-              <Text>{children}</Text>
+              <Text fontWeight={props.data.description ? "semibold" : undefined}>{children}</Text>
               {props.data.description && (
-                <Text data-option-desc fontSize="sm" colorScheme="base" variant="subtext" noOfLines={1}>
+                <Text data-option-desc fontSize="sm" colorScheme="base" variant="subtext" noOfLines={2}>
                   {props.data.description}
                 </Text>
               )}
@@ -50,9 +50,9 @@ export const CustomOptionComponent = typedMemo(({ children, ...props }: CustomOp
     <chakraComponents.Option {...props}>
       <Tooltip label={props.data.tooltip}>
         <Flex w="full" h="full" flexDir="column" p={1} px={4}>
-          <Text>{children}</Text>
+          <Text fontWeight={props.data.description ? "semibold" : undefined}>{children}</Text>
           {props.data.description && (
-            <Text data-option-desc fontSize="sm" colorScheme="base" variant="subtext" noOfLines={1}>
+            <Text data-option-desc fontSize="sm" colorScheme="base" variant="subtext" noOfLines={2}>
               {props.data.description}
             </Text>
           )}
