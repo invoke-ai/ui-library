@@ -8,7 +8,7 @@ export type ExternalLinkProps = Omit<LinkProps, 'isExternal' | 'children'> & { l
 
 export const ExternalLink = ({ label, ...rest }: ExternalLinkProps) => {
   return (
-    <Link isExternal {...rest} display="flex" alignItems="center">
+    <Link isExternal display="flex" alignItems="center" {...rest}>
       {label}
       <Icon display="inline" verticalAlign="middle" marginInlineStart={2} as={PiArrowSquareOutBold} />
     </Link>
