@@ -3,7 +3,7 @@ import { FormControl as ChakraFormControl, forwardRef } from '@chakra-ui/react';
 import { useContext, useMemo } from 'react';
 
 import { typedMemo } from '../../util';
-import { FormControlGroupContext } from './form-control-group';
+import { FormControlGroupContext } from './form-control-group-context';
 
 export type FormControlProps = ChakraFormControlProps;
 
