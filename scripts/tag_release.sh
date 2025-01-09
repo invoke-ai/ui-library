@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Parse version from package.json
-version=$(grep -oP '"version": "\K(.*?)(?=")' package.json)
+version=$(sed -n 's/.*"version": "\(.*\)".*/\1/p' package.json)
 tag="v$version"
 
 if git rev-parse "$tag" >/dev/null 2>&1; then
