@@ -1,5 +1,5 @@
-import { keyframes } from '@chakra-ui/react';
 import type { Keyframes } from '@emotion/react';
+import { keyframes } from '@emotion/react';
 
 export const spinKeyframes: Keyframes = keyframes`
   from {

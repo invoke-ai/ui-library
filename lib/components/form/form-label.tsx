@@ -3,7 +3,7 @@ import { FormLabel as ChakraFormLabel, forwardRef } from '@chakra-ui/react';
 import { useContext } from 'react';
 
 import { typedMemo } from '../../util';
-import { FormControlGroupContext } from './form-control-group';
+import { FormControlGroupContext } from './form-control-group-context';
 
 export type FormLabelProps = ChakraFormLabelProps;
 

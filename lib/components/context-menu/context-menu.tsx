@@ -175,7 +175,7 @@ export const ContextMenu = typedMemo(
       };
     }, [onPointerCancel, onPointerDown, onPointerMove, onPointerUp, withLongPress]);
 
-    useEventListener('contextmenu', onContextMenu);
+    useEventListener(window, 'contextmenu', onContextMenu);
 
     return (
       <>

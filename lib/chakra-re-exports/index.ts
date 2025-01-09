@@ -271,7 +271,7 @@ export type { UseOutsideClickProps } from '@chakra-ui/react';
 export { useOutsideClick } from '@chakra-ui/react';
 
 // Misc
-export type { As, ChakraProps, SystemStyleObject, ThemeTypings } from '@chakra-ui/react';
+export type { AsProps, ChakraProps, SystemStyleObject, ThemeTypings } from '@chakra-ui/react';
 export {
   chakra,
   ChakraProvider,
