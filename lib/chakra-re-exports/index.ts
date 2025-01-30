@@ -276,12 +276,15 @@ export {
   chakra,
   ChakraProvider,
   createStandaloneToast,
+  css,
   cssVar,
   DarkMode,
   extendTheme,
   forwardRef,
   useCheckbox,
   useCheckboxGroup,
+  useMultiStyleConfig,
+  useStyleConfig,
 } from '@chakra-ui/react';
 
 // Animation
