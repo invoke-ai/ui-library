@@ -7,6 +7,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 
 import { useShiftModifier } from '../../hooks/use-global-modifiers';
 import { stopPastePropagation, typedMemo } from '../../util';
+import evaluateSimpleExpression from './evaluate-simple-expression';
 import { NumberInputField } from './number-input-field';
 import type { NumberInputProps } from './wrapper';
 import { NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputStepper } from './wrapper';
@@ -46,6 +47,9 @@ const roundToMultiple = (value: number, multiple: number): number => {
   return Math.round(value / multiple) * multiple;
 };
 
+const validCharacterRegex = /^[Ee0-9+\-*/.]$/;
+const isValidCharacter = (char: string) => validCharacterRegex.test(char);
+
 export const CompositeNumberInput: ComponentWithAs<
   ComponentWithAs<'div', NumberInputProps>,
   CompositeNumberInputProps
@@ -80,12 +84,15 @@ export const CompositeNumberInput: ComponentWithAs<
     }, []);
 
     const pushLocalValue = useCallback(() => {
-      if (isNaN(Number(localValue))) {
+      let localValueAsNumber = Number(localValue);
+      if (isNaN(localValueAsNumber)) {
+        localValueAsNumber = evaluateSimpleExpression(localValue);
+      }
+
+      if (isNaN(localValueAsNumber)) {
         setLocalValue(String(isNumber(defaultValue) ? defaultValue : min));
         return;
       }
-
-      const localValueAsNumber = Number(localValue);
 
       // Otherwise, we round the value to the nearest multiple if integer, else 3 decimals
       const roundedValue = isInteger
@@ -129,6 +136,7 @@ export const CompositeNumberInput: ComponentWithAs<
         precision={precision}
         variant="filled"
         onKeyDown={onKeyDown}
+        isValidCharacter={isValidCharacter}
         {...rest}
       >
         <NumberInputField onBlur={pushLocalValue} />
