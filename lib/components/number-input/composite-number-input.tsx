@@ -1,7 +1,7 @@
 import { ChevronDownIcon, ChevronUpIcon } from '@chakra-ui/icons';
 import type { ComponentWithAs } from '@chakra-ui/react';
 import { forwardRef } from '@chakra-ui/react';
-import { clamp, isNumber } from 'lodash-es';
+import { clamp, isNumber } from 'es-toolkit/compat';
 import type { KeyboardEvent } from 'react';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 

@@ -1,6 +1,6 @@
 import type { AccordionButtonProps as ChakraAccordionButtonProps, ComponentWithAs } from '@chakra-ui/react';
 import { AccordionButton as ChakraAccordionButton, forwardRef } from '@chakra-ui/react';
-import { truncate } from 'lodash-es';
+import { truncate } from 'es-toolkit/compat';
 import { useMemo } from 'react';
 
 import { Spacer } from '../../chakra-re-exports';

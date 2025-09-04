@@ -1,7 +1,7 @@
 import type { ComponentWithAs } from '@chakra-ui/react';
 import { forwardRef, useFormControl } from '@chakra-ui/react';
+import { isNil } from 'es-toolkit/compat';
 import { AnimatePresence } from 'framer-motion';
-import { isNil } from 'lodash-es';
 import { useCallback, useMemo, useState } from 'react';
 
 import { useShiftModifier } from '../../hooks/use-global-modifiers';
@@ -87,7 +87,7 @@ export const CompositeSlider: ComponentWithAs<ComponentWithAs<'div', SliderProps
     const [isChanging, setIsChanging] = useState(false);
 
     const shift = useShiftModifier();
-    const step = useMemo(() => (shift ? _fineStep ?? _step : _step), [shift, _fineStep, _step]);
+    const step = useMemo(() => (shift ? (_fineStep ?? _step) : _step), [shift, _fineStep, _step]);
     const controlProps = useFormControl({});
 
     const label = useMemo(() => formatValue(value), [formatValue, value]);

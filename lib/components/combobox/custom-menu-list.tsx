@@ -1,6 +1,6 @@
 import type { GroupBase, MenuListProps } from 'chakra-react-select';
 import { chakraComponents } from 'chakra-react-select';
-import { cloneDeep, merge } from 'lodash-es';
+import { cloneDeep, merge } from 'es-toolkit/compat';
 import type { UseOverlayScrollbarsParams } from 'overlayscrollbars-react';
 import { useOverlayScrollbars } from 'overlayscrollbars-react';
 import type { PropsWithChildren } from 'react';
