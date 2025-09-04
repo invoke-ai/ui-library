@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { omit } from 'lodash-es';
+import { omit } from 'es-toolkit/compat';
 
 import type { ComboboxProps } from './combobox';
 import { Combobox } from './combobox';

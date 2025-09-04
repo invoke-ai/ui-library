@@ -8,7 +8,7 @@ import type {
   StylesConfig,
 } from 'chakra-react-select';
 import { Select as ChakraReactSelect } from 'chakra-react-select';
-import { useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo } from 'react';
 export type {} from 'react-select/base';
 
 import type { SystemStyleObject } from '@chakra-ui/styled-system';

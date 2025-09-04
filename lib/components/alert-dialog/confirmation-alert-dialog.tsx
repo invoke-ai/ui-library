@@ -52,7 +52,7 @@ export const ConfirmationAlertDialog = typedMemo((props: ConfirmationAlertDialog
   }, [acceptCallback, onClose]);
 
   const handleCancel = useCallback(() => {
-    cancelCallback && cancelCallback();
+    cancelCallback?.();
     onClose();
   }, [cancelCallback, onClose]);
 

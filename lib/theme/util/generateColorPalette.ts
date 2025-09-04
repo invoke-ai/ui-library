@@ -16,20 +16,17 @@ export function generateColorPalette(H: string | number, S: string | number, alp
 
   const p = colorSteps.reduce((palette, step, index) => {
     // We know this is a number.
-    /* eslint-disable-next-line @typescript-eslint/consistent-type-assertions */
     const A = alpha ? (lightnessSteps[index] as number) / 100 : 1;
 
     // Lightness should be 50% for alpha colors
     const L = alpha ? 50 : lightnessSteps[colorSteps.length - 1 - index];
 
     // We know this is a key of PaletteSteps.
-    /* eslint-disable-next-line @typescript-eslint/consistent-type-assertions */
     palette[step as keyof PaletteSteps] = `hsl(${H} ${S}% ${L}% / ${A})`;
 
     return palette;
 
     // We know this will eventually be a valid PaletteSteps object.
-    /* eslint-disable-next-line @typescript-eslint/consistent-type-assertions */
   }, {} as PaletteSteps);
 
   return p;

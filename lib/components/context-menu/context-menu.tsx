@@ -3,7 +3,7 @@
  */
 import type { ChakraProps, MenuButtonProps, MenuProps, PortalProps } from '@chakra-ui/react';
 import { useDisclosure, useEventListener } from '@chakra-ui/react';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 
 import { Portal } from '../../chakra-re-exports';
 import { useGlobalMenuClose } from '../../hooks';
@@ -11,8 +11,8 @@ import { typedMemo } from '../../util';
 import { Menu, MenuButton } from '../menu';
 
 export interface ContextMenuProps<T extends HTMLElement = HTMLDivElement> {
-  renderMenu: () => JSX.Element | null;
-  children: (ref: React.MutableRefObject<T | null>) => JSX.Element | null;
+  renderMenu: () => React.ReactElement | null;
+  children: (ref: React.MutableRefObject<T | null>) => React.ReactElement | null;
   menuProps?: Omit<MenuProps, 'children'> & { children?: React.ReactNode };
   portalProps?: Omit<PortalProps, 'children'> & { children?: React.ReactNode };
   menuButtonProps?: MenuButtonProps;
@@ -52,7 +52,7 @@ export const ContextMenu = typedMemo(
           return;
         }
         // `contains()` requires the arg to be Node. Technically it can be any EventTarget, but it won't cause an error.
-        /* eslint-disable-next-line @typescript-eslint/consistent-type-assertions */
+
         if (targetRef.current?.contains(e.target as Node) || e.target === targetRef.current) {
           if (stopImmediatePropagation) {
             e.stopImmediatePropagation();
