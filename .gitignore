@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 
 stats.html
+
+# Storybook build output
+storybook-static/
