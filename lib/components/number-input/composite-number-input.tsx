@@ -7,7 +7,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 
 import { useShiftModifier } from '../../hooks/use-global-modifiers';
 import { stopPastePropagation, typedMemo } from '../../util';
-import evaluateSimpleExpression from './evaluate-simple-expression';
+import evaluateSimpleExpression from '../../util/evaluate-simple-expression';
 import { NumberInputField } from './number-input-field';
 import type { NumberInputProps } from './wrapper';
 import { NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputStepper } from './wrapper';
