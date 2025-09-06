@@ -1,78 +1,63 @@
-const evaluateSimpleExpression = (expression: string): number => {
-  try {
-    // Remove whitespace
-    const expr = expression.replace(/\s+/g, '');
-
-    // Split by operators but keep them
-    const tokens = expr.split(/([+\-*/])/).filter((token) => token !== '');
-
-    // First pass: handle multiplication and division
-    const intermediate: (string | number)[] = [];
-
-    for (let i = 0; i < tokens.length; i++) {
-      const token = tokens[i];
-      if (token === undefined) {
-        throw new Error('Invalid expression');
-      }
-
-      if (token === '*' || token === '/') {
-        const operator = token;
-
-        const leftToken = intermediate.pop();
-        if (leftToken === undefined) {
-          throw new Error('Invalid expression');
-        }
-        const leftOperand = typeof leftToken === 'number' ? leftToken : parseFloat(leftToken);
-
-        const rightToken = tokens[i + 1];
-        if (rightToken === undefined) {
-          throw new Error('Invalid expression');
-        }
-        const rightOperand = parseFloat(rightToken);
-
-        if (operator === '*') {
-          intermediate.push(leftOperand * rightOperand);
-        } else {
-          if (rightOperand === 0) {
-            throw new Error('Division by zero');
-          }
-          intermediate.push(leftOperand / rightOperand);
-        }
-        i++; // Skip the right operand
-      } else {
-        intermediate.push(token);
-      }
-    }
-
-    // Second pass: handle addition and subtraction
-    const firstOperandToken = intermediate[0];
-    if (firstOperandToken === undefined) {
-      throw new Error('Invalid expression');
-    }
-    let result = typeof firstOperandToken === 'number' ? firstOperandToken : parseFloat(firstOperandToken);
-
-    for (let i = 1; i < intermediate.length; i += 2) {
-      const operator = intermediate[i];
-      if (typeof operator !== 'string') {
-        throw new Error('Invalid expression');
-      }
-      const operandToken = intermediate[i + 1];
-      if (typeof operandToken !== 'string') {
-        throw new Error('Invalid expression');
-      }
-      const operand = parseFloat(operandToken);
-
-      if (operator === '+') {
-        result += operand;
-      } else if (operator === '-') {
-        result -= operand;
-      }
-    }
-
-    return result;
-  } catch {
-    return NaN; // Return NaN if the expression is invalid
+const evaluateSimpleExpression = (expr: string): number => {
+  // Tokenize input: numbers and operators
+  const tokens = expr.match(/\d+(\.\d+)?|[+\-*/]/g);
+  if (!tokens) {
+    throw new Error("Invalid expression");
   }
-};
+
+  // Operator precedence
+  const precedence: Record<string, number> = { "+": 1, "-": 1, "*": 2, "/": 2 };
+  const output: (string | number)[] = [];
+  const operators: string[] = [];
+
+  for (const token of tokens) {
+    if (!isNaN(Number(token))) {
+      // Number
+      output.push(Number(token));
+    } else if (token in precedence) {
+      // Operator
+      while (
+        operators.length &&
+        precedence[operators[operators.length - 1]!]! >= precedence[token]!
+      ) {
+        output.push(operators.pop()!);
+      }
+      operators.push(token);
+    } else {
+      throw new Error(`Unknown token: ${token}`);
+    }
+  }
+
+  // Drain remaining operators
+  while (operators.length) {
+    output.push(operators.pop()!);
+  }
+
+  // Evaluate RPN
+  const stack: number[] = [];
+  for (const token of output) {
+    if (typeof token === "number") {
+      stack.push(token);
+    } else {
+      const b = stack.pop();
+      const a = stack.pop();
+      if (a === undefined || b === undefined) {
+        throw new Error("Invalid expression");
+      }
+      switch (token) {
+        case "+": stack.push(a + b); break;
+        case "-": stack.push(a - b); break;
+        case "*": stack.push(a * b); break;
+        case "/": stack.push(a / b); break;
+      }
+    }
+  }
+
+  if (stack.length > 1) {
+    throw new Error("Invalid evaluation");
+  }
+
+  return stack[0]!;
+}
 
 export default evaluateSimpleExpression;
