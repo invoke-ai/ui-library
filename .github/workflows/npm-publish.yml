@@ -27,7 +27,7 @@ jobs:
       - uses: pnpm/action-setup@v2
         name: Install pnpm
         with:
-          version: 8
+          version: 10
           run_install: false
 
       - name: Install Node.js
@@ -37,18 +37,6 @@ jobs:
           cache: pnpm
           registry-url: ${{ matrix.registry.url }}
           scope: '@invoke-ai'
-
-      # TODO: remove when https://github.com/pnpm/pnpm/issues/7579 is resolved
-      - name: Reinstall @invoke-ai packages
-        shell: bash
-        run: |
-          VERSION_ESLINT=$(node -p "require('./package.json').devDependencies['@invoke-ai/eslint-config-react']")
-          VERSION_PRETTIER=$(node -p "require('./package.json').devDependencies['@invoke-ai/prettier-config-react']")
-
-          pnpm uninstall @invoke-ai/eslint-config-react @invoke-ai/prettier-config-react
-          pnpm install --ignore-scripts -D @invoke-ai/eslint-config-react@$VERSION_ESLINT -D @invoke-ai/prettier-config-react@$VERSION_PRETTIER
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets[matrix.registry.token_secret] }}
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile --ignore-scripts
