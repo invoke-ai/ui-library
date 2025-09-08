@@ -41,6 +41,11 @@ export type CompositeNumberInputProps = Omit<NumberInputProps, 'onChange' | 'min
    * An optional callback to constrain the value. For example, to round it to the nearest multiple of 8.
    */
   constrainValue?: (v: number) => number;
+  /**
+   * Whether to allow math expressions (e.g. "1+2/3*4"). Defaults to false.
+   * Expressions are evaluated using the math-expression-evaluator library. Trigonometric functions use degrees.
+   */
+  allowMath?: boolean;
 };
 
 const roundToMultiple = (value: number, multiple: number): number => {
@@ -48,7 +53,7 @@ const roundToMultiple = (value: number, multiple: number): number => {
 };
 
 const mexp = new Mexp();
-const isValidCharacter = (_: string) => true;
+const isValidCharacterAllowMath = (_: string) => true;
 
 export const CompositeNumberInput: ComponentWithAs<
   ComponentWithAs<'div', NumberInputProps>,
@@ -64,6 +69,7 @@ export const CompositeNumberInput: ComponentWithAs<
       onChange: _onChange,
       defaultValue,
       constrainValue,
+      allowMath,
       ...rest
     } = props;
     const [localValue, setLocalValue] = useState(String(value));
@@ -84,27 +90,44 @@ export const CompositeNumberInput: ComponentWithAs<
     }, []);
 
     const pushLocalValue = useCallback(() => {
-      let localValueAsNumber = Number(localValue);
-
-      if (isNaN(localValueAsNumber)) {
-        localValueAsNumber = mexp.eval(localValue);
-
-        if (isNaN(localValueAsNumber)) {
-          setLocalValue(String(isNumber(defaultValue) ? defaultValue : min));
-          return;
+      let nextValue;
+      if (allowMath) {
+        try {
+          nextValue = mexp.eval(localValue);
+        } catch {
+          nextValue = NaN;
         }
+      } else {
+        nextValue = Number(localValue);
+      }
+
+      if (isNaN(nextValue)) {
+        setLocalValue(String(isNumber(defaultValue) ? defaultValue : min));
+        return;
       }
 
       // Otherwise, we round the value to the nearest multiple if integer, else 3 decimals
       const roundedValue = isInteger
-        ? roundToMultiple(localValueAsNumber, _fineStep ?? _step)
-        : Number(localValueAsNumber.toFixed(precision));
+        ? roundToMultiple(nextValue, _fineStep ?? _step)
+        : Number(nextValue.toFixed(precision));
       // Clamp to min/max
       const clampedValue = clamp(roundedValue, min, max);
       const constrainedValue = constrainValue ? constrainValue(clampedValue) : clampedValue;
       _onChange(constrainedValue);
       setLocalValue(String(constrainedValue));
-    }, [_fineStep, _onChange, _step, defaultValue, isInteger, localValue, max, min, precision, constrainValue]);
+    }, [
+      allowMath,
+      isInteger,
+      _fineStep,
+      _step,
+      precision,
+      min,
+      max,
+      constrainValue,
+      _onChange,
+      localValue,
+      defaultValue,
+    ]);
 
     const onClickStepper = useCallback(() => {
       pushLocalValue();
@@ -137,7 +160,7 @@ export const CompositeNumberInput: ComponentWithAs<
         precision={precision}
         variant="filled"
         onKeyDown={onKeyDown}
-        isValidCharacter={isValidCharacter}
+        isValidCharacter={allowMath ? isValidCharacterAllowMath : undefined}
         {...rest}
       >
         <NumberInputField onBlur={pushLocalValue} />
