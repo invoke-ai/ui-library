@@ -19,8 +19,8 @@ const Component = (props: CompositeNumberInputProps) => {
   const [value, setValue] = useState(1024);
   return (
     <CompositeNumberInput
-      {...props}
       defaultValue={1024}
+      {...props}
       min={64}
       max={4096}
       step={64}
@@ -28,6 +28,7 @@ const Component = (props: CompositeNumberInputProps) => {
       value={value}
       onChange={setValue}
       constrainValue={constrainValue}
+      allowMath
     />
   );
 };
