@@ -86,13 +86,14 @@ export const CompositeNumberInput: ComponentWithAs<
 
     const pushLocalValue = useCallback(() => {
       let localValueAsNumber = Number(localValue);
-      if (isNaN(localValueAsNumber)) {
-        localValueAsNumber = mexp.eval(localValue);
-      }
 
       if (isNaN(localValueAsNumber)) {
-        setLocalValue(String(isNumber(defaultValue) ? defaultValue : min));
-        return;
+        localValueAsNumber = mexp.eval(localValue);
+
+        if (isNaN(localValueAsNumber)) {
+          setLocalValue(String(isNumber(defaultValue) ? defaultValue : min));
+          return;
+        }
       }
 
       // Otherwise, we round the value to the nearest multiple if integer, else 3 decimals
