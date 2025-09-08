@@ -48,8 +48,7 @@ const roundToMultiple = (value: number, multiple: number): number => {
 };
 
 const mexp = new Mexp();
-const validCharacterRegex = /^[Ee0-9+\-*/.]$/;
-const isValidCharacter = (char: string) => validCharacterRegex.test(char);
+const isValidCharacter = (_: string) => true;
 
 export const CompositeNumberInput: ComponentWithAs<
   ComponentWithAs<'div', NumberInputProps>,
