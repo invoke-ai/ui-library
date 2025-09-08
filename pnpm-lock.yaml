@@ -50,6 +50,9 @@ importers:
       framer-motion:
         specifier: ^10.18.0
         version: 10.18.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      math-expression-evaluator:
+        specifier: ^2.0.7
+        version: 2.0.7
       nanostores:
         specifier: ^1.0.1
         version: 1.0.1
@@ -2241,6 +2244,9 @@ packages:
   make-dir@4.0.0:
     resolution: {integrity: sha512-hXdUTZYIVOt1Ex//jAQi+wTZZpUpwBj/0QsOzqegb3rGMMeJiSEu5xLHnYfBrRV4RH2+OCSOO95Is/7x1WJ4bw==}
     engines: {node: '>=10'}
+
+  math-expression-evaluator@2.0.7:
+    resolution: {integrity: sha512-uwliJZ6BPHRq4eiqNWxZBDzKUiS5RIynFFcgchqhBOloVLVBpZpNG8jRYkedLcBvhph8TnRyWEuxPqiQcwIdog==}
 
   math-intrinsics@1.1.0:
     resolution: {integrity: sha512-/IXtbwEk5HTPyEwyKX6hGkYXxM9nbj64B+ilVJnC/R6B0pH5G4V3b0pVbL7DBj4tkhBAppbQUlf6F6Xl9LHu1g==}
@@ -5508,6 +5514,8 @@ snapshots:
   make-dir@4.0.0:
     dependencies:
       semver: 7.7.2
+
+  math-expression-evaluator@2.0.7: {}
 
   math-intrinsics@1.1.0: {}
 

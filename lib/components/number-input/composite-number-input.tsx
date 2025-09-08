@@ -3,11 +3,11 @@ import type { ComponentWithAs } from '@chakra-ui/react';
 import { forwardRef } from '@chakra-ui/react';
 import { clamp, isNumber } from 'es-toolkit/compat';
 import type { KeyboardEvent } from 'react';
+import Mexp from 'math-expression-evaluator';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 
 import { useShiftModifier } from '../../hooks/use-global-modifiers';
 import { stopPastePropagation, typedMemo } from '../../util';
-import evaluateSimpleExpression from '../../util/evaluate-simple-expression';
 import { NumberInputField } from './number-input-field';
 import type { NumberInputProps } from './wrapper';
 import { NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputStepper } from './wrapper';
@@ -47,6 +47,7 @@ const roundToMultiple = (value: number, multiple: number): number => {
   return Math.round(value / multiple) * multiple;
 };
 
+const mexp = new Mexp();
 const validCharacterRegex = /^[Ee0-9+\-*/.]$/;
 const isValidCharacter = (char: string) => validCharacterRegex.test(char);
 
@@ -86,7 +87,7 @@ export const CompositeNumberInput: ComponentWithAs<
     const pushLocalValue = useCallback(() => {
       let localValueAsNumber = Number(localValue);
       if (isNaN(localValueAsNumber)) {
-        localValueAsNumber = evaluateSimpleExpression(localValue);
+        localValueAsNumber = mexp.eval(localValue);
       }
 
       if (isNaN(localValueAsNumber)) {

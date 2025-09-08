@@ -47,6 +47,7 @@
     "chakra-react-select": "^4.10.1",
     "es-toolkit": "^1.39.10",
     "framer-motion": "^10.18.0",
+    "math-expression-evaluator": "^2.0.7",
     "nanostores": "^1.0.1",
     "overlayscrollbars": "2.12.0",
     "overlayscrollbars-react": "^0.5.6",
