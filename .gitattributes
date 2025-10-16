@@ -1,0 +1,2 @@
+# Mark dist directory as generated code for better GitHub PR experience
+dist/** linguist-generated=true

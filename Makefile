@@ -4,7 +4,7 @@
 default: help
 
 help:
-	@echo "tag-release    Tags with the version from package.json."
+	@echo "tag-release    Tags and pushes version from package.json"
 
 tag-release:
 	./scripts/tag_release.sh
